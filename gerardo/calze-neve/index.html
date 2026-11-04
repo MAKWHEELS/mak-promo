@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calze da neve NPK</title>
+<meta name="description" content="Calze da neve NPK omologate UNI EN 16662-1: The Original 32,24 €, Re-Grip 24,80 €, Multigrip Light 18,60 €, EZ Urban 15,50 € netti al paio + IVA. Metti la misura del pneumatico, trovi taglia e codice di ogni linea e ordini su WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calze da neve NPK · trova la taglia giusta">
+<meta property="og:description" content="Da 15,50 € netti al paio + IVA. Metti la misura del pneumatico: ti dico taglia e prezzo di ogni linea NPK e mi mandi l'ordine su WhatsApp.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/gerardo/calze-neve/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/gerardo/calze-neve/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366; --ok:#14833b; --neve:#eaf2fb;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.fiocchi{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.fiocchi i{position:absolute;top:-10px;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 4px rgba(120,160,210,.9);opacity:.9;animation:cade linear infinite}
+@keyframes cade{to{transform:translate(var(--x),105vh)}}
+
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secTaglia{scroll-margin-top:10px}
+
+.card{background:var(--card);border-radius:16px;padding:14px}
+.misura{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:6px;align-items:center}
+.misura i{font-style:normal;color:var(--mute);font-weight:600}
+select,input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 12px}
+select{-webkit-appearance:none;appearance:none;padding-right:28px;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 15px) 50%,calc(100% - 9px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:disabled{opacity:.45}
+.vuoto{margin-top:12px;background:#fff;border-radius:14px;padding:16px 12px;border:2px dashed #cfd2d8;font-size:14px;color:var(--mute)}
+.esiti{margin-top:12px;display:grid;gap:8px}
+.esiti .titolo{font-family:var(--titolo);font-size:22px;padding-top:2px}
+.es{display:grid;grid-template-columns:62px 1fr auto;gap:10px;align-items:center;background:#fff;border-radius:14px;padding:8px 10px;border:2px solid var(--line)}
+.es.ok{border-color:var(--red)}
+.es img{width:62px;height:52px;object-fit:contain}
+.es .tx{font-size:13px;color:var(--mute);line-height:1.25;min-width:0}
+.es .tx b{display:block;color:var(--ink);font-size:15px}
+.es .tx strong{color:var(--red);font-family:var(--titolo);font-size:24px;font-weight:700;line-height:1}
+.es .bt{display:flex;flex-direction:column;gap:4px}
+.es button{font:inherit;font-weight:700;font-size:13px;border:0;border-radius:10px;background:var(--ink);color:#fff;padding:10px 10px;white-space:nowrap}
+.es.no{opacity:.55}
+.pop{animation:pop .4s}
+@keyframes pop{40%{transform:scale(1.04)}}
+
+.ordine .riga{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.ordine .riga:first-child{border-top:0}
+.ordine .riga img{width:48px;height:40px;object-fit:contain}
+.ordine .info{font-size:13px;color:var(--mute);line-height:1.25;min-width:0}
+.ordine .info b{display:block;color:var(--ink);font-size:14px}
+.ordine .info span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ordine .info i{font-style:normal;font-weight:700;color:var(--red)}
+.es .tx em{font-style:normal;font-weight:700;color:var(--ink);white-space:nowrap}
+.totale span{display:block;font-size:13px;color:var(--mute);margin-top:2px}
+.qta{display:flex;align-items:center;background:#fff;border:1px solid var(--red);border-radius:12px}
+.qta button{width:36px;height:42px;border:0;background:none;color:var(--ink);font-size:21px}
+.qta b{min-width:26px;text-align:center;font-family:var(--titolo);font-size:24px;padding-top:4px}
+.niente{font-size:14px;color:var(--mute);padding:6px 0 4px}
+.mano{display:grid;grid-template-columns:1.4fr 1fr auto;gap:6px;margin-top:12px;padding-top:12px;border-top:1px dashed #b9bdc4}
+.mano select{font-size:15px;padding:11px 26px 11px 10px}
+.mano button{font:inherit;font-weight:700;font-size:14px;border:0;border-radius:12px;background:var(--ink);color:#fff;padding:0 12px}
+.totale{margin-top:12px;padding-top:12px;border-top:1px dashed #b9bdc4;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.totale b{font-family:var(--titolo);font-size:32px;line-height:1;padding-top:3px}
+.totale button{font:inherit;font-size:14px;font-weight:600;border:1px dashed #b9bdc4;background:#fff;color:var(--ink);border-radius:12px;padding:9px 12px}
+label.f{display:block;font-size:13px;color:var(--mute);margin:16px 0 6px;text-transform:uppercase;letter-spacing:1px}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.03)}60%{transform:scale(.99)}}
+
+.linee{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.linee div{background:var(--neve);border-radius:14px;padding:12px;text-align:center;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.linee div.vista{opacity:1;transform:none}
+.linee img{width:100%;height:110px;object-fit:contain;mix-blend-mode:multiply;display:block}
+.linee b{display:block;font-family:var(--titolo);font-size:22px;text-transform:uppercase;line-height:1;margin-top:6px}
+.linee em{display:block;font-style:normal;font-size:13px;font-weight:700;color:var(--red);margin-top:3px}
+.linee span{display:block;font-size:13px;color:var(--mute);line-height:1.25;margin-top:4px}
+.linee strong{display:block;font-family:var(--titolo);font-size:30px;line-height:1;color:var(--red);margin-top:8px;padding-top:3px}
+.linee small{display:block;font-size:11px;font-weight:600;color:var(--mute)}
+.punti{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.punti li{padding-left:22px;position:relative}
+.punti li::before{content:"✓";position:absolute;left:0;color:var(--red);font-weight:700}
+
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:150px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor;flex:none}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .fiocchi{display:none}
+  .linee div{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secTaglia">
+  <span><b>Trova la taglia:</b> metti la misura del pneumatico, il codice te lo dico io</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Calze da neve NPK omologate UNI EN 16662-1, netti al paio più IVA: The Original 32,24 euro, Re-Grip 24,80 euro, Multigrip Light 18,60 euro, EZ Urban 15,50 euro" width="1296" height="1620">
+  <div class="fiocchi" id="fiocchi"></div>
+</div>
+
+<section id="secTaglia">
+  <h2>Trova la <em>taglia</em></h2>
+  <p class="sub">Scegli la misura del pneumatico: ti dico taglia, codice e prezzo di ogni linea.</p>
+  <div class="card">
+    <div class="misura">
+      <select id="larg" aria-label="Larghezza"></select><i>/</i>
+      <select id="serie" aria-label="Serie" disabled></select><i>R</i>
+      <select id="diam" aria-label="Diametro" disabled></select>
+    </div>
+    <div id="esito"><div class="vuoto">Scegli larghezza, serie e diametro.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Il tuo <em>ordine</em></h2>
+  <p class="sub">Aggiungi dalla ricerca o scegli linea e taglia qui sotto.</p>
+  <div class="card ordine" id="ordine">
+    <div id="righe"></div>
+    <div class="mano">
+      <select id="manoLinea" aria-label="Linea"></select>
+      <select id="manoTaglia" aria-label="Taglia"></select>
+      <button type="button" id="manoAgg">+ Aggiungi</button>
+    </div>
+    <div class="totale"><div><b id="tot">0 paia</b><span id="totPaia"></span></div><button type="button" id="svuota">Svuota l'ordine</button></div>
+    <label class="f" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+  </div>
+  <p class="nota">Prezzi netti al paio, IVA esclusa. Le calze sono vendute a paio: un paio per ogni asse motore. La disponibilità te la confermo io.</p>
+</section>
+
+<section>
+  <h2>Le quattro <em>linee</em></h2>
+  <p class="sub">Tutte omologate, cambiano tessuto e vestibilità.</p>
+  <div class="linee" id="linee"></div>
+</section>
+
+<section>
+  <h2>Da sapere</h2>
+  <ul class="punti">
+    <li><b>Equiparate alle catene</b>: omologazione UNI EN 16662-1:2020, valide in Italia e all'estero, Austria esclusa.</li>
+    <li>Si montano in circa 2 minuti a ruota, anche sulle auto non catenabili.</li>
+    <li>Leggere e silenziose, compatibili con ABS ed ESP.</li>
+    <li>Velocità massima 50 km/h. Lavabili e riutilizzabili.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393202232932">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><img src="logo-npk.svg" alt="NPK"><b>Gerardo Giacco</b> · Agente MAK · 320 223 2932<br>Taglie dalle tabelle applicative NPK 2026.<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script src="dati.js"></script>
+<script>
+const TELEFONO = "393202232932";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+  const etichetta = (i, t) => "TG." + t;
+  const euro = n => n.toFixed(2).replace(".", ",") + " €";
+
+  /* fiocchi */
+  const fi = $("fiocchi");
+  for (let k = 0; k < 26; k++) {
+    const i = document.createElement("i");
+    const s = 3 + Math.random() * 6;
+    i.style.cssText = "left:" + (Math.random() * 100) + "%;width:" + s + "px;height:" + s + "px;animation-duration:" + (7 + Math.random() * 9) + "s;animation-delay:-" + (Math.random() * 12) + "s;--x:" + (Math.random() * 60 - 30) + "px";
+    fi.appendChild(i);
+  }
+
+  /* misura: larghezza → serie → diametro */
+  const MIS = Object.keys(FIT).map(k => { const m = k.match(/^(\d+)\/(\d+)R([\d.]+)$/); return m && {k, l: m[1], s: m[2], d: m[3]}; }).filter(Boolean);
+  const uniche = (arr, f) => [...new Set(arr.map(f))].sort((a, b) => parseFloat(a) - parseFloat(b));
+  const opz = (sel, valori, vuoto) => { sel.innerHTML = ""; sel.add(new Option(vuoto, "")); valori.forEach(v => sel.add(new Option(v, v))); };
+  opz($("larg"), uniche(MIS, m => m.l), "Largh.");
+  opz($("serie"), [], "Serie");
+  opz($("diam"), [], "Ø");
+
+  $("larg").addEventListener("change", () => {
+    const l = $("larg").value;
+    opz($("serie"), uniche(MIS.filter(m => m.l === l), m => m.s), "Serie");
+    opz($("diam"), [], "Ø");
+    $("serie").disabled = !l; $("diam").disabled = true;
+    mostra();
+  });
+  $("serie").addEventListener("change", () => {
+    const l = $("larg").value, s = $("serie").value;
+    const d = uniche(MIS.filter(m => m.l === l && m.s === s), m => m.d);
+    opz($("diam"), d, "Ø");
+    $("diam").disabled = !s;
+    if (d.length === 1) $("diam").value = d[0];
+    mostra();
+  });
+  $("diam").addEventListener("change", mostra);
+
+  function mostra() {
+    const l = $("larg").value, s = $("serie").value, d = $("diam").value;
+    const e = $("esito");
+    if (!(l && s && d) || !FIT[l + "/" + s + "R" + d]) {
+      e.innerHTML = '<div class="vuoto">' + (l ? "Completa la misura." : "Scegli larghezza, serie e diametro.") + '</div>';
+      return;
+    }
+    const misura = l + "/" + s + " R" + d, tt = FIT[l + "/" + s + "R" + d];
+    const box = document.createElement("div");
+    box.className = "esiti";
+    box.innerHTML = '<div class="titolo">' + misura + '</div>';
+    LINEE.forEach((li, i) => {
+      const r = document.createElement("div");
+      const taglie = tt[i] ? tt[i].split("/") : [];
+      r.className = "es " + (taglie.length ? "ok" : "no");
+      r.innerHTML = '<img src="' + li.img + '" alt=""><div class="tx"><b>' + li.nome + '</b>' +
+        (taglie.length ? '<strong>TG.' + taglie.join(" o ") + '</strong> · <em>' + euro(li.prezzo) + ' + IVA</em><br>' + taglie.map(t => li.codici[t]).join(" / ") + (taglie.length > 1 ? '<br>La tabella NPK dà due taglie: scegli tu o chiedimi.' : '')
+                       : 'Misura non in tabella') + '</div><div class="bt"></div>';
+      taglie.forEach(t => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.textContent = taglie.length > 1 ? "+ " + t : "+ Aggiungi";
+        b.addEventListener("click", () => aggiungi(i, t, misura));
+        r.querySelector(".bt").appendChild(b);
+      });
+      box.appendChild(r);
+    });
+    e.innerHTML = ""; e.appendChild(box);
+    box.classList.add("pop");
+  }
+
+  /* ordine */
+  const ord = new Map(); // "i|t" → {i, t, q, misure:Set}
+  function aggiungi(i, t, misura) {
+    const k = i + "|" + t;
+    if (!ord.has(k)) ord.set(k, {i, t, q: 0, misure: new Set()});
+    const r = ord.get(k);
+    r.q++;
+    if (misura) r.misure.add(misura);
+    aggiorna(true);
+  }
+
+  opz($("manoLinea"), [], "Linea");
+  LINEE.forEach((li, i) => $("manoLinea").add(new Option(li.nome, i)));
+  opz($("manoTaglia"), [], "Taglia");
+  $("manoTaglia").disabled = true;
+  $("manoLinea").addEventListener("change", () => {
+    const v = $("manoLinea").value;
+    opz($("manoTaglia"), v === "" ? [] : LINEE[v].taglie, "Taglia");
+    $("manoTaglia").disabled = v === "";
+  });
+  $("manoAgg").addEventListener("click", () => {
+    const i = $("manoLinea").value, t = $("manoTaglia").value;
+    if (i === "" || !t) { $("manoLinea").focus(); return; }
+    aggiungi(+i, t, "");
+  });
+  $("svuota").addEventListener("click", () => { ord.clear(); aggiorna(true); });
+  $("officina").addEventListener("input", aggiornaWa);
+
+  const paia = () => [...ord.values()].reduce((a, r) => a + r.q, 0);
+
+  function aggiorna(anima) {
+    const box = $("righe");
+    box.innerHTML = "";
+    if (!ord.size) box.innerHTML = '<div class="niente">Ancora niente: trova la taglia qui sopra e tocca «Aggiungi».</div>';
+    ord.forEach((r, k) => {
+      const li = LINEE[r.i];
+      const d = document.createElement("div");
+      d.className = "riga";
+      d.innerHTML = '<img src="' + li.img + '" alt=""><div class="info"><b>' + li.nome + ' · ' + etichetta(r.i, r.t) + '</b><span><i>' + euro(li.prezzo) + '</i> · ' + li.codici[r.t] + (r.misure.size ? ' · ' + [...r.misure].join(", ") : '') + '</span></div>' +
+        '<div class="qta"><button type="button" aria-label="Meno">−</button><b>' + r.q + '</b><button type="button" aria-label="Più">+</button></div>';
+      const [meno, , piu] = d.querySelector(".qta").children;
+      meno.addEventListener("click", () => { r.q--; if (r.q <= 0) ord.delete(k); aggiorna(true); });
+      piu.addEventListener("click", () => { if (r.q < 99) { r.q++; aggiorna(true); } });
+      box.appendChild(d);
+    });
+    const n = paia();
+    const imp = [...ord.values()].reduce((a, r) => a + r.q * LINEE[r.i].prezzo, 0);
+    $("tot").textContent = n ? euro(imp) + " + IVA" : "0 paia";
+    $("totPaia").textContent = n ? n + (n === 1 ? " paio" : " paia") : "";
+    if (anima) { $("ordine").classList.remove("salta"); void $("ordine").offsetWidth; $("ordine").classList.add("salta"); }
+    aggiornaWa();
+  }
+
+  function aggiornaWa() {
+    const n = paia();
+    let testo, et;
+    if (n) {
+      testo = "Ciao Gerardo, vorrei queste *calze da neve NPK*:\n" +
+        [...ord.values()].map(r => "• " + LINEE[r.i].nome + " " + etichetta(r.i, r.t) + " (" + LINEE[r.i].codici[r.t] + "): " + r.q + (r.q === 1 ? " paio" : " paia") + " × " + euro(LINEE[r.i].prezzo) + (r.misure.size ? " · " + [...r.misure].join(", ") : "")).join("\n") +
+        "\nTotale: " + n + (n === 1 ? " paio" : " paia") + ", " + euro([...ord.values()].reduce((a, r) => a + r.q * LINEE[r.i].prezzo, 0)) + " + IVA" +
+        "\n\nOfficina: " + $("officina").value.trim();
+      et = "Invia l'ordine (" + n + (n === 1 ? " paio" : " paia") + ")";
+    } else {
+      testo = "Ciao Gerardo, mi interessano le calze da neve NPK. Mi dai qualche informazione?";
+      et = "Scrivimi su WhatsApp";
+    }
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = et;
+  }
+
+  /* schede delle linee */
+  LINEE.forEach(li => {
+    const d = document.createElement("div");
+    d.innerHTML = '<img src="' + li.img + '" alt="' + li.nome + '"><b>' + li.nome + '</b><em>' + li.taglie.length + ' taglie · ' + li.taglie[0] + '–' + li.taglie[li.taglie.length - 1] + '</em><span>' + li.frase + '</span><strong>' + euro(li.prezzo) + '</strong><small>netto al paio + IVA</small>';
+    $("linee").appendChild(d);
+  });
+  const schede = [...$("linee").children];
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vista"); io.unobserve(e.target); } }), {threshold: .2});
+    schede.forEach((s, i) => { s.style.transitionDelay = (i % 2) * 120 + "ms"; io.observe(s); });
+  } else schede.forEach(s => s.classList.add("vista"));
+
+  $("avviso").addEventListener("click", e => {
+    e.preventDefault();
+    $("secTaglia").scrollIntoView({behavior: "smooth", block: "start"});
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .1]})
+      .observe($("secTaglia"));
+  }
+
+  aggiorna(false);
+});
+</script>
+<script>/* ricerche per il contatore anonimo (conta.js) */
+document.addEventListener("DOMContentLoaded", () => {
+  const el = id => document.getElementById(id);
+  const testo = id => { const e = el(id); return e && e.value ? (e.tagName === "SELECT" ? e.options[e.selectedIndex].text : e.value).trim() : ""; };
+  const quando = (ids, f) => ids.forEach(id => el(id) && el(id).addEventListener("change", () => { const t = f(); if (t && window.conta) window.conta("ricerca", t); }));
+  const misura = (l, s, d) => quando([l, s, d], () => el(l).value && el(s).value && el(d).value ? el(l).value + "/" + el(s).value + " R" + el(d).value : "");
+  const vettura = (m, mo) => quando([mo], () => testo(m) && testo(mo) ? testo(m) + " " + testo(mo) : "");
+  misura("larg","serie","diam");
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rinnovi AUTEL TS900</title>
+<meta name="description" content="Il tuo AUTEL TS900 scade? Controlla in 30 secondi la data dell'aggiornamento e rinnova aggiornamento e sblocco SGW con un messaggio.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Il tuo AUTEL TS900 scade? · Rinnovi aggiornamento e SGW">
+<meta property="og:description" content="Controlla la scadenza in 30 secondi e rinnova aggiornamento e sblocco SGW con un messaggio WhatsApp.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/marco-podda/ts900-rinnovi/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/marco-podda/ts900-rinnovi/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-bottom:calc(96px + env(safe-area-inset-bottom));padding-top:calc(56px + env(safe-area-inset-top))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+.card{background:var(--card);border-radius:16px;padding:16px}
+
+/* locandina con riflesso */
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:riflesso 5s 1s infinite}
+@keyframes riflesso{0%{left:-60%}35%,100%{left:130%}}
+
+/* promemoria in alto */
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secRinnovo{scroll-margin-top:10px}
+
+/* perché rinnovare */
+.perche{display:grid;gap:10px}
+.pc{display:flex;gap:14px;align-items:flex-start;background:var(--card);border-top:4px solid var(--red);border-radius:4px 4px 14px 14px;padding:14px;
+  opacity:0;transform:translateX(-24px);transition:opacity .5s,transform .5s}
+.pc.vis{opacity:1;transform:none}
+.pc .ic{flex:none;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px}
+.pc h3{margin:2px 0 4px;font-family:var(--titolo);font-size:26px;line-height:1;text-transform:uppercase}
+.pc p{margin:0;color:var(--mute);font-size:15px}
+.pc p strong{color:var(--ink)}
+
+/* vademecum */
+.passi{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.passi li{display:flex;gap:12px;align-items:flex-start}
+.passi .n{flex:none;font-family:var(--titolo);font-size:34px;line-height:1;color:var(--red);min-width:30px;padding-top:2px}
+.passi b{display:block;font-size:16px}
+.passi small{color:var(--mute);font-size:14px}
+.voce{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:7px;padding:0 6px;font-weight:600;font-size:14px;color:var(--ink);white-space:nowrap}
+.schermo{position:relative;margin:16px 0 4px;border-radius:12px;overflow:hidden;border:1px solid var(--line);line-height:0;background:#fff}
+.schermo img{width:100%;height:auto;display:block}
+.schermo .box{position:absolute;left:1.5%;width:46%;height:6.4%;border:3px solid var(--red);border-radius:8px;animation:lampeggia 1.8s infinite}
+.schermo .box.s{top:77.8%}
+.schermo .box.e{top:89%}
+.schermo .tag{position:absolute;right:3%;background:var(--red);color:#fff;font-size:12px;line-height:1.2;font-weight:700;padding:4px 8px;border-radius:20px}
+.schermo .tag.s{top:77%} .schermo .tag.e{top:88.5%}
+@keyframes lampeggia{50%{box-shadow:0 0 0 6px rgba(218,33,40,.25)}}
+.didascalia{font-size:12px;color:var(--mute);margin:6px 0 0}
+.sgw{margin-top:14px;background:var(--ink);color:#fff;border-radius:14px;padding:14px;font-size:15px}
+.sgw b{color:#fff}
+.etichetta{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}
+.etichetta img{width:100%;height:auto;display:block;border-radius:8px}
+.etichetta p{margin:10px 2px 2px;font-size:14px;color:var(--mute)}
+.etichetta p b{color:var(--ink)}
+
+/* le tue scadenze dal numero di serie */
+.cerca{background:var(--ink);color:#fff;border-radius:16px;padding:16px;margin-bottom:14px}
+.cerca h3{margin:0 0 4px;font-family:var(--titolo);font-size:26px;line-height:1;text-transform:uppercase}
+.cerca p{margin:0 0 12px;font-size:14px;color:#c9ccd2}
+.cerca .riga{display:flex;gap:8px}
+.cerca input{flex:1;min-width:0;font-family:var(--titolo)!important;font-size:24px!important;letter-spacing:2px;padding:13px 12px 11px!important;border:0!important}
+.cerca button{flex:none;border:0;border-radius:12px;background:var(--red);color:#fff;font:inherit;font-weight:800;font-size:16px;padding:0 16px}
+.cerca button:disabled{opacity:.5}
+.esito{margin-top:12px;display:grid;gap:8px}
+.esito .it{display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border-radius:12px;padding:11px 12px}
+.esito .it .t{flex:1}
+.esito .it .t b{display:block;font-size:15px}
+.esito .it .t small{color:var(--mute);font-size:13px}
+.esito .bd{flex:none;font-size:12px;font-weight:800;border-radius:20px;padding:5px 10px;text-transform:uppercase;letter-spacing:.5px}
+.bd.rosso{background:var(--red);color:#fff}
+.bd.giallo{background:#ffc928;color:#3d2e00}
+.bd.verde{background:#d4f5e0;color:#11633a}
+.bd.grigio{background:var(--card);color:var(--mute)}
+.esito .msg{font-size:14px;color:#e6e7ea}
+.esito .msg b{color:#fff}
+.esito .vai{display:block;text-align:center;background:var(--verde);color:#062e16;font-weight:800;text-decoration:none;border-radius:12px;padding:13px}
+
+/* modulo rinnovo */
+label.f{display:block;font-size:13px;color:var(--mute);margin:16px 0 6px;text-transform:uppercase;letter-spacing:1px}
+label.f:first-child{margin-top:0}
+.voci{display:grid;gap:8px}
+.voci input{position:absolute;opacity:0;pointer-events:none}
+.voci label{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;transition:border-color .2s,background .2s}
+.voci label .sp{flex:none;width:26px;height:26px;border-radius:8px;border:2px solid #c9ccd2;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.voci label .t{flex:1}
+.voci label .t b{display:block;font-size:16px}
+.voci label .t small{color:var(--mute);font-size:13px}
+.voci label .p{font-family:var(--titolo);font-size:28px;line-height:1;color:var(--red);white-space:nowrap;padding-top:3px}
+.voci label .p i{font-style:normal;font-family:var(--testo);font-size:12px;color:var(--mute);margin-left:3px}
+.voci input:checked+label{border-color:var(--red);background:#fff5f5}
+.voci input:checked+label .sp{background:var(--red);border-color:var(--red)}
+.voci input:checked+label .sp::after{content:"✓"}
+.voci input:disabled+label{opacity:.45}
+input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+#seriale{font-family:var(--titolo);font-size:26px;letter-spacing:3px;padding-top:15px}
+#seriale.ko{border-color:var(--red)}
+.avv{font-size:13px;margin-top:6px;color:var(--mute)}
+.avv.ko{color:var(--red);font-weight:600}
+.avv.ok{color:#178a46;font-weight:600}
+.foto{display:flex;align-items:center;gap:12px;background:#fff;border:2px dashed #cfd2d8;border-radius:14px;padding:12px;cursor:pointer}
+.foto input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.foto .ico{flex:none;width:52px;height:52px;border-radius:12px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden}
+.foto .ico img{width:100%;height:100%;object-fit:cover}
+.foto b{display:block;font-size:16px}
+.foto small{color:var(--mute);font-size:13px}
+.foto.ok{border-style:solid;border-color:var(--verde)}
+.togli{margin-left:auto;flex:none;border:0;background:none;color:var(--mute);font-size:14px;text-decoration:underline;padding:8px}
+.check{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:15px}
+.check input{width:22px;height:22px;accent-color:var(--red);flex:none;margin:1px 0 0}
+.tot{margin-top:16px;padding-top:14px;border-top:1px dashed #cfd2d8;display:flex;justify-content:space-between;align-items:baseline}
+.tot span{color:var(--mute);font-size:14px}
+.tot b{font-family:var(--titolo);font-size:36px;line-height:1}
+.tot b i{font-style:normal;font-family:var(--testo);font-size:13px;color:var(--mute);margin-left:4px}
+.nota{font-size:13px;color:var(--mute);margin-top:10px}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.03)}60%{transform:scale(.995)}}
+
+/* contatti */
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer .loghi{display:flex;justify-content:center;align-items:center;gap:22px;margin-bottom:10px}
+footer .loghi img{height:30px;width:auto}
+footer b{color:var(--ink)}
+
+/* bottone fisso WhatsApp */
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .pc{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secRinnovo">
+  <span><b>Vuoi rinnovare?</b> Scegli cosa e mandami il numero di serie</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Il tuo AUTEL TS900 scade: aggiornamento 12 mesi 270 euro, sblocco Full SGW 12 mesi 390 euro, sblocco FCA più Maserati 12 mesi 160 euro, IVA esclusa" width="1620" height="2025">
+</div>
+
+<section>
+  <h2>Perché <em>rinnovare</em></h2>
+  <p class="sub">Due abbonamenti diversi, ciascuno dura 12 mesi.</p>
+  <div class="perche" id="perche">
+    <div class="pc"><span class="ic">⟳</span><div><h3>Aggiornamento</h3><p>Nuove vetture, nuove funzioni e correzioni. Quando scade lo strumento <strong>continua a funzionare</strong> ma <strong>non riceve più le novità</strong>: sulle auto nuove non lo trovi.</p></div></div>
+    <div class="pc"><span class="ic">🔓</span><div><h3>Sblocco SGW</h3><p>Le vetture con <strong>Secure Gateway</strong> (Stellantis-FCA e altre marche) senza sblocco si leggono soltanto: <strong>niente cancellazione errori, reset e codifiche</strong>.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Controlla la <em>scadenza</em></h2>
+  <p class="sub">Scrivi il numero di serie e te la dico io, oppure guardala sul tuo TS900.</p>
+  <div class="cerca" id="cerca">
+    <h3>Le tue scadenze</h3>
+    <p>Aggiornamento e sblocchi SGW, dai miei archivi.</p>
+    <form class="riga" id="cercaForm" autocomplete="off">
+      <input type="text" id="cercaSer" autocapitalize="characters" autocorrect="off" spellcheck="false" maxlength="16" placeholder="VM8G········" aria-label="Numero di serie">
+      <button type="submit" id="cercaBtn">Controlla</button>
+    </form>
+    <div class="esito" id="esito" hidden></div>
+  </div>
+  <div class="card">
+    <ol class="passi">
+      <li><span class="n">1</span><span><b>Apri l'app <span class="voce">Supporto</span></b><small>Nel menu principale del tablet (in inglese <span class="voce">Support</span>). Se non la vedi, scorri alla seconda pagina.</small></span></li>
+      <li><span class="n">2</span><span><b>Tocca <span class="voce">Il mio account</span></b><small>Poi la scheda <span class="voce">Informazioni personali</span> (<span class="voce">My Account</span> › <span class="voce">Personal Info</span>).</small></span></li>
+      <li><span class="n">3</span><span><b>Leggi «Informazioni dispositivo»</b><small><span class="voce">Numero di serie</span> e <span class="voce">Scadenza</span> (<span class="voce">Expired time</span>): è la data di fine dell'aggiornamento.</small></span></li>
+    </ol>
+    <div class="schermo">
+      <img src="supporto-mio-account.jpg" alt="Schermata Supporto, Il mio account, con le informazioni del dispositivo: numero di serie, data di registrazione, scadenza e garanzia" width="955" height="465">
+      <span class="box s"></span><span class="tag s">numero di serie</span>
+      <span class="box e"></span><span class="tag e">scadenza</span>
+    </div>
+    <p class="didascalia">Schermata dal manuale AUTEL del TS900 (MATE).</p>
+    <div class="sgw">🔓 <b>La scadenza dello sblocco SGW qui non c'è.</b> Scrivi il numero di serie in «Le tue scadenze», qui sopra.</div>
+    <div class="etichetta" id="etichettaBox">
+      <img src="etichetta.jpg" alt="Etichetta sul retro del TS900 con il numero di serie" onerror="document.getElementById('etichettaBox').hidden=true">
+      <p><b>Il numero di serie è anche qui:</b> sull'etichetta dietro lo strumento, sotto il codice a barre (riquadro rosso). Sono <b>12 caratteri, lettere e numeri</b>, per esempio VM8G…</p>
+    </div>
+  </div>
+</section>
+
+<section id="secRinnovo">
+  <h2>Rinnova <em>adesso</em></h2>
+  <p class="sub">Scegli cosa rinnovare: ti rispondo io su WhatsApp e attivo tutto.</p>
+  <div class="card" id="rinnovo">
+    <label class="f">Cosa vuoi rinnovare</label>
+    <div class="voci" id="voci">
+      <input type="checkbox" id="v_agg" value="agg"><label for="v_agg"><span class="sp"></span><span class="t"><b>Aggiornamento TS900</b><small>12 mesi · cod. 7200000029</small></span><span class="p">270 €<i>+IVA</i></span></label>
+      <input type="checkbox" id="v_full" value="full"><label for="v_full"><span class="sp"></span><span class="t"><b>Sblocco Full SGW</b><small>12 mesi · tutte le marche · cod. 7200000046</small></span><span class="p">390 €<i>+IVA</i></span></label>
+      <input type="checkbox" id="v_fca" value="fca"><label for="v_fca"><span class="sp"></span><span class="t"><b>Sblocco FCA + Maserati</b><small id="fcaSub">12 mesi · Stellantis · cod. 7200000012</small></span><span class="p">160 €<i>+IVA</i></span></label>
+    </div>
+    <label class="check"><input type="checkbox" id="v_ctrl"> Non so cosa mi scade: controllamelo tu</label>
+
+    <label class="f" for="seriale">Numero di serie (12 caratteri)</label>
+    <input type="text" id="seriale" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" maxlength="16" placeholder="es. VM8G········">
+    <div class="avv" id="serialeAvv">Lo trovi sull'etichetta dietro lo strumento o in Supporto › Il mio account.</div>
+
+    <label class="f">Foto dell'etichetta</label>
+    <label class="foto" id="fotoBox" for="foto">
+      <input type="file" id="foto" accept="image/*">
+      <span class="ico" id="fotoIco">📷</span>
+      <span><b id="fotoTit">Fotografa l'etichetta</b><small id="fotoSub">Così non sbagliamo il numero: con un seriale sbagliato l'attivazione si allunga.</small></span>
+      <button type="button" class="togli" id="togli" hidden>Togli</button>
+    </label>
+
+    <label class="f" for="officina">Officina</label>
+    <input type="text" id="officina" autocomplete="organization" placeholder="Nome dell'officina">
+
+    <div class="tot"><span>Totale</span><b id="totale">0,00 €<i>+ IVA</i></b></div>
+    <p class="nota">Attivazione: aggiornamento entro 7 giorni lavorativi, sblocco SGW entro 10 (tempi MATE). Il Full SGW comprende già FCA.</p>
+  </div>
+  <p class="nota">Se preferisci, puoi ordinare i codici sul portale B2B scrivendo il numero di serie nelle note del carrello.</p>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393398605989">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><div class="loghi"><img src="logo-mate-nero.svg" alt="MATE"><img src="logo-mak.svg" alt="MAK"></div><b>Marco Podda</b> · Agente MAK · 339 860 5989<br>Prezzi di listino MATE settembre–dicembre 2026, IVA esclusa.<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script src="scadenze.js"></script>
+<script>
+const TELEFONO = "393398605989";
+const VOCI = {
+  agg:  {nome: "Aggiornamento TS900 12 mesi", codice: "7200000029", prezzo: 270},
+  full: {nome: "Sblocco Full SGW 12 mesi", codice: "7200000046", prezzo: 390},
+  fca:  {nome: "Sblocco FCA + Maserati 12 mesi", codice: "7200000012", prezzo: 160}
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+  const euro = n => n.toFixed(2).replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
+
+  /* comparsa animata dei due motivi */
+  const voci = document.querySelectorAll("#perche .pc");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { voci.forEach((v, i) => setTimeout(() => v.classList.add("vis"), i * 180)); io.disconnect(); }
+    }), {threshold: .2});
+    io.observe($("perche"));
+  } else voci.forEach(v => v.classList.add("vis"));
+
+  /* Full SGW comprende FCA */
+  $("v_full").addEventListener("change", () => {
+    if ($("v_full").checked) $("v_fca").checked = false;
+    $("v_fca").disabled = $("v_full").checked;
+    $("fcaSub").textContent = $("v_full").checked ? "Già compreso nel Full SGW" : "12 mesi · Stellantis · cod. 7200000012";
+    aggiorna();
+  });
+  ["v_agg", "v_fca", "v_ctrl"].forEach(id => $(id).addEventListener("change", aggiorna));
+
+  /* numero di serie AUTEL: 12 caratteri, lettere e numeri (es. VM8G…), in maiuscolo e senza spazi */
+  $("seriale").addEventListener("input", () => {
+    const s = $("seriale").value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    if ($("seriale").value !== s) $("seriale").value = s;
+    aggiorna();
+  });
+  $("officina").addEventListener("input", aggiorna);
+
+  /* foto dell'etichetta: resta sul telefono e parte solo verso WhatsApp */
+  let foto = null, urlFoto = null;
+  $("foto").addEventListener("change", e => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    foto = f;
+    if (urlFoto) URL.revokeObjectURL(urlFoto);
+    urlFoto = URL.createObjectURL(f);
+    $("fotoIco").innerHTML = '<img alt="">';
+    $("fotoIco").firstChild.src = urlFoto;
+    $("fotoTit").textContent = "Foto caricata";
+    $("fotoSub").textContent = condivisioneFile() ? "Parte insieme alla richiesta con il bottone verde." : "Ricordati di allegarla nella chat WhatsApp.";
+    $("fotoBox").classList.add("ok");
+    $("togli").hidden = false;
+    aggiorna();
+  });
+  $("togli").addEventListener("click", e => {
+    e.preventDefault();
+    foto = null;
+    $("foto").value = "";
+    $("fotoIco").textContent = "📷";
+    $("fotoTit").textContent = "Fotografa l'etichetta";
+    $("fotoSub").textContent = "Così non sbagliamo il numero: con un seriale sbagliato l'attivazione si allunga.";
+    $("fotoBox").classList.remove("ok");
+    $("togli").hidden = true;
+    aggiorna();
+  });
+  function condivisioneFile() {
+    try { return !!(foto && navigator.canShare && navigator.canShare({files: [foto]})); }
+    catch (e) { return false; }
+  }
+
+  function scelte() { return Object.keys(VOCI).filter(k => $("v_" + k).checked); }
+
+  let testoWa = "";
+  function aggiorna() {
+    const sc = scelte(), ser = $("seriale").value, ctrl = $("v_ctrl").checked, off = $("officina").value.trim();
+    const tot = sc.reduce((s, k) => s + VOCI[k].prezzo, 0);
+    $("totale").innerHTML = euro(tot) + "<i>+ IVA</i>";
+
+    const avv = $("serialeAvv");
+    avv.className = "avv";
+    $("seriale").classList.remove("ko");
+    if (ser.length && ser.length !== 12) {
+      avv.className = "avv ko"; $("seriale").classList.add("ko");
+      avv.textContent = "Hai scritto " + ser.length + " caratteri: il numero di serie AUTEL ne ha 12. Ricontrollalo.";
+    } else if (ser.length === 12) {
+      avv.className = "avv ok"; avv.textContent = "12 caratteri: ok. Ricontrollalo sull'etichetta (attenzione a 0 e O, 1 e I).";
+    } else avv.textContent = "Lo trovi sull'etichetta dietro lo strumento o in Supporto › Il mio account.";
+
+    let testo, etichetta;
+    if (sc.length || ctrl || ser || foto) {
+      testo = "Ciao Marco, per il mio *AUTEL TS900*:\n" +
+        (sc.length ? "vorrei rinnovare\n" + sc.map(k => "• " + VOCI[k].nome + " (" + VOCI[k].codice + ") – " + euro(VOCI[k].prezzo)).join("\n") +
+          "\nTotale " + euro(tot) + " + IVA\n" : "") +
+        (ctrl ? "• Controllami tu le scadenze di aggiornamento e SGW\n" : "") +
+        "\nNumero di serie: " + (ser || "…") +
+        (foto ? "\nFoto dell'etichetta: in allegato" : "") +
+        "\nOfficina: " + off;
+      etichetta = foto && condivisioneFile() ? "Invia foto e richiesta" : "Invia la richiesta su WhatsApp";
+      $("rinnovo").classList.remove("salta"); void $("rinnovo").offsetWidth; $("rinnovo").classList.add("salta");
+    } else {
+      testo = "Ciao Marco, ho un AUTEL TS900: mi controlli le scadenze di aggiornamento e sblocco SGW?";
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    testoWa = testo;
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = etichetta;
+  }
+
+  /* con la foto: menu Condividi di iPhone (foto + testo), poi WhatsApp e l'agente */
+  $("wa").addEventListener("click", e => {
+    if (!condivisioneFile()) return;
+    e.preventDefault();
+    navigator.share({files: [foto], text: testoWa}).catch(err => {
+      if (err && err.name !== "AbortError") window.open($("wa").href, "_blank");
+    });
+  });
+
+  /* le tue scadenze: impronta SHA-256 del seriale cercata in scadenze.js (niente nomi, niente seriali in chiaro) */
+  const DB = window.SCADENZE || {s: {}};
+  const PREAVVISO = 60;
+  const dataIt = iso => iso.slice(8, 10) + "/" + iso.slice(5, 7) + "/" + iso.slice(0, 4);
+  const oggi = new Date(); oggi.setHours(0, 0, 0, 0);
+  const giorni = iso => Math.round((new Date(iso + "T00:00:00") - oggi) / 864e5);
+  const urgente = iso => iso && giorni(iso) <= PREAVVISO;
+  async function impronta(ser) {
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode((DB.sale || "") + ser));
+    return Array.from(new Uint8Array(buf), b => b.toString(16).padStart(2, "0")).join("").slice(0, 20);
+  }
+  function badge(iso) {
+    if (!iso) return '<span class="bd grigio">non risulta</span>';
+    const g = giorni(iso);
+    if (g < 0) return '<span class="bd rosso">scaduto</span>';
+    if (g <= PREAVVISO) return '<span class="bd giallo">' + (g === 0 ? "scade oggi" : "tra " + g + " gg") + '</span>';
+    return '<span class="bd verde">attivo</span>';
+  }
+  function voce(nome, iso, nota) {
+    const sotto = nota || (iso ? (giorni(iso) < 0 ? "Scaduto il " : "Scade il ") + dataIt(iso) : "Nessuna attivazione nei miei archivi");
+    return '<div class="it"><span class="t"><b>' + nome + '</b><small>' + sotto + '</small></span>' + (nota ? '<span class="bd verde">compreso</span>' : badge(iso)) + '</div>';
+  }
+  function scegli(id, si) { $(id).checked = si; $(id).dispatchEvent(new Event("change")); }
+
+  $("cercaSer").addEventListener("input", () => {
+    const s = $("cercaSer").value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    if ($("cercaSer").value !== s) $("cercaSer").value = s;
+  });
+  $("cercaForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const ser = $("cercaSer").value, es = $("esito");
+    es.hidden = false;
+    if (ser.length !== 12) {
+      es.innerHTML = '<div class="msg">Il numero di serie AUTEL ha <b>12 caratteri</b>' + (ser.length ? " (ne hai scritti " + ser.length + ")" : "") + ': lo trovi sull\'etichetta dietro lo strumento.</div>';
+      return;
+    }
+    $("cercaBtn").disabled = true;
+    let r = null;
+    try { r = DB.s[await impronta(ser)] || null; } catch (err) { r = undefined; }
+    $("cercaBtn").disabled = false;
+    $("seriale").value = ser;
+    ["v_agg", "v_full", "v_fca", "v_ctrl"].forEach(id => scegli(id, false));
+    const vai = '<a class="vai" href="#secRinnovo" id="vaiRinnovo">Rinnova adesso ↓</a>';
+    if (!r) {
+      scegli("v_ctrl", true);
+      es.innerHTML = '<div class="msg">' + (r === undefined ? "Da questo telefono non riesco a fare il controllo." : "<b>Non trovo questo numero nei miei archivi.</b> Ricontrolla 0 e O, 1 e I.") +
+        ' Mandamelo su WhatsApp e ti dico io le scadenze.</div>' + vai.replace("Rinnova adesso", "Chiedimelo");
+    } else {
+      const ts900 = /TS ?900/.test(r.m);
+      const fullAttivo = r.f && giorni(r.f) >= 0;
+      const fcaNota = !r.c && fullAttivo ? "Compreso nel Full SGW fino al " + dataIt(r.f) : (r.c && fullAttivo && r.f >= r.c ? "Compreso nel Full SGW fino al " + dataIt(r.f) : "");
+      es.innerHTML = '<div class="msg">Strumento: <b>AUTEL ' + r.m + '</b> · ' + ser + '</div>' +
+        voce("Aggiornamento", r.a) + voce("Sblocco Full SGW", r.f) + voce("Sblocco FCA + Maserati", r.c, fcaNota) +
+        (r.t ? '<div class="msg">Sblocchi a consumo: ' + r.t.join(", ") + '</div>' : "") +
+        (ts900 ? "" : '<div class="msg">I prezzi di questa pagina sono per la TS900: per il tuo strumento scrivimi e ti mando i codici giusti.</div>') +
+        '<div class="msg">Dati aggiornati al ' + dataIt(DB.agg || "") + ': se hai rinnovato da poco fa fede la data sullo strumento.</div>' + vai;
+      if (ts900) {
+        if (urgente(r.a)) scegli("v_agg", true);
+        if (r.f && urgente(r.f)) scegli("v_full", true);
+        else if (!r.f && r.c && urgente(r.c)) scegli("v_fca", true);
+      }
+      if (!ts900 || !$("v_agg").checked && !$("v_full").checked && !$("v_fca").checked) scegli("v_ctrl", !ts900);
+    }
+    aggiorna();
+    const v = $("vaiRinnovo");
+    if (v) v.addEventListener("click", ev => { ev.preventDefault(); $("secRinnovo").scrollIntoView({behavior: "smooth", block: "start"}); });
+  });
+
+  /* promemoria in alto: porta al modulo e sparisce quando il modulo è sullo schermo */
+  $("avviso").addEventListener("click", e => { e.preventDefault(); $("secRinnovo").scrollIntoView({behavior: "smooth", block: "start"}); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .15]})
+      .observe($("secRinnovo"));
+  }
+
+  aggiorna();
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

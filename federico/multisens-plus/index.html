@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MATE MULTIsens+ promo lancio</title>
+<meta name="description" content="Nuovo sensore TPMS universale MATE MULTIsens+, progettato da HUF: promo lancio dal 9 al 22 novembre 2026 a 14,00 € + IVA a sensore, minimo 40 pezzi (560,00 € + IVA, spedizione inclusa). Scegli Rubber, Metal Silver e Metal Black e mandami l'ordine su WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MATE MULTIsens+ · promo lancio 14,00 € + IVA">
+<meta property="og:description" content="Il nuovo sensore TPMS universale MATE, dal 9 al 22 novembre: minimo 40 pezzi, spedizione inclusa. Scegli le versioni e ordina su WhatsApp.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/federico/multisens-plus/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/federico/multisens-plus/">
+<meta name="theme-color" content="#14161a">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366; --ok:#14833b; --oro:#d9a21b;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(64px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+/* conto alla rovescia */
+.timer{position:fixed;top:0;left:0;right:0;z-index:25;background:var(--ink);color:#fff;text-align:center;
+  padding:calc(8px + env(safe-area-inset-top)) 12px 8px;box-shadow:0 4px 16px rgba(0,0,0,.3);text-decoration:none;display:block}
+.timer small{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--oro);font-weight:700}
+.cifre{display:flex;justify-content:center;gap:10px;font-family:var(--titolo);font-size:28px;line-height:1;margin-top:3px}
+.cifre span b{display:inline-block;min-width:1.25em}
+.cifre span i{font-style:normal;font-size:13px;opacity:.8;margin-left:1px}
+.timer.finita{background:#3f3f46}
+
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero::after{display:none;content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-18deg);animation:riflesso 5s 1s infinite}
+@keyframes riflesso{0%{left:-60%}35%,100%{left:130%}}
+#secOrdine{scroll-margin-top:70px}
+
+/* prezzo */
+.prezzo{display:grid;grid-template-columns:1.1fr 1fr;border-radius:16px;overflow:hidden}
+.prezzo div{padding:14px}
+.prezzo small{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.prezzo .p{background:var(--red);color:#fff}
+.prezzo .p b{display:block;font-family:var(--titolo);font-size:52px;line-height:1;padding-top:6px}
+.prezzo .p b i{font-style:normal;font-size:20px;margin-left:3px}
+.prezzo .m{background:var(--ink);color:#fff}
+.prezzo .m b{display:block;font-family:var(--titolo);font-size:34px;line-height:1;padding-top:6px}
+.prezzo em{display:block;font-style:normal;font-size:12px;margin-top:3px;opacity:.92}
+
+/* ordine */
+.card{background:var(--card);border-radius:16px;padding:6px 14px 14px}
+.riga{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.riga img{width:64px;height:auto;display:block;mix-blend-mode:multiply}
+.riga h3{margin:0;font-family:var(--titolo);font-size:24px;line-height:1;text-transform:uppercase;padding-top:3px}
+.riga .c{font-size:13px;color:var(--mute)}
+.qta{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px}
+.qta button{width:44px;height:46px;border:0;background:none;color:var(--ink);font-size:16px;font-weight:700}
+.qta b{min-width:40px;text-align:center;font-family:var(--titolo);font-size:26px;padding-top:5px}
+.riga.on .qta{border-color:var(--red)}
+.barra{margin-top:14px;height:12px;border-radius:6px;background:#dcdfe4;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--red);border-radius:6px;transition:width .35s,background .35s}
+.barra.ok i{background:var(--ok)}
+.stato{margin-top:8px;font-size:14px;font-weight:600}
+.stato.ok{color:var(--ok)}
+.totale{margin-top:12px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.totale span{font-size:13px;color:var(--mute);line-height:1.3}
+.totale b{font-family:var(--titolo);font-size:36px;line-height:1;white-space:nowrap}
+.veloci{display:flex;gap:8px;margin-top:12px}
+.veloci button{flex:1 1 0;white-space:nowrap;font:inherit;font-weight:600;font-size:13px;border-radius:12px;padding:11px 6px;border:1px dashed #b9bdc4;background:#fff;color:var(--ink)}
+label.f{display:block;font-size:13px;color:var(--mute);margin:16px 0 6px;text-transform:uppercase;letter-spacing:1px}
+input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.03)}60%{transform:scale(.99)}}
+
+/* caratteristiche */
+.punti{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.punti div{background:var(--card);border-radius:12px;padding:12px;border-top:4px solid var(--oro);opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
+.punti div.vista{opacity:1;transform:none}
+.punti b{display:block;font-family:var(--titolo);font-size:22px;line-height:1;text-transform:uppercase;padding-top:2px;margin-bottom:3px}
+.punti span{font-size:13px;color:var(--mute)}
+
+/* ATEQ */
+.ateq{background:#fff4e5;border-radius:16px;padding:14px;display:grid;grid-template-columns:1fr 108px;gap:10px;align-items:center}
+.ateq b.t{display:block;font-family:var(--titolo);font-size:24px;line-height:1;color:#7a4300;text-transform:uppercase;padding-top:2px}
+.ateq p{margin:6px 0 0;font-size:14px;color:#5a3a10}
+.ateq .im{display:flex;gap:4px;align-items:flex-end}
+.ateq img{width:52px;height:auto;display:block}
+.ateq ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:#5a3a10}
+
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+.btn.lungo{grid-column:1/-1}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:150px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor;flex:none}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .punti div{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="timer" id="timer" href="#secOrdine">
+  <small id="timerTesto">Promo lancio: dal 9 al 22 novembre</small>
+  <div class="cifre" id="cifre"><span><b id="gg">0</b><i>g</i></span><span><b id="hh">00</b><i>h</i></span><span><b id="mm">00</b><i>m</i></span><span><b id="ss">00</b><i>s</i></span></div>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Volantino MAK e MATE: MULTIsens+, il nuovo sensore TPMS universale MATE nelle versioni Rubber, Metal Silver e Metal Black; promo lancio dal 9 al 22 novembre 2026 a 14,00 euro al sensore IVA esclusa, ordine minimo 40 pezzi, totale 560 euro più IVA con spese di spedizione incluse, ordini in multipli di 10 per ciascuna valvola; programmabili con strumenti ATEQ con l'ultimo aggiornamento" width="1067" height="1474">
+</div>
+
+<section id="secOrdine">
+  <h2>Il tuo <em>ordine</em></h2>
+  <p class="sub">Tre versioni, anche miste: ognuna a multipli di 10. Contano i 40 pezzi totali.</p>
+  <div class="card" id="ordine">
+    <div id="righe"></div>
+    <div class="veloci">
+      <button type="button" data-mix="40,0,0">40 Rubber</button>
+      <button type="button" data-mix="20,10,10">20 + 10 + 10</button>
+      <button type="button" data-azzera>Azzera</button>
+    </div>
+    <div class="barra" id="barra"><i></i></div>
+    <div class="stato" id="stato"></div>
+    <div class="totale"><span id="totTesto">Totale + IVA</span><b id="tot">–</b></div>
+    <label class="f" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+  </div>
+  <p class="nota">Dal 9 novembre li trovi anche sul portale B2B, nella sezione Promozioni.</p>
+</section>
+
+<section>
+  <h2>Cosa ha di <em>nuovo</em></h2>
+  <p class="sub">Il nuovo sensore TPMS universale della gamma MATE, progettato da HUF.</p>
+  <div class="punti" id="punti">
+    <div><b>95% delle auto</b><span>copertura del parco circolante</span></div>
+    <div><b>Batteria</b><span>più durata, consumi ottimizzati</span></div>
+    <div><b>−40 / +125 °C</b><span>elevata resistenza termica</span></div>
+    <div><b>27 grammi</b><span>design leggero</span></div>
+    <div><b>Senza limiti</b><span>riprogrammabile tutte le volte che serve</span></div>
+    <div><b>Steli</b><span>intercambiabili con HUF ECS e MATE MULTIsens</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="ateq">
+    <div>
+      <b class="t">Prima aggiorna l'ATEQ</b>
+      <p>Per programmare MULTIsens+ lo strumento ATEQ deve avere <strong>l'ultima versione</strong> del software. L'aggiornamento è <strong>gratuito</strong> con la licenza attiva.</p>
+      <ul><li>MA41 / VT41: MULTIsens, MULTIsens+, ECS Intellisens</li><li>VT57: circa 45 marche, MULTIsens+ compreso</li></ul>
+    </div>
+    <div class="im"><img src="ma41.png" alt="MATE MA41" width="300" height="475"><img src="vt57.png" alt="ATEQ VT57" width="300" height="475"></div>
+  </div>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393356384363">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+    <a class="btn lungo" href="../assistenza-mate/">🛠 Assistenza gratuita su strumenti e sensori MATE</a>
+  </div>
+</section>
+
+<footer><img src="logo-mate-nero.svg" alt="MATE"><b>Federico Gorgoglione</b> · Agente MAK · 335 638 4363<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script>
+/* Promo dalla email di Salvatore Pepe del 4/11/2026. Codici articolo non ancora comunicati: nel messaggio vanno le versioni. */
+const VERSIONI = [
+  {nome: "Rubber", desc: "valvola in gomma", img: "ms-rubber.png"},
+  {nome: "Metal Silver", desc: "valvola in metallo silver", img: "ms-silver.png"},
+  {nome: "Metal Black", desc: "valvola in metallo nera", img: "ms-black.png"}
+];
+const PROMO = {
+  prezzo: 14.00, minimo: 40, passo: 10, telefono: "393356384363",
+  inizio: new Date("2026-11-09T00:00:00+01:00"),
+  fine: new Date("2026-11-22T23:59:59+01:00")
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+  const pz = VERSIONI.map(() => 0);
+  const euro = n => n.toFixed(2).replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
+  let fase = "";
+
+  /* conto alla rovescia: prima dell'inizio conta alla partenza, poi alla fine */
+  function tick() {
+    const ora = new Date();
+    if (ora > PROMO.fine) {
+      fase = "finita";
+      $("timer").classList.add("finita");
+      $("timerTesto").textContent = "Promo lancio terminata";
+      $("cifre").textContent = "Chiedimi le offerte attive";
+      $("cifre").style.fontSize = "20px";
+      aggiornaWa();
+      return;
+    }
+    const prima = ora < PROMO.inizio;
+    const f = prima ? "prima" : "attiva";
+    if (f !== fase) { fase = f; aggiornaWa(); }
+    $("timerTesto").textContent = prima ? "Promo lancio: parte lunedì 9 novembre tra" : "Promo lancio: finisce domenica 22 novembre tra";
+    const s = Math.floor(((prima ? PROMO.inizio : PROMO.fine) - ora) / 1000);
+    $("gg").textContent = Math.floor(s / 86400);
+    $("hh").textContent = String(Math.floor(s % 86400 / 3600)).padStart(2, "0");
+    $("mm").textContent = String(Math.floor(s % 3600 / 60)).padStart(2, "0");
+    $("ss").textContent = String(s % 60).padStart(2, "0");
+    setTimeout(tick, 1000);
+  }
+
+  /* righe: una per versione, a passi di 10 */
+  const campi = [];
+  VERSIONI.forEach((v, i) => {
+    const d = document.createElement("div");
+    d.className = "riga";
+    d.innerHTML = '<img alt="" src="' + v.img + '"><div><h3>' + v.nome + '</h3><div class="c">' + v.desc + '</div></div>' +
+      '<div class="qta"><button type="button" aria-label="Meno 10">−10</button><b>0</b><button type="button" aria-label="Più 10">+10</button></div>';
+    const [meno, num, piu] = d.querySelector(".qta").children;
+    meno.addEventListener("click", () => { if (pz[i] >= PROMO.passo) { pz[i] -= PROMO.passo; aggiorna(); } });
+    piu.addEventListener("click", () => { if (pz[i] < 990) { pz[i] += PROMO.passo; aggiorna(); } });
+    campi.push({riga: d, num});
+    $("righe").appendChild(d);
+  });
+  document.querySelectorAll("[data-mix]").forEach(b => b.addEventListener("click", () => {
+    b.dataset.mix.split(",").forEach((n, i) => pz[i] = +n);
+    aggiorna();
+  }));
+  document.querySelector("[data-azzera]").addEventListener("click", () => { pz.fill(0); aggiorna(); });
+  $("officina").addEventListener("input", aggiornaWa);
+
+  const totale = () => pz.reduce((a, b) => a + b, 0);
+
+  function aggiorna() {
+    const n = totale(), ok = n >= PROMO.minimo;
+    campi.forEach((c, i) => { c.num.textContent = pz[i]; c.riga.classList.toggle("on", pz[i] > 0); });
+    $("barra").firstChild.style.width = Math.min(100, n / PROMO.minimo * 100) + "%";
+    $("barra").classList.toggle("ok", ok);
+    $("stato").classList.toggle("ok", ok);
+    if (!n) {
+      $("stato").textContent = "0 pezzi su 40 minimi";
+      $("tot").textContent = "–";
+      $("totTesto").textContent = "Totale + IVA";
+    } else if (!ok) {
+      $("stato").textContent = n + " pezzi: ne mancano " + (PROMO.minimo - n) + " per il minimo";
+      $("tot").textContent = euro(n * PROMO.prezzo);
+      $("totTesto").textContent = n + " × 14,00 € + IVA (sotto il minimo di 40)";
+    } else {
+      $("stato").textContent = "✓ " + n + " pezzi: minimo raggiunto, spedizione inclusa";
+      $("tot").textContent = euro(n * PROMO.prezzo);
+      $("totTesto").textContent = n + " × 14,00 € + IVA, spedizione inclusa";
+    }
+    if (n) { $("ordine").classList.remove("salta"); void $("ordine").offsetWidth; $("ordine").classList.add("salta"); }
+    aggiornaWa();
+  }
+
+  function aggiornaWa() {
+    const n = totale();
+    let testo, etichetta;
+    if (fase === "finita") {
+      testo = "Ciao Federico, ho visto il nuovo sensore MATE MULTIsens+. Mi dici le offerte attive?";
+      etichetta = "Chiedimi le offerte attive";
+    } else if (n) {
+      testo = "Ciao Federico, vorrei la *PROMO LANCIO MATE MULTIsens+* (9–22 novembre):\n" +
+        VERSIONI.map((v, i) => pz[i] ? "• MULTIsens+ " + v.nome + ": " + pz[i] + " pz" : "").filter(Boolean).join("\n") +
+        "\nTotale: " + n + " pz × 14,00 € = " + euro(n * PROMO.prezzo) + " + IVA" +
+        (n >= PROMO.minimo ? ", spedizione inclusa" : " (sotto il minimo di 40)") +
+        (fase === "prima" ? "\nLo inserisci appena parte la promo, il 9 novembre." : "") +
+        "\n\nOfficina: " + $("officina").value.trim();
+      etichetta = n >= PROMO.minimo ? "Invia l'ordine su WhatsApp" : "Invia (ne mancano " + (PROMO.minimo - n) + " al minimo)";
+    } else {
+      testo = "Ciao Federico, ho visto la promo lancio del nuovo MATE MULTIsens+ a 14,00 €. Mi dai qualche informazione?";
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    $("wa").href = "https://wa.me/" + PROMO.telefono + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = etichetta;
+  }
+
+  /* comparsa delle caratteristiche */
+  const schede = [...$("punti").children];
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vista"); io.unobserve(e.target); } }), {threshold: .2});
+    schede.forEach((s, i) => { s.style.transitionDelay = (i % 2) * 120 + "ms"; io.observe(s); });
+  } else schede.forEach(s => s.classList.add("vista"));
+
+  $("timer").addEventListener("click", e => {
+    e.preventDefault();
+    $("secOrdine").scrollIntoView({behavior: "smooth", block: "start"});
+  });
+
+  tick();
+  aggiorna();
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fix Pack MAK</title>
+<meta name="description" content="Fix Pack MAK: 176 pezzi, più di 300 applicazioni, 154,00 €. Scegli i kit di dadi e bulloni e mandami l'ordine su WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fix Pack MAK · 176 pezzi a 154,00 €">
+<meta property="og:description" content="Dadi e bulloni per oltre 300 applicazioni. Scegli codici e quantità e mandami l'ordine su WhatsApp in un tocco.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/michele/fix-pack/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/michele/fix-pack/">
+<meta name="theme-color" content="#0e0f12">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#f4f5f7; --mute:#a3a8b2; --card:#1a1c21; --card2:#24272e; --line:#33363e; --bg:#0e0f12; --verde:#25d366;
+  --after:#7cf05a; --orig:#4fd7ff;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+/* locandina con riflesso */
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);animation:riflesso 5s 1s infinite}
+@keyframes riflesso{0%{left:-60%}35%,100%{left:130%}}
+
+/* barra in alto */
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:#000;color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:1px solid var(--line);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secOrdine{scroll-margin-top:10px}
+
+/* prezzo */
+.prezzo{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#2a0b0d,#16171b);border:1px solid #4a1418;border-radius:16px;padding:16px}
+.prezzo b{font-family:var(--titolo);font-size:48px;line-height:1;padding-top:6px;white-space:nowrap}
+.prezzo p{margin:0;color:var(--mute);font-size:15px}
+.prezzo p strong{color:var(--ink)}
+
+/* schede kit */
+.kits{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kit{position:relative;text-align:left;font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 12px 10px;cursor:pointer;
+  opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s,border-color .2s}
+.kit.vis{opacity:1;transform:none}
+.kit .tipo{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:6px;padding:2px 6px}
+.kit .tipo.A{color:var(--after);background:rgba(124,240,90,.12)}
+.kit .tipo.O{color:var(--orig);background:rgba(79,215,255,.12)}
+.kit h3{margin:6px 0 2px;font-family:var(--titolo);font-size:24px;line-height:1;text-transform:uppercase}
+.kit .app{display:block;color:var(--mute);font-size:13px;line-height:1.25;min-height:2.5em}
+.kit .det{display:block;margin-top:6px;font-size:13px}
+.kit .det b{color:var(--red)}
+.kit .cod{display:block;margin-top:4px;font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--mute)}
+.kit .piu{position:absolute;right:10px;top:10px;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1}
+.kit.aggiunto{border-color:var(--verde)}
+.kit.aggiunto .piu{background:var(--verde);color:#062e16}
+
+/* ordine a righe */
+.card{background:var(--card);border-radius:16px;padding:14px}
+.riga{display:grid;grid-template-columns:1fr auto auto;gap:8px 6px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.riga select{grid-column:1/-1}
+.riga:first-child{padding-top:0}
+select,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px}
+select{-webkit-appearance:none;appearance:none;padding-right:30px;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 16px) 50%,calc(100% - 10px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.qta{display:flex;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:12px}
+.qta button{width:36px;height:44px;border:0;background:none;color:var(--ink);font-size:20px}
+.qta input{width:34px;height:44px;border:0;background:none;color:var(--ink);text-align:center;font-family:var(--titolo);font-size:24px;padding:4px 0 0;-moz-appearance:textfield}
+.qta input::-webkit-outer-spin-button,.qta input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.togli{width:36px;height:44px;border:0;background:none;color:var(--mute);font-size:22px}
+.info{font-size:12px;line-height:1.3;color:var(--mute)}
+.azioni{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.azioni button{font:inherit;font-weight:600;font-size:15px;border-radius:12px;padding:12px 8px;border:1px dashed #50545e;background:none;color:var(--ink)}
+.azioni button.pack{border:1px solid var(--red);background:rgba(218,33,40,.15)}
+label.f{display:block;font-size:13px;color:var(--mute);margin:16px 0 6px;text-transform:uppercase;letter-spacing:1px}
+.riep{margin-top:16px;padding-top:14px;border-top:1px dashed #50545e;font-size:14px;color:var(--mute);white-space:pre-line}
+.riep b{color:var(--ink)}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.03)}60%{transform:scale(.99)}}
+
+/* contatti */
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--red);border-color:var(--red);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:130px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+/* bottone fisso WhatsApp */
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(14,15,18,0),rgba(14,15,18,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .kit{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secOrdine">
+  <span><b>Vuoi ordinare?</b> Scegli codici e quantità: l'ordine me lo mandi su WhatsApp</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Fix Pack MAK 2026: 176 pezzi, più di 300 applicazioni, 154,00 euro. Kit di dadi e bulloni per Ford, Jeep, Fiat Alfa Lancia, Audi VW Seat Skoda, Stellantis, BMW Mini" width="853" height="1280">
+</div>
+
+<section>
+  <div class="prezzo">
+    <b>154,00 €</b>
+    <p><strong>Fix Pack completo</strong>: 7 kit, 176 pezzi, più di 300 applicazioni. Bloccaggio garantito sulle ruote in lega.</p>
+  </div>
+</section>
+
+<section>
+  <h2>I <em>kit</em> del Fix Pack</h2>
+  <p class="sub">Tocca un kit per aggiungerlo all'ordine.</p>
+  <div class="kits" id="kits"></div>
+</section>
+
+<section id="secOrdine">
+  <h2>Il tuo <em>ordine</em></h2>
+  <p class="sub">Una riga per codice: scegli il kit e la quantità.</p>
+  <div class="card" id="ordine">
+    <div id="righe"></div>
+    <div class="azioni">
+      <button type="button" id="aggiungi">+ Aggiungi riga</button>
+      <button type="button" class="pack" id="pack">+ Fix Pack completo</button>
+    </div>
+    <label class="f" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+    <div class="riep" id="riep"></div>
+  </div>
+  <p class="nota">Se preferisci, puoi ordinare da solo sul portale B2B con gli stessi codici.</p>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393475406935">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><img src="logo-mak-bianco.svg" alt="MAK"><b>Michele Bracchi</b> · Agente MAK · 347 540 6935<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script>
+/* i 7 kit della locandina; nel Fix Pack completo ci sono "n" confezioni di ciascuno */
+const KIT = [
+  {cod:"8050000902", marca:"Ford", app:"Fiesta, Focus, ecc. dal 2012 in poi", pezzi:"20 dadi", chiave:19, tipo:"A", n:2},
+  {cod:"8000000959", marca:"Jeep", app:"Renegade, Compass", pezzi:"20 bulloni", chiave:17, tipo:"A", n:2},
+  {cod:"8000000938", marca:"Jeep", app:"Compass, Cherokee", pezzi:"20 bulloni", chiave:19, tipo:"A", n:1},
+  {cod:"8000008539", marca:"Fiat · Alfa · Lancia", app:"Vari modelli", pezzi:"16 bulloni", chiave:17, tipo:"O", n:1},
+  {cod:"8050008210", marca:"Audi · VW · Seat · Skoda", app:"Vari modelli", pezzi:"20 bulloni", chiave:17, tipo:"O", n:1},
+  {cod:"8000008551", marca:"Stellantis", app:"Citroën, Peugeot, Opel, Fiat, ecc.", pezzi:"20 bulloni", chiave:17, tipo:"O", n:1},
+  {cod:"8000008512", marca:"BMW · Mini", app:"Tutti i modelli · M14x1,25", pezzi:"20 bulloni", chiave:17, tipo:"O", n:1}
+];
+const PACK = "FIXPACK";
+const TIPO = {A:"Aftermarket", O:"Originale"};
+const TELEFONO = "393475406935";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+  const kit = cod => KIT.find(k => k.cod === cod);
+  const nome = k => k.marca + " ch" + k.chiave;
+
+  /* schede kit */
+  KIT.forEach(k => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "kit";
+    b.dataset.cod = k.cod;
+    b.innerHTML = '<span class="piu">+</span><span class="tipo ' + k.tipo + '">' + TIPO[k.tipo] + '</span>' +
+      '<h3>' + k.marca + '</h3><span class="app">' + k.app + '</span>' +
+      '<span class="det"><b>' + k.pezzi + '</b> · chiave ' + k.chiave + '</span>' +
+      '<span class="cod">' + k.cod + '</span>';
+    b.addEventListener("click", () => {
+      const r = righe.find(r => r.cod === k.cod);
+      if (r) r.q++;
+      else {
+        const vuota = righe.find(r => !r.cod);
+        if (vuota) { vuota.cod = k.cod; vuota.q = 1; } else righe.push({cod: k.cod, q: 1});
+      }
+      disegna();
+    });
+    $("kits").appendChild(b);
+  });
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll(".kit").forEach((v, i) => setTimeout(() => v.classList.add("vis"), i * 90));
+        io.disconnect();
+      }
+    }), {threshold: .15});
+    io.observe($("kits"));
+  } else document.querySelectorAll(".kit").forEach(v => v.classList.add("vis"));
+
+  /* righe dell'ordine */
+  let righe = [{cod: "", q: 1}];
+
+  function opzioni(sel, scelto) {
+    sel.add(new Option("Scegli il kit…", ""));
+    sel.add(new Option("FIX PACK completo · 154,00 €", PACK));
+    const gruppi = {A: document.createElement("optgroup"), O: document.createElement("optgroup")};
+    gruppi.A.label = "Aftermarket"; gruppi.O.label = "Originale";
+    KIT.forEach(k => gruppi[k.tipo].appendChild(new Option(nome(k) + " · " + k.cod, k.cod)));
+    sel.appendChild(gruppi.A); sel.appendChild(gruppi.O);
+    sel.value = scelto;
+  }
+
+  function disegna() {
+    const box = $("righe");
+    box.innerHTML = "";
+    righe.forEach((r, i) => {
+      const d = document.createElement("div");
+      d.className = "riga";
+      const sel = document.createElement("select");
+      sel.setAttribute("aria-label", "Kit riga " + (i + 1));
+      opzioni(sel, r.cod);
+      sel.addEventListener("change", () => {
+        const doppia = righe.findIndex((x, j) => j !== i && x.cod && x.cod === sel.value);
+        if (doppia >= 0) { righe[doppia].q += r.q; righe.splice(i, 1); }
+        else r.cod = sel.value;
+        disegna();
+      });
+      const q = document.createElement("div");
+      q.className = "qta";
+      q.innerHTML = '<button type="button" aria-label="Meno">−</button><input type="number" inputmode="numeric" min="1" max="999" aria-label="Quantità"><button type="button" aria-label="Più">+</button>';
+      const [meno, campo, piu] = q.children;
+      campo.value = r.q;
+      meno.addEventListener("click", () => { if (r.q > 1) { r.q--; disegna(); } });
+      piu.addEventListener("click", () => { if (r.q < 999) { r.q++; disegna(); } });
+      campo.addEventListener("change", () => { r.q = Math.min(999, Math.max(1, parseInt(campo.value, 10) || 1)); disegna(); });
+      const x = document.createElement("button");
+      x.type = "button"; x.className = "togli"; x.textContent = "×"; x.setAttribute("aria-label", "Togli riga");
+      x.addEventListener("click", () => {
+        righe.splice(i, 1);
+        if (!righe.length) righe.push({cod: "", q: 1});
+        disegna();
+      });
+      const info = document.createElement("div");
+      info.className = "info";
+      if (r.cod === PACK) info.textContent = "7 kit · 176 pezzi · più di 300 applicazioni";
+      else if (r.cod) { const k = kit(r.cod); info.textContent = TIPO[k.tipo] + " · " + k.pezzi + " · " + k.app; }
+      d.append(sel, info, q, x);
+      box.appendChild(d);
+    });
+    document.querySelectorAll(".kit").forEach(b => b.classList.toggle("aggiunto", righe.some(r => r.cod === b.dataset.cod)));
+    aggiorna();
+  }
+
+  $("aggiungi").addEventListener("click", () => { righe.push({cod: "", q: 1}); disegna(); });
+  $("pack").addEventListener("click", () => {
+    const r = righe.find(r => r.cod === PACK);
+    if (r) r.q++;
+    else {
+      const vuota = righe.find(r => !r.cod);
+      if (vuota) { vuota.cod = PACK; vuota.q = 1; } else righe.unshift({cod: PACK, q: 1});
+    }
+    disegna();
+  });
+  $("officina").addEventListener("input", aggiornaWa);
+
+  const piene = () => righe.filter(r => r.cod);
+  const euro = n => n.toFixed(2).replace(".", ",") + " €";
+  function voce(r) {
+    if (r.cod === PACK) return r.q + " × FIX PACK completo (154,00 € cad.)";
+    const k = kit(r.cod);
+    return r.q + " × " + k.cod + " · " + nome(k) + " " + TIPO[k.tipo].toLowerCase();
+  }
+
+  function aggiorna() {
+    const p = piene();
+    $("riep").innerHTML = "";
+    if (p.length) {
+      const pack = p.filter(r => r.cod === PACK).reduce((s, r) => s + r.q, 0);
+      const t = document.createElement("div");
+      t.innerHTML = "<b>Riepilogo</b>\n";
+      t.appendChild(document.createTextNode(p.map(voce).join("\n") +
+        (pack ? "\nFix Pack: " + euro(pack * 154) : "")));
+      $("riep").appendChild(t);
+      $("ordine").classList.remove("salta");
+      void $("ordine").offsetWidth;
+      $("ordine").classList.add("salta");
+    }
+    aggiornaWa();
+  }
+
+  function aggiornaWa() {
+    const p = piene();
+    let testo, etichetta;
+    if (p.length) {
+      const off = $("officina").value.trim();
+      testo = "Ciao Michele, vorrei ordinare dalla promo *Fix Pack*:\n" +
+        p.map(r => "• " + voce(r)).join("\n") +
+        "\n\nOfficina: " + off;
+      etichetta = "Invia l'ordine su WhatsApp";
+    } else {
+      testo = "Ciao Michele, ho visto la promo Fix Pack MAK. Mi dai qualche informazione?";
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = etichetta;
+  }
+
+  /* barra in alto: porta all'ordine e sparisce quando l'ordine è sullo schermo */
+  $("avviso").addEventListener("click", e => {
+    e.preventDefault();
+    $("secOrdine").scrollIntoView({behavior: "smooth", block: "start"});
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .15]})
+      .observe($("secOrdine"));
+  }
+
+  disegna();
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

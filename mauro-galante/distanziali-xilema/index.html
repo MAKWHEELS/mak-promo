@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Distanziali Xilema MAK</title>
+<meta name="description" content="Distanziali Xilema da MAK: scegli marca e vettura e trovi spessori e codici in coppia, solo distanziali o con i bulloni per cerchi originali o aftermarket. Richiesta su WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Distanziali Xilema · trova il codice per la tua vettura">
+<meta property="og:description" content="54 marche, oltre 870 modelli, spessori da 5 a 30 mm: scegli la vettura e mandami i codici su WhatsApp.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/mauro-galante/distanziali-xilema/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/mauro-galante/distanziali-xilema/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366; --ok:#14833b; --amb:#b45309;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:riflesso 5s 1s infinite}
+@keyframes riflesso{0%{left:-60%}35%,100%{left:130%}}
+
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secVettura{scroll-margin-top:10px}
+
+.card{background:var(--card);border-radius:16px;padding:14px}
+label.f{display:block;font-size:13px;color:var(--mute);margin:14px 0 6px;text-transform:uppercase;letter-spacing:1px}
+label.f:first-child{margin-top:0}
+select,input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 12px}
+select{-webkit-appearance:none;appearance:none;padding-right:30px;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 16px) 50%,calc(100% - 10px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:disabled{opacity:.45}
+
+/* risultati */
+#ris{margin-top:14px}
+.vettura{background:var(--ink);color:#fff;border-radius:14px 14px 0 0;padding:12px 14px}
+.vettura b{display:block;font-family:var(--titolo);font-size:26px;line-height:1;text-transform:uppercase;padding-top:3px}
+.vettura span{font-size:13px;color:#c9ccd2}
+.dati{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.dati div{background:#fff;padding:9px 12px;font-size:13px;color:var(--mute)}
+.dati div b{display:block;color:var(--ink);font-size:16px}
+.note{background:#fff;padding:10px 12px;border-top:1px solid var(--line);font-size:13px;color:var(--mute);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{font:inherit;font-size:13px;font-weight:700;border:1px solid #cfd2d8;background:var(--card);color:var(--ink);border-radius:20px;padding:4px 10px}
+.chip.ob{border-color:var(--amb);color:var(--amb);background:#fff7ed}
+.nota-testo{display:none;background:#fffbeb;border-top:1px solid #fde68a;padding:10px 12px;font-size:13px;line-height:1.4}
+.nota-testo.on{display:block}
+.spess{background:#fff;border-radius:0 0 14px 14px;padding:4px 12px 12px}
+.sp{padding:10px 0;border-top:1px solid var(--line)}
+.sp:first-child{border-top:0}
+.sp .t{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.sp .t b{font-family:var(--titolo);font-size:28px;line-height:1;padding-top:3px}
+.sp .t span{font-size:12px;color:var(--mute)}
+.codici{display:grid;gap:5px}
+.cod{font:inherit;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 10px;color:var(--ink);width:100%}
+.cod small{font-size:13px;color:var(--mute);line-height:1.2}
+.cod b{font-size:15px;white-space:nowrap}
+.cod.on{border-color:var(--red);background:#fff;box-shadow:inset 0 0 0 1px var(--red)}
+.cod.on b::after{content:" ✓";color:var(--red)}
+.cod:disabled{opacity:.35}
+.vuoto{color:var(--mute);font-size:14px;margin-top:10px}
+
+/* richiesta */
+.riep{font-size:14px;color:var(--mute)}
+.ri{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.ri:first-child{border-top:0}
+.ri .x{font-size:13px;line-height:1.3;min-width:0}
+.ri .x b{display:block;font-size:15px;color:var(--ink)}
+.qta{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px}
+.qta button{width:34px;height:40px;border:0;background:none;color:var(--ink);font-size:20px}
+.qta b{min-width:22px;text-align:center;font-family:var(--titolo);font-size:22px;padding-top:4px}
+.togli{width:32px;height:40px;border:0;background:none;color:var(--mute);font-size:20px}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.03)}60%{transform:scale(.99)}}
+
+/* tipi */
+.tipi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tipi div{background:var(--card);border-radius:14px;padding:10px;text-align:center;border-top:4px solid var(--red)}
+.tipi img{width:100%;height:100px;object-fit:contain;mix-blend-mode:multiply;display:block}
+.tipi b{display:block;font-family:var(--titolo);font-size:19px;text-transform:uppercase;line-height:1;margin-top:6px}
+.tipi span{font-size:12px;color:var(--mute);line-height:1.25;display:block;margin-top:3px}
+.avv{margin-top:12px;font-size:13px;color:var(--mute);background:#fff7ed;border-radius:12px;padding:10px 12px;border-left:4px solid var(--amb)}
+
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:130px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor;flex:none}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secVettura">
+  <span><b>Scegli la vettura:</b> trovi spessori e codici dei distanziali</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Distanziali Xilema da MAK: 54 marche, oltre 870 modelli, spessori da 5 a 30 mm; con anello di centraggio, senza anello, con boccole, fuoristrada" width="1620" height="2025">
+</div>
+
+<section id="secVettura">
+  <h2>Trova i <em>distanziali</em></h2>
+  <p class="sub">Scegli marca e vettura: vedi gli spessori disponibili e i codici. Tocca un codice per aggiungerlo alla richiesta.</p>
+  <div class="card">
+    <label class="f" for="marca">Marca</label>
+    <select id="marca"><option value="">Scegli la marca…</option></select>
+    <label class="f" for="vett">Vettura</label>
+    <select id="vett" disabled><option value="">Prima la marca</option></select>
+    <div id="ris"></div>
+  </div>
+</section>
+
+<section>
+  <h2>La tua <em>richiesta</em></h2>
+  <div class="card" id="richiesta">
+    <div class="riep" id="riep"></div>
+    <label class="f" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+  </div>
+  <p class="nota">Le quantità sono in coppie. Prezzo e disponibilità te li confermo io su WhatsApp.</p>
+</section>
+
+<section>
+  <h2>Tipi di <em>distanziale</em></h2>
+  <div class="tipi">
+    <div><img src="foto/anello.jpg" alt=""><b>Con anello di centraggio</b><span>Centrano la ruota sul mozzo come l'originale.</span></div>
+    <div><img src="foto/senza-anello.jpg" alt=""><b>Senza anello</b><span>Spessori sottili (5–10 mm con *): centra il bullone.</span></div>
+    <div><img src="foto/boccole.jpg" alt=""><b>Con boccole</b><span>Boccole filettate: si fissano al mozzo, la ruota al distanziale.</span></div>
+    <div><img src="foto/fuoristrada.jpg" alt=""><b>Fuoristrada</b><span>Con colonnette, per mezzi a dado.</span></div>
+  </div>
+  <p class="avv" id="disclaimer"></p>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393420923719">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><img src="logo-mak-nero.svg" alt="MAK"><b>Mauro Galante</b> · Agente MAK · 342 092 3719<br>Dati: elenco vetture e distanziali Xilema.<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script src="dati.js"></script>
+<script>
+const TELEFONO = "393420923719";
+const VARIANTI = ["Solo distanziali", "Con bulloni cerchi originali", "Con bulloni cerchi aftermarket"];
+const VAR_BREVE = ["solo distanziali", "con bulloni per cerchi originali", "con bulloni per cerchi aftermarket"];
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  $("disclaimer").textContent = XIL.legenda.disclaimer;
+
+  /* vetture raggruppate: marca → [{nome, righe}] */
+  const per = {};
+  XIL.righe.forEach(r => {
+    const m = XIL.marche[r[0]], chiave = r[1] + (r[2] ? " (" + r[2] + ")" : "");
+    const lista = per[m] || (per[m] = {});
+    (lista[chiave] || (lista[chiave] = [])).push(r);
+  });
+  Object.keys(per).sort((a, b) => a.localeCompare(b, "it")).forEach(m => $("marca").add(new Option(m, m)));
+
+  $("marca").addEventListener("change", () => {
+    const m = $("marca").value, s = $("vett");
+    s.innerHTML = "";
+    if (!m) { s.add(new Option("Prima la marca", "")); s.disabled = true; }
+    else {
+      s.add(new Option("Scegli la vettura… (" + Object.keys(per[m]).length + ")", ""));
+      Object.keys(per[m]).sort((a, b) => a.localeCompare(b, "it", {numeric: true})).forEach(v => s.add(new Option(v, v)));
+      s.disabled = false;
+    }
+    mostra();
+  });
+  $("vett").addEventListener("change", mostra);
+
+  const mm = sp => parseFloat(sp) || 0;
+  function mostra() {
+    const m = $("marca").value, v = $("vett").value, box = $("ris");
+    box.innerHTML = "";
+    if (!m || !v) return;
+    const righe = per[m][v].slice().sort((a, b) => mm(a[8]) - mm(b[8]));
+    const uguale = i => righe.every(r => r[i] === righe[0][i]);
+    const comune = [3, 4, 6, 7].filter(uguale);
+    let h = '<div class="vettura"><b>' + esc(m) + ' ' + esc(per[m][v][0][1]) + '</b><span>' + esc(righe[0][2] || "") + '</span></div><div class="dati">';
+    if (comune.includes(6)) h += '<div>Interasse<b>' + esc(XIL.pcd[righe[0][6]]) + '</b></div>';
+    if (comune.includes(7)) h += '<div>Centraggio<b>' + esc(XIL.centraggi[righe[0][7]]) + '</b></div>';
+    if (comune.includes(3)) h += '<div style="grid-column:1/-1">Fissaggio<b>' + esc(XIL.attacchi[righe[0][3]] || "—") + '</b></div>';
+    h += '</div>';
+    if (comune.includes(4)) h += noteHtml(righe[0]);
+    h += '<div class="spess">';
+    righe.forEach(r => {
+      const extra = [];
+      if (!comune.includes(6)) extra.push(XIL.pcd[r[6]]);
+      if (!comune.includes(7)) extra.push("centr. " + XIL.centraggi[r[7]]);
+      if (!comune.includes(3)) extra.push(XIL.attacchi[r[3]]);
+      h += '<div class="sp"><div class="t"><b>' + esc(r[8]) + '</b><span>' + esc(extra.filter(Boolean).join(" · ")) + (r[8].includes("*") ? (extra.length ? " · " : "") + "senza anello di centraggio" : "") + '</span></div>';
+      if (!comune.includes(4)) h += noteHtml(r, true);
+      h += '<div class="codici">' + [9, 10, 11].map((i, k) => r[i]
+        ? '<button type="button" class="cod" data-c="' + esc(r[i]) + '" data-k="' + k + '" data-sp="' + esc(r[8]) + '"><small>' + VARIANTI[k] + '</small><b>' + esc(r[i]) + '</b></button>'
+        : '<button type="button" class="cod" disabled><small>' + VARIANTI[k] + '</small><b>—</b></button>').join("") + '</div></div>';
+    });
+    h += '</div>';
+    box.innerHTML = h;
+    box.querySelectorAll(".cod[data-c]").forEach(b => b.addEventListener("click", () => {
+      const id = b.dataset.c + "|" + m + "|" + v;
+      const i = sel.findIndex(x => x.id === id);
+      if (i >= 0) sel.splice(i, 1);
+      else sel.push({id, cod: b.dataset.c, var: +b.dataset.k, sp: b.dataset.sp, vett: m + " " + v, n: 1});
+      aggiorna();
+    }));
+    box.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
+      const t = c.closest(".blocco-note").querySelector(".nota-testo"), n = c.dataset.n;
+      const on = t.classList.contains("on") && t.dataset.n === n;
+      t.classList.toggle("on", !on); t.dataset.n = n;
+      const l = XIL.legenda.note[n];
+      t.innerHTML = "<b>Nota " + n + ".</b> " + esc(l ? l.t : "");
+    }));
+    segna();
+  }
+  function noteHtml(r, piccolo) {
+    const lista = XIL.note[r[4]] || [];
+    if (!lista.length) return "";
+    return '<div class="blocco-note"' + (piccolo ? ' style="margin:0 0 6px"' : '') + '><div class="note"' + (piccolo ? ' style="padding:0;border:0"' : '') + '>' + (r[5] ? "⚠ Obbligo leggere la nota:" : "Note:") + ' ' +
+      lista.map(n => '<button type="button" class="chip' + (r[5] ? ' ob' : '') + '" data-n="' + n + '">' + n + '</button>').join("") + '</div><div class="nota-testo"></div></div>';
+  }
+
+  /* richiesta */
+  const sel = [];
+  function segna() {
+    document.querySelectorAll(".cod[data-c]").forEach(b => b.classList.toggle("on", sel.some(x => x.id === b.dataset.c + "|" + $("marca").value + "|" + $("vett").value)));
+  }
+  let primo = true;
+  function aggiorna() {
+    segna();
+    const box = $("riep");
+    box.innerHTML = "";
+    if (!sel.length) box.textContent = "Nessun codice scelto: scegli la vettura e tocca i codici che ti interessano.";
+    sel.forEach((x, i) => {
+      const d = document.createElement("div");
+      d.className = "ri";
+      d.innerHTML = '<div class="x"><b>' + esc(x.cod) + ' · ' + esc(x.sp) + '</b>' + esc(x.vett) + '<br>' + VAR_BREVE[x.var] + '</div>' +
+        '<div class="qta"><button type="button" aria-label="Meno">−</button><b>' + x.n + '</b><button type="button" aria-label="Più">+</button></div><button type="button" class="togli" aria-label="Togli">×</button>';
+      const [meno, , piu] = d.querySelector(".qta").children;
+      meno.addEventListener("click", () => { if (x.n > 1) { x.n--; aggiorna(); } });
+      piu.addEventListener("click", () => { if (x.n < 20) { x.n++; aggiorna(); } });
+      d.querySelector(".togli").addEventListener("click", () => { sel.splice(i, 1); aggiorna(); });
+      box.appendChild(d);
+    });
+    if (!primo && sel.length) { $("richiesta").classList.remove("salta"); void $("richiesta").offsetWidth; $("richiesta").classList.add("salta"); }
+    primo = false;
+    aggiornaWa();
+  }
+  $("officina").addEventListener("input", aggiornaWa);
+
+  function aggiornaWa() {
+    let testo, etichetta;
+    if (sel.length) {
+      testo = "Ciao Mauro, mi servono questi *distanziali Xilema*:\n" +
+        sel.map(x => "• " + x.n + (x.n === 1 ? " coppia " : " coppie ") + x.cod + " (" + x.sp + ", " + VAR_BREVE[x.var] + ") per " + x.vett).join("\n") +
+        "\nMi dai prezzo e disponibilità?\n\nOfficina: " + $("officina").value.trim();
+      etichetta = "Invia la richiesta su WhatsApp";
+    } else {
+      testo = "Ciao Mauro, mi servono dei distanziali Xilema. Mi aiuti a trovare quelli giusti?";
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = etichetta;
+  }
+
+  $("avviso").addEventListener("click", e => { e.preventDefault(); $("secVettura").scrollIntoView({behavior: "smooth", block: "start"}); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .1]})
+      .observe($("secVettura"));
+  }
+  aggiorna();
+});
+</script>
+<script>/* ricerche per il contatore anonimo (conta.js) */
+document.addEventListener("DOMContentLoaded", () => {
+  const el = id => document.getElementById(id);
+  const testo = id => { const e = el(id); return e && e.value ? (e.tagName === "SELECT" ? e.options[e.selectedIndex].text : e.value).trim() : ""; };
+  const quando = (ids, f) => ids.forEach(id => el(id) && el(id).addEventListener("change", () => { const t = f(); if (t && window.conta) window.conta("ricerca", t); }));
+  const misura = (l, s, d) => quando([l, s, d], () => el(l).value && el(s).value && el(d).value ? el(l).value + "/" + el(s).value + " R" + el(d).value : "");
+  const vettura = (m, mo) => quando([mo], () => testo(m) && testo(mo) ? testo(m) + " " + testo(mo) : "");
+  vettura("marca","vett");
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

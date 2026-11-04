@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Starter kit calze NPK</title>
+<meta name="description" content="Starter kit NPK: 10 paia di calze da neve Multigrip Light con le taglie che scegli tu + espositore da banco a 188,40 € + IVA. Trova la taglia dalla misura del pneumatico e ordina su WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Starter kit calze NPK · 10 paia Light + espositore a 188,40 € + IVA">
+<meta property="og:description" content="Metti la misura del pneumatico, trovi la taglia, componi il tuo kit da 10 paia e me lo mandi su WhatsApp.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/oscar/calze-light-espositore/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/oscar/calze-light-espositore/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366; --ok:#14833b; --neve:#eaf2fb;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:riflesso 5s 1s infinite}
+@keyframes riflesso{0%{left:-60%}35%,100%{left:130%}}
+
+/* fiocchi di neve sulla locandina */
+.fiocchi{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.fiocchi i{position:absolute;top:-10px;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 4px rgba(120,160,210,.9);opacity:.9;animation:cade linear infinite}
+@keyframes cade{to{transform:translate(var(--x),105vh)}}
+
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secTaglia{scroll-margin-top:10px}
+
+/* ricerca taglia */
+.card{background:var(--card);border-radius:16px;padding:14px}
+.misura{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:6px;align-items:center}
+.misura i{font-style:normal;color:var(--mute);font-weight:600}
+select,input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 12px}
+select{-webkit-appearance:none;appearance:none;padding-right:28px;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 15px) 50%,calc(100% - 9px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:disabled{opacity:.45}
+.esito{margin-top:12px;min-height:84px;display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:12px;border:2px dashed #cfd2d8}
+.esito.ok{border:2px solid var(--red)}
+.esito .tg{flex:none;width:68px;height:68px;border-radius:12px;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--titolo);line-height:1}
+.esito .tg small{font-size:12px;letter-spacing:1px}
+.esito .tg b{font-size:40px;padding-top:2px}
+.esito .tx{flex:1;font-size:14px;color:var(--mute);line-height:1.3}
+.esito .tx b{display:block;color:var(--ink);font-size:16px}
+.esito button{flex:none;font:inherit;font-weight:700;font-size:14px;border:0;border-radius:12px;background:var(--ink);color:#fff;padding:12px 12px}
+.pop{animation:pop .4s}
+@keyframes pop{40%{transform:scale(1.06)}}
+
+/* kit */
+.progress{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.progress b{font-family:var(--titolo);font-size:34px;line-height:1;padding-top:3px;white-space:nowrap}
+.barra{flex:1;height:14px;border-radius:7px;background:#dcdfe4;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--red);border-radius:7px;transition:width .35s,background .35s}
+.barra.ok i{background:var(--ok)}
+.stato{font-size:14px;font-weight:600;margin-bottom:6px}
+.stato.ok{color:var(--ok)}
+.riga{display:grid;grid-template-columns:54px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.riga .t{width:54px;height:46px;border-radius:10px;background:#fff;border-top:4px solid var(--red);display:flex;align-items:center;justify-content:center;font-family:var(--titolo);font-size:28px;padding-top:4px}
+.riga .info{font-size:13px;color:var(--mute);line-height:1.25;min-width:0}
+.riga .info b{display:block;color:var(--ink);font-size:14px}
+.riga .info span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.riga.on .t{background:var(--red);color:#fff}
+.qta{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px}
+.qta button{width:36px;height:42px;border:0;background:none;color:var(--ink);font-size:21px}
+.qta b{min-width:26px;text-align:center;font-family:var(--titolo);font-size:24px;padding-top:4px}
+.riga.on .qta{border-color:var(--red)}
+.veloci{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.veloci button{font:inherit;font-weight:600;font-size:14px;border-radius:12px;padding:11px 6px;border:1px dashed #b9bdc4;background:#fff;color:var(--ink)}
+.veloci .mix{border:1px solid var(--red);background:rgba(218,33,40,.08)}
+.totale{margin-top:14px;padding-top:12px;border-top:1px dashed #b9bdc4;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.totale span{font-size:13px;color:var(--mute);line-height:1.3}
+.totale b{font-family:var(--titolo);font-size:36px;line-height:1;white-space:nowrap}
+label.f{display:block;font-size:13px;color:var(--mute);margin:16px 0 6px;text-transform:uppercase;letter-spacing:1px}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.03)}60%{transform:scale(.99)}}
+
+/* cosa c'è nel kit */
+.dentro{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dentro div{background:var(--neve);border-radius:14px;padding:12px;text-align:center}
+.dentro img{width:100%;height:150px;object-fit:contain;mix-blend-mode:multiply;display:block}
+.dentro b{display:block;font-family:var(--titolo);font-size:22px;text-transform:uppercase;line-height:1;margin-top:6px}
+.dentro span{font-size:13px;color:var(--mute)}
+.punti{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:6px;font-size:14px}
+.punti li::before{content:"✓ ";color:var(--red);font-weight:700}
+
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:150px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor;flex:none}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .fiocchi{display:none}
+}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secTaglia">
+  <span><b>Componi il kit:</b> metti la misura del pneumatico, la taglia la trovo io</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Starter kit NPK: 10 paia di calze da neve Multigrip Light con taglie a scelta più espositore da banco a 188,40 euro più IVA, 18,84 euro a paio" width="1620" height="2025">
+  <div class="fiocchi" id="fiocchi"></div>
+</div>
+
+<section id="secTaglia">
+  <h2>Trova la <em>taglia</em></h2>
+  <p class="sub">Scegli la misura del pneumatico: ti dico quale Light serve e la aggiungi al kit.</p>
+  <div class="card">
+    <div class="misura">
+      <select id="larg" aria-label="Larghezza"></select><i>/</i>
+      <select id="serie" aria-label="Serie" disabled></select><i>R</i>
+      <select id="diam" aria-label="Diametro" disabled></select>
+    </div>
+    <div class="esito" id="esito"><div class="tx">Scegli larghezza, serie e diametro.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Il tuo kit da <em>10 paia</em></h2>
+  <p class="sub">Puoi mischiare le taglie come vuoi. Con l'espositore da banco incluso.</p>
+  <div class="card" id="kit">
+    <div class="progress"><b id="conta">0 / 10</b><div class="barra" id="barra"><i></i></div></div>
+    <div class="stato" id="stato"></div>
+    <div id="righe"></div>
+    <div class="veloci">
+      <button type="button" class="mix" id="mix">Mix più ordinato</button>
+      <button type="button" id="azzera">Azzera</button>
+    </div>
+    <div class="totale"><span id="totTesto">Kit completo: 10 paia + espositore, + IVA</span><b id="tot">188,40 €</b></div>
+    <label class="f" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+  </div>
+  <p class="nota">«Mix più ordinato»: le taglie Light che i gommisti della zona ordinano di più, divise su 10 paia.</p>
+</section>
+
+<section>
+  <h2>Cosa c'è nel <em>kit</em></h2>
+  <div class="dentro">
+    <div><img src="foto/espositore.jpg" alt="Espositore da banco NPK" width="559" height="725"><b>Espositore</b><span>da banco, con grafica NPK</span></div>
+    <div><img src="foto/light-ruota.jpg" alt="Calza Multigrip Light montata" width="436" height="600"><b>10 paia Light</b><span>NPK Multigrip Light, taglie 1–9</span></div>
+  </div>
+  <ul class="punti">
+    <li>Omologate UNI EN 16662-1 e ON 5121</li>
+    <li>Silenziose e semplici da montare</li>
+    <li>Adatte anche alle vetture non catenabili</li>
+  </ul>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393490717481">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><img src="logo-npk.svg" alt="NPK"><b>Oscar Padova</b> · Agente MAK · 349 071 7481<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script src="kit.js"></script>
+<script>
+const TELEFONO = "393490717481";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+
+  /* fiocchi */
+  const fi = $("fiocchi");
+  for (let k = 0; k < 26; k++) {
+    const i = document.createElement("i");
+    const s = 3 + Math.random() * 6;
+    i.style.cssText = "left:" + (Math.random() * 100) + "%;width:" + s + "px;height:" + s + "px;animation-duration:" + (7 + Math.random() * 9) + "s;animation-delay:-" + (Math.random() * 12) + "s;--x:" + (Math.random() * 60 - 30) + "px";
+    fi.appendChild(i);
+  }
+
+  /* misure: larghezza → serie → diametro */
+  const MIS = Object.keys(FIT).map(k => { const m = k.match(/^(\d+)\/(\d+)R([\d.]+)$/); return m && {k, l: m[1], s: m[2], d: m[3]}; }).filter(Boolean);
+  const uniche = (arr, f) => [...new Set(arr.map(f))].sort((a, b) => parseFloat(a) - parseFloat(b));
+  const opz = (sel, valori, vuoto) => { sel.innerHTML = ""; sel.add(new Option(vuoto, "")); valori.forEach(v => sel.add(new Option(v, v))); };
+  opz($("larg"), uniche(MIS, m => m.l), "Largh.");
+  opz($("serie"), [], "Serie");
+  opz($("diam"), [], "Ø");
+
+  $("larg").addEventListener("change", () => {
+    const l = $("larg").value;
+    opz($("serie"), uniche(MIS.filter(m => m.l === l), m => m.s), "Serie");
+    opz($("diam"), [], "Ø");
+    $("serie").disabled = !l; $("diam").disabled = true;
+    mostra();
+  });
+  $("serie").addEventListener("change", () => {
+    const l = $("larg").value, s = $("serie").value;
+    const d = uniche(MIS.filter(m => m.l === l && m.s === s), m => m.d);
+    opz($("diam"), d, "Ø");
+    $("diam").disabled = !s;
+    if (d.length === 1) $("diam").value = d[0];
+    mostra();
+  });
+  $("diam").addEventListener("change", mostra);
+
+  let trovata = null;
+  function mostra() {
+    const l = $("larg").value, s = $("serie").value, d = $("diam").value;
+    const e = $("esito");
+    trovata = null;
+    e.classList.remove("ok", "pop");
+    if (l && s && d) {
+      const misura = l + "/" + s + "R" + d, t = FIT[misura];
+      if (t) {
+        trovata = {t, misura: l + "/" + s + " R" + d};
+        e.classList.add("ok");
+        e.innerHTML = '<div class="tg"><small>TAGLIA</small><b>' + t + '</b></div><div class="tx"><b>' + trovata.misura + '</b>Cod. ' + codice(t) + '</div><button type="button" id="aggiungi">+ Al kit</button>';
+        $("aggiungi").addEventListener("click", () => { q[t]++; misure[t].add(trovata.misura); aggiorna(); });
+        void e.offsetWidth; e.classList.add("pop");
+        return;
+      }
+    }
+    e.innerHTML = '<div class="tx">' + (l ? "Completa la misura." : "Scegli larghezza, serie e diametro.") + '</div>';
+  }
+
+  /* kit */
+  const q = {}, misure = {};
+  TAGLIE.forEach(t => { q[t] = 0; misure[t] = new Set(); });
+  const righe = {};
+  TAGLIE.forEach(t => {
+    const d = document.createElement("div");
+    d.className = "riga";
+    d.innerHTML = '<div class="t">' + t + '</div><div class="info"><b>Taglia ' + t + ' · ' + codice(t) + '</b><span></span></div>' +
+      '<div class="qta"><button type="button" aria-label="Meno">−</button><b>0</b><button type="button" aria-label="Più">+</button></div>';
+    const [meno, num, piu] = d.querySelector(".qta").children;
+    meno.addEventListener("click", () => { if (q[t] > 0) { q[t]--; if (!q[t]) misure[t].clear(); aggiorna(); } });
+    piu.addEventListener("click", () => { if (q[t] < 99) { q[t]++; aggiorna(); } });
+    righe[t] = {d, num, info: d.querySelector(".info span")};
+    $("righe").appendChild(d);
+  });
+  $("mix").addEventListener("click", () => { TAGLIE.forEach(t => { q[t] = MIX[t] || 0; misure[t].clear(); }); aggiorna(); });
+  $("azzera").addEventListener("click", () => { TAGLIE.forEach(t => { q[t] = 0; misure[t].clear(); }); aggiorna(); });
+  $("officina").addEventListener("input", aggiornaWa);
+
+  const totale = () => TAGLIE.reduce((a, t) => a + q[t], 0);
+  let primo = true;
+
+  function aggiorna() {
+    const n = totale();
+    TAGLIE.forEach(t => {
+      righe[t].num.textContent = q[t];
+      righe[t].d.classList.toggle("on", q[t] > 0);
+      righe[t].info.textContent = misure[t].size ? [...misure[t]].join(", ") : (q[t] ? "" : "");
+    });
+    $("conta").textContent = n + " / " + KIT.paia;
+    $("barra").firstChild.style.width = Math.min(100, n / KIT.paia * 100) + "%";
+    $("barra").classList.toggle("ok", n === KIT.paia);
+    const st = $("stato");
+    st.classList.toggle("ok", n === KIT.paia);
+    if (!n) st.textContent = "Aggiungi le taglie: dalla ricerca qui sopra o con + e −.";
+    else if (n < KIT.paia) st.textContent = "Ne mancano " + (KIT.paia - n) + " per completare il kit.";
+    else if (n === KIT.paia) st.textContent = "✓ Kit completo: 10 paia + espositore.";
+    else st.textContent = "Il kit è da 10 paia: le " + (n - KIT.paia) + " in più te le preparo io a parte.";
+    if (!primo) { $("kit").classList.remove("salta"); void $("kit").offsetWidth; $("kit").classList.add("salta"); }
+    primo = false;
+    aggiornaWa();
+  }
+
+  function aggiornaWa() {
+    const n = totale();
+    let testo, etichetta;
+    if (n) {
+      testo = "Ciao Oscar, vorrei lo *Starter kit calze NPK Light + espositore* (188,40 € + IVA):\n" +
+        TAGLIE.filter(t => q[t]).map(t => "• Taglia " + t + " (" + codice(t) + "): " + q[t] + (q[t] === 1 ? " paio" : " paia") + (misure[t].size ? " · " + [...misure[t]].join(", ") : "")).join("\n") +
+        "\nTotale: " + n + " paia" + (n < KIT.paia ? " (ne mancano " + (KIT.paia - n) + ")" : n > KIT.paia ? " (" + (n - KIT.paia) + " oltre il kit da 10)" : "") +
+        "\n\nOfficina: " + $("officina").value.trim();
+      etichetta = n === KIT.paia ? "Invia il kit su WhatsApp" : n < KIT.paia ? "Invia (" + n + " / 10 paia)" : "Invia il kit su WhatsApp";
+    } else {
+      testo = "Ciao Oscar, mi interessa lo starter kit calze NPK con espositore. Mi dai qualche informazione?";
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = etichetta;
+  }
+
+  $("avviso").addEventListener("click", e => {
+    e.preventDefault();
+    $("secTaglia").scrollIntoView({behavior: "smooth", block: "start"});
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .1]})
+      .observe($("secTaglia"));
+  }
+
+  aggiorna();
+});
+</script>
+<script>/* ricerche per il contatore anonimo (conta.js) */
+document.addEventListener("DOMContentLoaded", () => {
+  const el = id => document.getElementById(id);
+  const testo = id => { const e = el(id); return e && e.value ? (e.tagName === "SELECT" ? e.options[e.selectedIndex].text : e.value).trim() : ""; };
+  const quando = (ids, f) => ids.forEach(id => el(id) && el(id).addEventListener("change", () => { const t = f(); if (t && window.conta) window.conta("ricerca", t); }));
+  const misura = (l, s, d) => quando([l, s, d], () => el(l).value && el(s).value && el(d).value ? el(l).value + "/" + el(s).value + " R" + el(d).value : "");
+  const vettura = (m, mo) => quando([mo], () => testo(m) && testo(mo) ? testo(m) + " " + testo(mo) : "");
+  misura("larg","serie","diam");
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Canali ETRTO MAK</title>
+<meta name="description" content="Che canale ci va? Metti la misura del pneumatico e vedi su quali larghezze di cerchio si può montare secondo le tabelle ETRTO. Verifica il tuo cerchio e chiedi il cerchio MAK giusto su WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Che canale ci va? · Verifica ETRTO pneumatico e cerchio">
+<meta property="og:description" content="684 misure delle tabelle ETRTO: scegli il pneumatico, vedi i canali ammessi e verifica il tuo cerchio. Gratis, sul telefono.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/federico/canali-etrto/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/federico/canali-etrto/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366; --ok:#14833b; --no:#b42318;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:riflesso 5s 1s infinite}
+@keyframes riflesso{0%{left:-60%}35%,100%{left:130%}}
+
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secMisura{scroll-margin-top:10px}
+
+.card{background:var(--card);border-radius:16px;padding:14px}
+.misura{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:6px;align-items:center}
+.misura i{font-style:normal;color:var(--mute);font-weight:600}
+select,input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 12px}
+select{-webkit-appearance:none;appearance:none;padding-right:28px;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 15px) 50%,calc(100% - 9px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:disabled{opacity:.45}
+
+/* risultato */
+.ris{margin-top:12px;background:#fff;border-radius:14px;padding:14px;display:none}
+.ris.on{display:block;animation:pop .35s}
+@keyframes pop{0%{transform:scale(.97);opacity:.4}100%{transform:none;opacity:1}}
+.ris .m{font-family:var(--titolo);font-size:40px;line-height:1;padding-top:4px}
+.ris .r{font-family:var(--titolo);font-size:30px;color:var(--ok);line-height:1;margin-top:2px;padding-top:3px}
+.scala{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px}
+.scala div{flex:1 0 13%;text-align:center;padding:9px 0 5px;border-radius:8px;background:var(--card);font-family:var(--titolo);font-size:19px;color:#9aa0a8;transition:background .3s,color .3s}
+.scala div.ok{background:var(--ok);color:#fff}
+.scala div.tuo{outline:3px solid var(--ink);outline-offset:1px}
+.scala div.tuo.no{background:#fee4e2;color:var(--no)}
+.lettera{font-size:12px;color:var(--mute);margin-top:6px}
+
+/* verifica cerchio */
+.verifica{margin-top:14px;padding-top:12px;border-top:1px dashed #cfd2d8}
+.verifica label{display:block;font-size:13px;color:var(--mute);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+.esito{margin-top:10px;border-radius:12px;padding:12px;font-size:15px;display:none}
+.esito.on{display:block}
+.esito.si{background:#e7f6ec;color:var(--ok)}
+.esito.no{background:#fee4e2;color:var(--no)}
+.esito b{display:block;font-family:var(--titolo);font-size:26px;line-height:1;padding-top:3px;margin-bottom:2px}
+
+label.f{display:block;font-size:13px;color:var(--mute);margin:16px 0 6px;text-transform:uppercase;letter-spacing:1px}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+
+/* spiegazione */
+.spiega{display:grid;gap:8px}
+.spiega div{background:var(--card);border-radius:12px;padding:12px;font-size:14px;border-left:4px solid var(--red)}
+.spiega b{display:block;font-family:var(--titolo);font-size:21px;text-transform:uppercase;line-height:1;padding-top:2px;margin-bottom:3px}
+
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:130px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor;flex:none}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secMisura">
+  <span><b>Che canale ci va?</b> Metti la misura del pneumatico e lo vedi subito</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Che canale ci va? Metti la misura del pneumatico e scopri su quali larghezze di cerchio si può montare secondo le tabelle ETRTO. Esempio: 205/55 R16 da 5 e mezzo J a 7 e mezzo J" width="1620" height="2025">
+</div>
+
+<section id="secMisura">
+  <h2>Misura del <em>pneumatico</em></h2>
+  <p class="sub">Scegli larghezza, serie e diametro: ti mostro i canali ammessi dalle tabelle ETRTO.</p>
+  <div class="card">
+    <div class="misura">
+      <select id="larg" aria-label="Larghezza"></select><i>/</i>
+      <select id="serie" aria-label="Serie" disabled></select><i>R</i>
+      <select id="diam" aria-label="Diametro" disabled></select>
+    </div>
+    <div class="ris" id="ris">
+      <div class="m" id="rMis"></div>
+      <div class="r" id="rRange"></div>
+      <div class="scala" id="scala"></div>
+      <div class="lettera" id="lettera"></div>
+      <div class="verifica">
+        <label for="cerchio">Hai già il cerchio? Che canale è?</label>
+        <select id="cerchio"></select>
+        <div class="esito" id="esito"></div>
+      </div>
+    </div>
+  </div>
+  <p class="nota">Esempio da provare: 205 / 55 R 16.</p>
+</section>
+
+<section>
+  <h2>La tua <em>richiesta</em></h2>
+  <div class="card">
+    <p class="sub" style="margin:0" id="riep">Scegli una misura: il messaggio WhatsApp la conterrà già, con i canali ammessi.</p>
+    <label class="f" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+  </div>
+</section>
+
+<section>
+  <h2>Come si <em>legge</em></h2>
+  <div class="spiega">
+    <div><b>Il canale</b>È la larghezza interna del cerchio, tra le due flange, in pollici: 7J vuol dire 7 pollici.</div>
+    <div><b>La lettera</b>J e B indicano il profilo della flangia: J per le auto, B per le misure piccole.</div>
+    <div><b>ETRTO e libretto</b>La tabella dice su quali canali il pneumatico si monta in modo corretto. Per circolare conta anche il libretto: per abbinamenti diversi chiedimi.</div>
+  </div>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393356384363">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><img src="logo-mak-nero.svg" alt="MAK"><b>Federico Gorgoglione</b> · Agente MAK · 335 638 4363<br>Dati: tabelle ETRTO, 684 misure.<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script src="dati.js"></script>
+<script>
+const TELEFONO = "393356384363";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+
+  /* canale → numero e lettera: "5½J" → {v:5.5, l:"J"}, "3.50B" → {v:3.5, l:"B"} */
+  const leggi = c => { const m = c.match(/^([\d.]+)(½?)([A-Z]*)$/); return {v: parseFloat(m[1]) + (m[2] ? .5 : 0), l: m[3] || "J"}; };
+  const scrivi = (v, l) => l === "B" ? v.toFixed(2) + "B" : (Math.floor(v) + (v % 1 ? "½" : "") + l);
+
+  const MIS = Object.keys(ETRTO).map(k => { const [l, s, d] = k.split("_"); return {k, l, s, d}; });
+  const uniche = (arr, f) => [...new Set(arr.map(f))].sort((a, b) => parseFloat(a) - parseFloat(b));
+  const opz = (sel, valori, vuoto) => { sel.innerHTML = ""; sel.add(new Option(vuoto, "")); valori.forEach(v => sel.add(new Option(v, v))); };
+  opz($("larg"), uniche(MIS, m => m.l), "Largh.");
+  opz($("serie"), [], "Serie");
+  opz($("diam"), [], "Ø");
+
+  $("larg").addEventListener("change", () => {
+    const l = $("larg").value;
+    opz($("serie"), uniche(MIS.filter(m => m.l === l), m => m.s), "Serie");
+    opz($("diam"), [], "Ø");
+    $("serie").disabled = !l; $("diam").disabled = true;
+    const s = uniche(MIS.filter(m => m.l === l), m => m.s);
+    if (s.length === 1) { $("serie").value = s[0]; $("serie").dispatchEvent(new Event("change")); return; }
+    mostra();
+  });
+  $("serie").addEventListener("change", () => {
+    const l = $("larg").value, s = $("serie").value;
+    const d = uniche(MIS.filter(m => m.l === l && m.s === s), m => m.d);
+    opz($("diam"), d, "Ø");
+    $("diam").disabled = !s;
+    if (d.length === 1) $("diam").value = d[0];
+    mostra();
+  });
+  $("diam").addEventListener("change", mostra);
+  $("cerchio").addEventListener("change", verifica);
+  $("officina").addEventListener("input", aggiornaWa);
+
+  let cur = null;
+  function mostra() {
+    const l = $("larg").value, s = $("serie").value, d = $("diam").value;
+    const k = l + "_" + s + "_" + d;
+    if (!(l && s && d && ETRTO[k])) { cur = null; $("ris").classList.remove("on"); aggiornaWa(); return; }
+    const can = ETRTO[k].map(c => ({c, ...leggi(c)}));
+    /* alcune misure piccole ammettono sia J sia B: la scala usa la J, il controllo guarda la larghezza */
+    const lett = can.some(x => x.l === "J") ? "J" : can[0].l;
+    const vs = [...new Set(can.map(x => x.v))], min = Math.min(...vs), max = Math.max(...vs);
+    cur = {mis: l + "/" + s + " R" + d, can, lett, min, max};
+    $("rMis").textContent = cur.mis;
+    $("rRange").textContent = can.length === 1 ? "solo " + can[0].c : "da " + scrivi(min, lett) + " a " + scrivi(max, lett);
+    /* scala: un canale e mezzo prima e dopo il campo ammesso */
+    const passi = [];
+    for (let v = Math.max(lett === "B" ? 2 : 3, min - 1.5); v <= max + 1.5 + 1e-9; v += .5) passi.push(v);
+    $("scala").innerHTML = passi.map(v => '<div data-v="' + v + '"' + (vs.includes(v) ? ' class="ok"' : '') + '>' + scrivi(v, lett) + '</div>').join("");
+    $("lettera").textContent = "Canali ammessi: " + can.map(x => x.c).join(" · ");
+    /* tendina del cerchio: tutte le larghezze della stessa lettera */
+    const prima = $("cerchio").value;
+    $("cerchio").innerHTML = "";
+    $("cerchio").add(new Option("Scegli il canale del tuo cerchio…", ""));
+    for (let v = lett === "B" ? 2 : 3; v <= 14; v += .5) $("cerchio").add(new Option(scrivi(v, lett), v));
+    if (prima) $("cerchio").value = prima;
+    $("ris").classList.remove("on"); void $("ris").offsetWidth; $("ris").classList.add("on");
+    verifica();
+  }
+
+  function verifica() {
+    const e = $("esito");
+    document.querySelectorAll("#scala div").forEach(d => d.classList.remove("tuo", "no"));
+    if (!cur || !$("cerchio").value) { e.className = "esito"; aggiornaWa(); return; }
+    const v = parseFloat($("cerchio").value), ok = cur.can.some(x => x.v === v);
+    const cella = document.querySelector('#scala div[data-v="' + v + '"]');
+    if (cella) { cella.classList.add("tuo"); if (!ok) cella.classList.add("no"); }
+    e.className = "esito on " + (ok ? "si" : "no");
+    e.innerHTML = ok
+      ? "<b>✓ Si può montare</b> " + cur.mis + " su un cerchio largo " + scrivi(v, cur.lett) + " rientra nelle tabelle ETRTO (" + cur.can.filter(x => x.v === v).map(x => x.c).join(" o ") + ")."
+      : "<b>✗ Fuori tabella ETRTO</b> Per " + cur.mis + " servono canali da " + scrivi(cur.min, cur.lett) + " a " + scrivi(cur.max, cur.lett) + ".";
+    aggiornaWa();
+  }
+
+  function aggiornaWa() {
+    let testo, etichetta;
+    const off = $("officina").value.trim();
+    if (cur) {
+      const v = $("cerchio").value ? parseFloat($("cerchio").value) : null;
+      const ok = v !== null && cur.can.some(x => x.v === v);
+      $("riep").innerHTML = "<b>" + cur.mis + "</b> · canali ammessi " + cur.can.map(x => x.c).join(", ") + (v !== null ? "<br>Cerchio " + scrivi(v, cur.lett) + ": " + (ok ? "ammesso" : "fuori tabella") : "");
+      testo = "Ciao Federico, ho verificato con la tabella ETRTO:\n• Pneumatico: " + cur.mis + "\n• Canali ammessi: " + cur.can.map(x => x.c).join(", ") +
+        (v !== null ? "\n• Il mio cerchio: " + scrivi(v, cur.lett) + (ok ? " (ammesso)" : " (fuori tabella)") : "") +
+        "\nMi proponi un cerchio MAK adatto?" + (off ? "\n\nOfficina: " + off : "");
+      etichetta = "Chiedi il cerchio MAK giusto";
+    } else {
+      $("riep").textContent = "Scegli una misura: il messaggio WhatsApp la conterrà già, con i canali ammessi.";
+      testo = "Ciao Federico, ho un dubbio su pneumatico e canale del cerchio. Mi aiuti?" + (off ? "\n\nOfficina: " + off : "");
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = etichetta;
+  }
+
+  $("avviso").addEventListener("click", e => { e.preventDefault(); $("secMisura").scrollIntoView({behavior: "smooth", block: "start"}); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .1]})
+      .observe($("secMisura"));
+  }
+  aggiornaWa();
+});
+</script>
+<script>/* ricerche per il contatore anonimo (conta.js) */
+document.addEventListener("DOMContentLoaded", () => {
+  const el = id => document.getElementById(id);
+  const testo = id => { const e = el(id); return e && e.value ? (e.tagName === "SELECT" ? e.options[e.selectedIndex].text : e.value).trim() : ""; };
+  const quando = (ids, f) => ids.forEach(id => el(id) && el(id).addEventListener("change", () => { const t = f(); if (t && window.conta) window.conta("ricerca", t); }));
+  const misura = (l, s, d) => quando([l, s, d], () => el(l).value && el(s).value && el(d).value ? el(l).value + "/" + el(s).value + " R" + el(d).value : "");
+  const vettura = (m, mo) => quando([mo], () => testo(m) && testo(mo) ? testo(m) + " " + testo(mo) : "");
+  misura("larg","serie","diam");
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

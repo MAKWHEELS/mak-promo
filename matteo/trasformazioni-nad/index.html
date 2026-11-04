@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trasformazioni NAD MAK</title>
+<meta name="description" content="Come fare le trasformazioni NAD a libretto in officina: requisiti, passi, documenti. Scarica Allegato B, Allegato C e il fac-simile dei bollettini.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trasformazioni NAD · la pratica la fai tu in officina">
+<meta property="og:description" content="Requisiti, i 4 passi e i moduli da scaricare: Allegato C, Allegato B e fac-simile dei bollettini.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/matteo/trasformazioni-nad/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/matteo/trasformazioni-nad/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366; --ok:#14833b; --no:#b42318;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:riflesso 5s 1s infinite}
+@keyframes riflesso{0%{left:-60%}35%,100%{left:130%}}
+
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secModuli,#secCaso{scroll-margin-top:10px}
+
+.card{background:var(--card);border-radius:16px;padding:14px}
+/* scelte radio */
+.scelte{display:grid;gap:8px}
+.scelte input{position:absolute;opacity:0;pointer-events:none}
+.scelte label{display:block;background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:600;font-size:15px;cursor:pointer}
+.scelte label small{display:block;font-weight:400;color:var(--mute);font-size:13px;margin-top:2px}
+.scelte input:checked+label{border-color:var(--red);background:#fff5f5}
+.due{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+
+/* requisiti */
+.req{display:grid;gap:8px}
+.req .r{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:10px 12px}
+.req .r b{display:block;font-size:15px}
+.req .r small{color:var(--mute);font-size:13px}
+.sn{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.sn input{position:absolute;opacity:0;pointer-events:none}
+.sn label{padding:8px 12px;font-weight:700;font-size:14px;cursor:pointer;background:#fff}
+.sn input:checked+label.si{background:var(--ok);color:#fff}
+.sn input:checked+label.no{background:var(--no);color:#fff}
+.verdetto{margin-top:12px;border-radius:12px;padding:12px 14px;font-size:15px;display:none}
+.verdetto.on{display:block;animation:pop .35s}
+@keyframes pop{0%{transform:scale(.97);opacity:.4}}
+.verdetto.si{background:#e7f6ec;color:var(--ok)}
+.verdetto.no{background:#fee4e2;color:var(--no)}
+.verdetto b{display:block;font-family:var(--titolo);font-size:26px;line-height:1;padding-top:3px;margin-bottom:3px}
+
+/* percorso */
+.passi{display:grid;gap:10px}
+.passo{display:grid;grid-template-columns:44px 1fr;gap:12px;background:var(--card);border-radius:14px;padding:14px;border-top:4px solid var(--red);
+  opacity:0;transform:translateX(-20px);transition:opacity .45s,transform .45s}
+.passo.vis{opacity:1;transform:none}
+.passo .n{font-family:var(--titolo);font-size:40px;line-height:1;color:var(--red)}
+.passo h3{margin:2px 0 4px;font-family:var(--titolo);font-size:24px;line-height:1;text-transform:uppercase}
+.passo p{margin:0;color:var(--mute);font-size:14px}
+.passo p strong{color:var(--ink)}
+.passo ul{margin:6px 0 0;padding-left:18px;color:var(--mute);font-size:14px}
+.passo a{color:var(--red);font-weight:700}
+.nascosto{display:none}
+.attenzione{margin-top:10px;background:#fff7ed;border-left:4px solid #b45309;border-radius:10px;padding:10px 12px;font-size:14px;color:#7c3a06}
+
+/* moduli */
+.moduli{display:grid;gap:10px}
+.mod{display:grid;grid-template-columns:70px 1fr;gap:12px;align-items:center;background:var(--card);border-radius:14px;padding:12px;text-decoration:none;color:var(--ink)}
+.mod img{width:70px;height:90px;object-fit:cover;object-position:top left;border-radius:4px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.mod b{display:block;font-family:var(--titolo);font-size:24px;line-height:1;text-transform:uppercase;padding-top:3px}
+.mod span{display:block;font-size:13px;color:var(--mute);margin-top:3px;line-height:1.3}
+.mod em{display:inline-block;margin-top:8px;font-style:normal;font-weight:700;font-size:14px;color:#fff;background:var(--red);border-radius:8px;padding:6px 10px}
+.costi{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.costi div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;color:var(--mute)}
+.costi b{display:block;font-family:var(--titolo);font-size:28px;color:var(--ink);line-height:1;padding-top:3px}
+
+.libretto{display:flex;align-items:center;gap:12px;background:#fff;border:2px dashed #cfd2d8;border-radius:14px;padding:12px;cursor:pointer}
+.libretto input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.libretto .ico{flex:none;width:52px;height:52px;border-radius:12px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden}
+.libretto .ico img{width:100%;height:100%;object-fit:cover}
+.libretto b{display:block;font-size:16px}
+.libretto small{color:var(--mute);font-size:13px}
+.libretto.ok{border-style:solid;border-color:var(--verde)}
+.togli{margin-left:auto;flex:none;border:0;background:none;color:var(--mute);font-size:14px;text-decoration:underline;padding:8px}
+.oppure{text-align:center;color:var(--mute);font-size:13px;margin:14px 0 0;text-transform:uppercase;letter-spacing:1px}
+input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+label.f{display:block;font-size:13px;color:var(--mute);margin:14px 0 6px;text-transform:uppercase;letter-spacing:1px}
+label.f:first-child{margin-top:0}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:130px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor;flex:none}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.passo{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secModuli">
+  <span><b>Moduli da scaricare:</b> Allegato C, Allegato B e bollettini</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Trasformazioni NAD: ruote e gomme nuove sul libretto, la pratica la fai tu in officina. Quattro passi: accredito con Allegato C, scelta della ruota sul B2B, montaggio e Allegato B, aggiornamento del libretto entro 30 giorni" width="1620" height="2025">
+</div>
+
+<section id="secCaso">
+  <h2>Ti serve <em>la pratica?</em></h2>
+  <p class="sub">Dipende dalla misura del pneumatico che vuoi montare.</p>
+  <div class="card">
+    <div class="scelte">
+      <input type="radio" name="caso" id="c1" value="nuova" checked><label for="c1">La misura NON è sul libretto<small>Es. passi dal 16" al 17": serve la trasformazione NAD a libretto.</small></label>
+      <input type="radio" name="caso" id="c2" value="libretto"><label for="c2">La misura è GIÀ sul libretto<small>Cambi solo la ruota: niente motorizzazione, bastano COC e dichiarazione.</small></label>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Si può <em>fare?</em></h2>
+  <p class="sub">Controlla i requisiti della vettura e della ruota.</p>
+  <div class="card">
+    <div class="req" id="req"></div>
+    <div class="verdetto" id="verdetto"></div>
+  </div>
+</section>
+
+<section>
+  <h2>Come si <em>fa</em></h2>
+  <p class="sub" id="percorsoSub"></p>
+  <div class="passi" id="passi">
+    <div class="passo solo-nuova"><span class="n">01</span><div><h3>Ti accrediti (una volta sola)</h3><p>Presenti l'<strong>Allegato C</strong> (disciplinare) alla tua motorizzazione, con copia del documento d'identità. Ricevi il <strong>codice identificativo MCTC</strong>, da scrivere su ogni dichiarazione.</p><p style="margin-top:6px"><a href="#secModuli">Scarica l'Allegato C ↓</a></p></div></div>
+    <div class="passo"><span class="n" data-n="02">02</span><div><h3>Scegli la ruota sul B2B</h3><p>Con il <strong>libretto</strong> sotto mano cerchi la vettura sul <strong>B2B MAK</strong>.</p><p class="solo-nuova" style="margin-top:6px">Sul prodotto tocchi il tasto <strong>NAD</strong>: si apre il certificato. Trovi la vettura e controlli che combacino:</p><ul class="solo-nuova"><li>omologazione europea del libretto («…» = tutte le estensioni; «da… a…» = deve rientrare);</li><li>codice ruota, attacco (PCD), mozzo ed ET;</li><li>la misura del pneumatico, tra quelle della riga.</li></ul></div></div>
+    <div class="passo"><span class="n" data-n="03">03</span><div><h3>Ordini e monti</h3><p class="solo-nuova">Ordini le quattro ruote MAK e monti <strong>una</strong> delle misure ammesse: a libretto se ne trascrive una sola. Indice di carico e velocità <strong>uguali o superiori</strong> a quelli del libretto.</p><p class="solo-libretto">Ordini le quattro ruote MAK con la misura già a libretto e le monti.</p></div></div>
+    <div class="passo"><span class="n" data-n="04">04</span><div><h3>Consegni i documenti</h3><p class="solo-nuova">Compili l'<strong>Allegato B</strong> (dichiarazione di installazione) e lo dai al cliente con il <strong>COC</strong> (la parte sinistra) e copia del certificato di conformità.</p><p class="solo-libretto">Dai al cliente il <strong>COC</strong> (la parte sinistra; la destra resta a te) e la <strong>Dichiarazione di corretto montaggio (Allegato E)</strong>, che scarichi dalla sezione «Conformità» del B2B. Il cliente li tiene in auto per i controlli.</p></div></div>
+    <div class="passo solo-nuova"><span class="n">05</span><div><h3>Il cliente aggiorna il libretto</h3><p>Entro <strong>30 giorni</strong> va in motorizzazione o in agenzia di pratiche auto con l'Allegato B, il COC e i due <strong>bollettini</strong>: esce con l'etichetta o il libretto ristampato.</p></div></div>
+  </div>
+  <div class="attenzione solo-nuova">Se accanto alla misura c'è la sigla <b>(GS0)</b> la ruota può sporgere dalla carrozzeria: scrivimi prima di ordinare, verifico con l'ufficio tecnico MAK.</div>
+</section>
+
+<section id="secModuli">
+  <h2>Moduli da <em>scaricare</em></h2>
+  <p class="sub">PDF ufficiali, pronti da stampare.</p>
+  <div class="moduli">
+    <a class="mod" href="pdf/Allegato-C-disciplinare-officina.pdf" download target="_blank" rel="noopener"><img src="prev-c-1.png" alt=""><div><b>Allegato C</b><span>Disciplinare per l'accredito dell'officina in motorizzazione (G.U. 13/2/2021), 2 pagine.</span><em>⬇ Scarica PDF</em></div></a>
+    <a class="mod" href="pdf/Allegato-B-installazione-sistemi-ruote.pdf" download target="_blank" rel="noopener"><img src="prev-b-1.png" alt=""><div><b>Allegato B</b><span>Dichiarazione di installazione dei sistemi ruote (G.U. 24/6/2022), 1 pagina.</span><em>⬇ Scarica PDF</em></div></a>
+    <a class="mod" href="pdf/Fac-simile-bollettini-NAD.pdf" download target="_blank" rel="noopener"><img src="prev-boll-1.png" alt=""><div><b>Bollettini</b><span>Fac-simile dei due versamenti per la motorizzazione.</span><em>⬇ Scarica PDF</em></div></a>
+  </div>
+  <div class="costi">
+    <div><b>16,00 €</b>c/c 4028 · imposta di bollo</div>
+    <div><b>25,00 €</b>c/c 9001 · diritti L. 14-67</div>
+  </div>
+  <p class="nota">Bollettini intestati al Dipartimento Trasporti Terrestri. Nelle regioni a statuto speciale verifica le modalità con la motorizzazione. Importi del fac-simile: controllali prima del versamento.</p>
+</section>
+
+<!--ESEMPIO-->
+<section id="secEsempio">
+  <h2>Esempio di <em>compilazione</em></h2>
+  <p class="sub">Come si riempiono i due allegati. In blu le parti da scrivere; i numeri rossi rimandano alle spiegazioni sotto.</p>
+  <style>
+.es-tab{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.es-tab input{position:absolute;opacity:0;pointer-events:none}
+.es-tab label{text-align:center;background:#fff;border:2px solid #e2e4e8;border-radius:12px;padding:10px;font-weight:700;cursor:pointer}
+.es-tab input:checked+label{border-color:#da2128;background:#fff5f5}
+.foglio{position:relative;background:#fff;border:1px solid #d6d9de;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.08);padding:16px 14px 14px;font-family:Georgia,"Times New Roman",serif;font-size:13.5px;line-height:1.75;color:#222}
+.foglio::before{content:"ESEMPIO";position:absolute;right:10px;top:8px;font-family:"DIN Condensed",sans-serif;font-weight:700;font-size:22px;letter-spacing:2px;color:#da2128;border:2px solid #da2128;border-radius:4px;padding:2px 8px 0;transform:rotate(6deg)}
+.foglio .intest{font-family:"Avenir Next",sans-serif;font-size:11px;color:#777;border-bottom:1px solid #ccc;padding-bottom:4px;margin:26px 0 8px}
+.foglio h4{text-align:center;font-style:italic;font-weight:400;margin:4px 0}
+.foglio p{margin:0 0 8px}
+.foglio .c{text-align:center}
+.foglio .piccolo{font-size:12px;color:#777;font-style:italic}
+.v{font-family:"Bradley Hand","Segoe Print","Comic Sans MS",cursive;color:#1d4ed8;font-size:15px;border-bottom:1px dotted #1d4ed8;padding:0 2px}
+.rc{display:inline-block;min-width:17px;height:17px;border-radius:50%;background:#da2128;color:#fff;font:700 11px/17px "Avenir Next",sans-serif;text-align:center;margin-left:2px;vertical-align:super}
+.barrato{text-decoration:line-through;text-decoration-color:#1d4ed8;text-decoration-thickness:2px}
+.firme{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px}
+.note-es{margin:12px 0 0;padding:0;list-style:none;counter-reset:n;display:grid;gap:6px}
+.note-es li{counter-increment:n;position:relative;padding:8px 10px 8px 36px;background:#fff;border-radius:10px;font-size:14px;line-height:1.35}
+.note-es li::before{content:counter(n);position:absolute;left:9px;top:8px;width:19px;height:19px;border-radius:50%;background:#da2128;color:#fff;font:700 11px/19px "Avenir Next",sans-serif;text-align:center}
+.es-dati{font-size:13px;color:#5d626b;margin:10px 0 0}
+</style>
+  <div class="es-tab">
+    <input type="radio" name="es" id="esC" checked><label for="esC">Allegato C</label>
+    <input type="radio" name="es" id="esB"><label for="esB">Allegato B</label>
+  </div>
+  <div id="esempioC">
+<div class="foglio">
+  <div class="intest">G.U. 13-2-2021 · Allegato C (articolo 2, comma 2)</div>
+  <h4>Disciplinare</h4>
+  <p>Il sottoscritto <span class="v">Mario Rossi</span><sup class="rc">1</sup> nato a <span class="v">Monza</span> il <span class="v">12/03/1975</span>
+  residente a <span class="v">Monza</span> via <span class="v">Roma 10</span> in qualità di <span class="v">titolare / legale rappresentante</span><sup class="rc">2</sup> della Ditta
+  <span class="v">Gomme Rossi S.r.l.</span> con sede in <span class="v">Monza, via Lecco 25</span> partita IVA o C.F. <span class="v">01234567890</span></p>
+  <p>con la sottoscrizione del presente disciplinare chiede l'identificazione della propria officina di autoriparazione presso
+  l'Ufficio Motorizzazione Civile di <span class="v">Milano</span><sup class="rc">3</sup> per le operazioni di modifiche alle caratteristiche costruttive o funzionali
+  che comportano l'aggiornamento della carta di circolazione […] riportate all'allegato A del decreto del Ministro delle infrastrutture
+  e dei trasporti <span class="v">19 maggio 2022</span><sup class="rc">4</sup> (ora in avanti "decreto").</p>
+  <p class="c"><b>DICHIARA</b></p>
+  <p>– di svolgere attività di autoriparazione ai sensi della legge 5 febbraio 1992, n. 122 e di essere iscritto alla CCIAA di
+  <span class="v">Milano Monza Brianza Lodi</span> al n. <span class="v">MB-123456</span><sup class="rc">5</sup> per le seguenti attività <span class="v">gommista</span></p>
+  <p>– di avere competenze […] per eseguire a perfetta regola d'arte le modifiche ricomprese nell'allegato A al decreto e che di seguito si specificano:<br>
+  <span class="v">6. Installazione sistemi ruota</span><sup class="rc">6</sup></p>
+  <p class="piccolo">[… dichiarazioni e impegni prestampati: non si compilano, si leggono …]</p>
+  <p>– che i recapiti dell'officina sono i seguenti: telefono <span class="v">039 1234567</span> indirizzo e-mail <span class="v">info@gommerossi.example</span> pec (eventuale) <span class="v">gommerossi@pec.example</span></p>
+  <div class="firme"><span>data <span class="v">26/10/2026</span></span><span>timbro e firma <span class="v"><i>timbro + Mario Rossi</i></span><sup class="rc">7</sup></span></div>
+  <p class="piccolo">nota: allegare copia di un valido documento di identità <span class="v">✓ carta d'identità allegata</span><sup class="rc">8</sup></p>
+</div>
+<ol class="note-es">
+  <li>Chi firma: il titolare o il legale rappresentante dell'officina.</li>
+  <li>Il ruolo nella ditta: titolare, legale rappresentante, amministratore.</li>
+  <li>La motorizzazione a cui consegni il modulo: quella della tua provincia.</li>
+  <li>Il decreto da citare per i sistemi ruota: il DM del 19 maggio 2022.</li>
+  <li>Il numero di iscrizione alla Camera di commercio (REA), come in visura.</li>
+  <li>Scrivi solo le modifiche che fai: per il gommista la voce 6 dell'allegato A, «Installazione sistemi ruota».</li>
+  <li>Timbro dell'officina e firma per esteso.</li>
+  <li>Senza documento d'identità il modulo non viene accettato. In cambio ricevi il <b>codice identificativo MCTC</b>.</li>
+</ol></div>
+  <div id="esempioB" hidden>
+<div class="foglio">
+  <div class="intest">G.U. 24-6-2022 · 5. Installazione dei sistemi ruote</div>
+  <p>Il sottoscritto <span class="v">Mario Rossi</span><sup class="rc">1</sup> nato a <span class="v">Monza</span> il <span class="v">12/03/1975</span>
+  residente a <span class="v">Monza</span> via <span class="v">Roma 10</span> in qualità di <span class="v">titolare</span> della
+  Ditta <span class="v">Gomme Rossi S.r.l.</span> con sede in <span class="v">Monza, via Lecco 25</span> partita IVA o C.F. <span class="v">01234567890</span>
+  Iscritta alla CCIAA di <span class="v">Milano Monza Brianza Lodi</span> sezione meccatronica.<sup class="rc">2</sup> codice identificativo MCTC n. <span class="v">MI-0000 (quello ricevuto)</span><sup class="rc">3</sup></p>
+  <p>Consapevole delle sanzioni previste dall'art. 76 del d.P.R. n. 445/2000 in caso di dichiarazioni mendaci e falsità negli atti</p>
+  <p class="c"><b>DICHIARA</b></p>
+  <p>– di aver installato sul veicolo targato <span class="v">AB123CD</span><sup class="rc">4</sup> telaio n. <span class="v">WVWZZZAUZHW000000</span> il sistema ruote
+  individuato dal numero di omologazione <span class="v">NADF294 Rev.00</span><sup class="rc">5</sup> e costituito dai seguenti elementi:<br>
+  1) <span class="v">n. 4 cerchi in lega MAK EMBLEMA 7,5Jx17 ET45, PCD 5x112, foro 57,1</span><sup class="rc">6</sup><br>
+  2) <span class="v">n. 4 pneumatici 225/45 R17 94W</span><br>
+  3) <span class="v">bulloneria / anelli di centraggio come da certificato, se previsti</span></p>
+  <p>– che il suddetto sistema ruote rientra tra quelli previsti per tipo funzionale del veicolo;<br>
+  – che l'installazione è stata effettuata a perfetta regola d'arte e nel rispetto delle prescrizioni fornite costruttore del sistema stesso
+  <s class="barrato">e di quelle del costruttore del veicolo</s><sup class="rc">7</sup>.</p>
+  <p>Si allega alla presente: – copia certificato conformità del sistema ruota <span class="v">✓ COC allegato</span><sup class="rc">8</sup></p>
+  <div class="firme"><span>Luogo e data <span class="v">Monza, 26/10/2026</span></span><span>firma <span class="v"><i>Mario Rossi</i></span></span></div>
+</div>
+<ol class="note-es">
+  <li>Gli stessi dati dell'Allegato C.</li>
+  <li>«Sezione meccatronica» è stampato sul modulo ufficiale anche se la pratica spetta ai gommisti: non correggerlo da solo, chiedi alla tua motorizzazione come lo vuole.</li>
+  <li>Il codice che la motorizzazione ti ha dato dopo l'Allegato C.</li>
+  <li>Targa e numero di telaio presi dal libretto (voci A ed E).</li>
+  <li>Il numero di omologazione NAD della ruota: lo trovi sul certificato NAD (tasto NAD sul B2B) e sul COC.</li>
+  <li>Gli elementi del sistema ruote, come sulla riga del certificato: cerchi (modello, misura, ET, PCD, foro) e la <b>sola</b> misura di pneumatico montata, con indici di carico e velocità uguali o superiori al libretto.</li>
+  <li>La frase si cancella se non ricorre, cioè se il costruttore del veicolo non dà prescrizioni sul montaggio.</li>
+  <li>Allega la copia del COC della ruota. Al cliente consegni Allegato B + COC: ha 30 giorni per aggiornare il libretto con i due bollettini.</li>
+</ol></div>
+  <p class="es-dati">Dati di fantasia (officina, persona, targa e telaio inventati), solo per mostrare cosa va in ogni spazio.</p>
+  <a class="mod" style="margin-top:10px" href="pdf/Esempio-compilazione-Allegati-B-C.pdf" download target="_blank" rel="noopener"><img src="prev-b-1.png" alt=""><div><b>Esempio compilato</b><span>Allegato C e Allegato B con le spiegazioni, in PDF da stampare.</span><em>⬇ Scarica PDF</em></div></a>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const t = () => { const b = document.getElementById("esB").checked; document.getElementById("esempioB").hidden = !b; document.getElementById("esempioC").hidden = b; };
+  document.getElementById("esC").addEventListener("change", t); document.getElementById("esB").addEventListener("change", t);
+});
+</script>
+<!--/ESEMPIO-->
+
+<section>
+  <h2>Hai un <em>caso?</em></h2>
+  <p class="sub">Dimmi vettura e misura: ti indico la ruota MAK NAD giusta.</p>
+  <div class="card">
+    <label class="f">Libretto di circolazione</label>
+    <label class="libretto" id="librettoBox" for="libretto">
+      <input type="file" id="libretto" accept="image/*">
+      <span class="ico" id="librettoIco">📷</span>
+      <span><b id="librettoTit">Carica il libretto</b><small id="librettoSub">Una foto basta: controllo io omologazione e misure ammesse.</small></span>
+      <button type="button" class="togli" id="togli" hidden>Togli</button>
+    </label>
+    <p class="oppure">oppure scrivi i dati</p>
+    <label class="f" for="vettura">Vettura</label>
+    <input type="text" id="vettura" placeholder="Es. Volkswagen Golf VII" autocomplete="off">
+    <label class="f" for="misura">Misura che vuoi montare</label>
+    <input type="text" id="misura" placeholder="Es. 225/45 R17" autocomplete="off">
+    <label class="f">Hai già il codice MCTC?</label>
+    <div class="due scelte">
+      <input type="radio" name="mctc" id="m1" value="sì"><label for="m1">Sì</label>
+      <input type="radio" name="mctc" id="m2" value="no"><label for="m2">Non ancora</label>
+    </div>
+    <label class="f" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+  </div>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393932505569">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><img src="logo-mak-nero.svg" alt="MAK"><b>Matteo Colzani</b> · Agente MAK · 393 250 5569<br>Riferimenti: DM 19/5/2022, circolare MIMS dell'8/7/2022.<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script>
+const TELEFONO = "393932505569";
+const REQ = [
+  {id: "m1", t: "Autovettura M1", s: "Voce J del libretto: «autovettura per trasporto di persone». Sugli N1 la NAD non si fa."},
+  {id: "it", t: "Libretto italiano", s: "Vettura immatricolata in Italia."},
+  {id: "nad", t: "Ruota con certificazione NAD", s: "Le ruote MAK hanno il certificato NAD sul B2B (tasto NAD)."}
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+  const val = n => { const r = document.querySelector("input[name=" + n + "]:checked"); return r ? r.value : ""; };
+
+  /* requisiti sì/no */
+  REQ.forEach(r => {
+    $("req").insertAdjacentHTML("beforeend",
+      '<div class="r"><div><b>' + r.t + '</b><small>' + r.s + '</small></div><div class="sn">' +
+      '<input type="radio" name="' + r.id + '" id="' + r.id + 's" value="sì"><label class="si" for="' + r.id + 's">Sì</label>' +
+      '<input type="radio" name="' + r.id + '" id="' + r.id + 'n" value="no"><label class="no" for="' + r.id + 'n">No</label></div></div>');
+  });
+
+  function verdetto() {
+    const v = $("verdetto"), risp = REQ.map(r => val(r.id));
+    v.className = "verdetto";
+    if (risp.includes("no")) {
+      const r = REQ[risp.indexOf("no")];
+      v.className = "verdetto on no";
+      v.innerHTML = "<b>✗ Non si può fare</b>" + (r.id === "m1" ? "Sui veicoli N1 (van, autocarri leggeri) le trasformazioni NAD non sono ammesse." : r.id === "it" ? "Serve una vettura con libretto italiano." : "Serve una ruota con certificazione NAD: scegline una MAK sul B2B.") + " Se hai dubbi scrivimi.";
+    } else if (risp.every(x => x === "sì")) {
+      v.className = "verdetto on si";
+      v.innerHTML = "<b>✓ Si può fare</b>" + (val("caso") === "nuova" ? "Segui i passi qui sotto: trasformazione NAD a libretto." : "Misura già a libretto: bastano COC e dichiarazione di corretto montaggio.");
+    }
+    aggiornaWa();
+  }
+
+  /* percorso secondo il caso */
+  function percorso() {
+    const nuova = val("caso") === "nuova";
+    document.querySelectorAll(".solo-nuova").forEach(e => e.classList.toggle("nascosto", !nuova));
+    document.querySelectorAll(".solo-libretto").forEach(e => e.classList.toggle("nascosto", nuova));
+    let n = 1;
+    document.querySelectorAll(".passo").forEach(p => { if (!p.classList.contains("nascosto")) p.querySelector(".n").textContent = String(n++).padStart(2, "0"); });
+    $("percorsoSub").textContent = nuova ? "Trasformazione NAD a libretto: 5 passi, il primo una volta sola." : "Misura già a libretto: niente motorizzazione, 3 passi.";
+    verdetto();
+  }
+  document.querySelectorAll("input[type=radio]").forEach(r => r.addEventListener("change", () => r.name === "caso" ? percorso() : verdetto()));
+  ["vettura", "misura", "officina"].forEach(id => $(id).addEventListener("input", aggiornaWa));
+
+  /* comparsa dei passi */
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vis"); io.unobserve(e.target); } }), {threshold: .15});
+    document.querySelectorAll(".passo").forEach(p => io.observe(p));
+  } else document.querySelectorAll(".passo").forEach(p => p.classList.add("vis"));
+
+  /* libretto: la foto resta sul telefono e parte solo verso WhatsApp */
+  let libretto = null, urlLib = null, testoWa = "";
+  const condivisioneFile = () => { try { return !!(libretto && navigator.canShare && navigator.canShare({files: [libretto]})); } catch (e) { return false; } };
+  $("libretto").addEventListener("change", e => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    libretto = f;
+    if (urlLib) URL.revokeObjectURL(urlLib);
+    urlLib = URL.createObjectURL(f);
+    $("librettoIco").innerHTML = '<img alt="">';
+    $("librettoIco").firstChild.src = urlLib;
+    $("librettoTit").textContent = "Libretto caricato";
+    $("librettoSub").textContent = condivisioneFile() ? "Parte insieme alla richiesta con il bottone verde." : "Ricordati di allegarlo nella chat WhatsApp.";
+    $("librettoBox").classList.add("ok");
+    $("togli").hidden = false;
+    aggiornaWa();
+  });
+  $("togli").addEventListener("click", e => {
+    e.preventDefault();
+    libretto = null; $("libretto").value = "";
+    $("librettoIco").textContent = "📷";
+    $("librettoTit").textContent = "Carica il libretto";
+    $("librettoSub").textContent = "Una foto basta: controllo io omologazione e misure ammesse.";
+    $("librettoBox").classList.remove("ok");
+    $("togli").hidden = true;
+    aggiornaWa();
+  });
+  $("wa").addEventListener("click", e => {
+    if (!condivisioneFile()) return;
+    e.preventDefault();
+    navigator.share({files: [libretto], text: testoWa}).catch(err => { if (err && err.name !== "AbortError") window.open($("wa").href, "_blank"); });
+  });
+
+  function aggiornaWa() {
+    const vet = $("vettura").value.trim(), mis = $("misura").value.trim(), off = $("officina").value.trim(), mctc = val("mctc");
+    const nuova = val("caso") === "nuova";
+    const dati = vet || mis || mctc || libretto;
+    let testo;
+    if (dati) {
+      testo = "Ciao Matteo, ho un caso " + (nuova ? "di *trasformazione NAD a libretto*" : "di *ruote MAK con misura già a libretto*") + ":\n" +
+        (libretto ? "• Libretto: in allegato\n" : "") +
+        (vet ? "• Vettura: " + vet + "\n" : "") + (mis ? "• Misura: " + mis + "\n" : "") +
+        (mctc ? "• Codice MCTC: " + (mctc === "sì" ? "ce l'ho" : "non ancora") + "\n" : "") +
+        "Mi indichi la ruota MAK NAD giusta?" + (off ? "\n\nOfficina: " + off : "");
+    } else {
+      testo = "Ciao Matteo, vorrei fare le trasformazioni NAD in officina. Mi aiuti?" + (off ? "\n\nOfficina: " + off : "");
+    }
+    testoWa = testo;
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = libretto && condivisioneFile() ? "Invia libretto e caso" : dati ? "Invia il caso su WhatsApp" : "Scrivimi su WhatsApp";
+  }
+
+  $("avviso").addEventListener("click", e => { e.preventDefault(); $("secModuli").scrollIntoView({behavior: "smooth", block: "start"}); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .1]})
+      .observe($("secModuli"));
+  }
+  percorso();
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

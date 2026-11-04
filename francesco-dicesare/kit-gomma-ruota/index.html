@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kit Gomma&amp;Ruota MAK</title>
+<meta name="description" content="Kit completi Gomma&Ruota configurati sul B2B MAK: noi montiamo, bilanciamo, mettiamo i TPMS se servono e te li spediamo pronti da montare. Montaggio gratuito fino al 31/12.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kit Gomma&Ruota MAK · Montaggio gratuito fino al 31/12">
+<meta property="og:description" content="Tu scegli ruota e pneumatico, noi te li mandiamo montati, bilanciati e con i TPMS. Richiedi il tuo kit in un tocco.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/francesco-dicesare/kit-gomma-ruota/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/francesco-dicesare/kit-gomma-ruota/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+
+/* locandina con riflesso */
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:riflesso 5s 1s infinite}
+@keyframes riflesso{0%{left:-60%}35%,100%{left:130%}}
+
+/* conto alla rovescia */
+.timer{background:var(--red);color:#fff;text-align:center;padding:14px 12px;border-radius:16px}
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso b{color:#fff}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+body{padding-top:calc(56px + env(safe-area-inset-top))}
+#secRichiesta{scroll-margin-top:10px}
+.timer small{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.92}
+.cifre{display:flex;justify-content:center;gap:10px;font-family:var(--titolo);font-size:30px;line-height:1;margin-top:3px}
+.cifre span b{display:inline-block;min-width:1.3em}
+.cifre span i{font-style:normal;font-size:14px;opacity:.85;margin-left:1px}
+.timer.finita{background:#3f3f46}
+
+section{padding:28px 16px 6px}
+.card{background:var(--card);border-radius:16px;padding:16px}
+
+/* ruota che gira con lo scorrimento */
+.giro{position:relative;height:250px;margin:4px 0 0}
+.giro .disco{position:absolute;right:-60px;top:10px;width:235px;height:235px;border-radius:50%;background:var(--red)}
+.giro img{position:absolute;right:-34px;top:20px;width:215px;height:auto;will-change:transform;filter:drop-shadow(0 14px 16px rgba(0,0,0,.28))}
+.giro .testo{position:absolute;left:0;top:18px;width:50%}
+.giro .testo b{display:block;font-family:var(--titolo);font-size:40px;line-height:.9;text-transform:uppercase}
+.giro .testo b em{font-style:normal;color:var(--red)}
+.giro .testo p{margin:10px 0 0;color:var(--mute);font-size:15px}
+
+/* passaggi */
+.passi{display:grid;gap:10px}
+.passo{display:flex;gap:14px;align-items:flex-start;background:var(--card);border-top:4px solid var(--red);border-radius:4px 4px 14px 14px;padding:14px;
+  opacity:0;transform:translateX(-24px);transition:opacity .5s,transform .5s}
+.passo.vis{opacity:1;transform:none}
+.passo .n{font-family:var(--titolo);font-size:40px;line-height:1;color:var(--red);min-width:42px}
+.passo h3{margin:2px 0 4px;font-family:var(--titolo);font-size:26px;line-height:1;text-transform:uppercase}
+.passo p{margin:0;color:var(--mute);font-size:15px}
+.passo p strong{color:var(--ink)}
+
+/* risparmi */
+.risp{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.risp div{background:var(--card);border-radius:14px;padding:14px 12px;font-size:15px;font-weight:600;
+  opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
+.risp div.vis{opacity:1;transform:none}
+.risp div span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-size:17px;margin-bottom:8px}
+.claim{margin-top:12px;background:var(--red);color:#fff;text-align:center;border-radius:14px;padding:14px 10px 10px;
+  font-family:var(--titolo);font-size:clamp(20px,6.4vw,30px);line-height:1;text-transform:uppercase;white-space:nowrap}
+
+/* richiesta kit */
+label.f{display:block;font-size:13px;color:var(--mute);margin:14px 0 6px;text-transform:uppercase;letter-spacing:1px}
+label.f:first-child{margin-top:0}
+input[type=text],select{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+select{-webkit-appearance:none;appearance:none;padding-right:34px;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:disabled{opacity:.45}
+.libretto{display:flex;align-items:center;gap:12px;background:#fff;border:2px dashed #cfd2d8;border-radius:14px;padding:12px;cursor:pointer}
+.libretto input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.libretto .ico{flex:none;width:52px;height:52px;border-radius:12px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden}
+.libretto .ico img{width:100%;height:100%;object-fit:cover}
+.libretto b{display:block;font-size:16px}
+.libretto small{color:var(--mute);font-size:13px}
+.libretto.ok{border-style:solid;border-color:var(--verde)}
+.togli{margin-left:auto;flex:none;border:0;background:none;color:var(--mute);font-size:14px;text-decoration:underline;padding:8px}
+.oppure{text-align:center;color:var(--mute);font-size:13px;margin:14px 0 0;text-transform:uppercase;letter-spacing:1px}
+.due{display:grid;grid-template-columns:1fr 110px;gap:8px}
+#altroModello{margin-top:8px}
+.misura{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:6px;align-items:center}
+.misura i{font-style:normal;color:var(--mute);font-weight:600}
+.marche{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.scelte{display:flex;gap:8px;flex-wrap:wrap}
+.scelte input{position:absolute;opacity:0;pointer-events:none}
+.scelte label{flex:1;min-width:90px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 8px;font-weight:600;font-size:15px}
+.scelte input:checked+label{background:var(--ink);border-color:var(--ink);color:#fff}
+.scelte.griglia{display:grid;grid-template-columns:1fr 1fr}
+.scelte .pallino{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1px solid #9ca0a8}
+.qta{display:flex;align-items:center;gap:12px}
+.qta button{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:22px}
+.qta b{font-family:var(--titolo);font-size:34px;min-width:30px;text-align:center;line-height:1;padding-top:4px}
+.qta small{color:var(--mute)}
+.riep{margin-top:16px;padding-top:14px;border-top:1px dashed #cfd2d8;font-size:14px;color:var(--mute);white-space:pre-line}
+.riep b{color:var(--ink)}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.04)}60%{transform:scale(.99)}}
+
+/* contatti */
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);
+  background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:130px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+/* bottone fisso WhatsApp */
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .passo,.risp div{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secRichiesta">
+  <span><b>Vuoi un preventivo?</b> Compila la richiesta: ti rispondo io su WhatsApp</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Kit Gomma e Ruota MAK: configuralo sul B2B, noi montiamo, bilanciamo e mettiamo i TPMS, ti arriva pronto da montare. Montaggio gratuito fino al 31/12" width="1620" height="2025">
+</div>
+
+<section>
+  <div class="giro" id="giro">
+    <div class="disco"></div>
+    <img id="ruota" src="kit.webp" alt="Kit invernale con cerchio MAK Davinci e pneumatico montato" width="800" height="814">
+    <div class="testo">
+      <b>Ruota <em>+</em> gomma <em>=</em> kit pronto</b>
+      <p>Arriva in officina già montato e bilanciato. Lo togli dalla scatola e lo monti sulla vettura.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Come <em>funziona</em></h2>
+  <p class="sub">Tre passaggi, il lavoro pesante lo facciamo noi.</p>
+  <div class="passi" id="passi">
+    <div class="passo"><span class="n">01</span><div><h3>Tu scegli</h3><p><strong>La ruota e il pneumatico</strong> sul portale B2B, in modo facile e intuitivo.</p></div></div>
+    <div class="passo"><span class="n">02</span><div><h3>Noi montiamo</h3><p><strong>Montaggio, bilanciatura</strong> e sensori <strong>TPMS</strong> se la vettura li richiede.</p></div></div>
+    <div class="passo"><span class="n">03</span><div><h3>Arriva pronto</h3><p>Spedito in officina, <strong>da montare subito</strong> sulla vettura.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Cosa <em>ti risparmi</em></h2>
+  <p class="sub">Il tempo in officina lo dedichi ai clienti, non alla macchina smontagomme.</p>
+  <div class="risp" id="risp">
+    <div><span>✓</span>Montaggio gomma su cerchio</div>
+    <div><span>✓</span>Bilanciatura</div>
+    <div><span>✓</span>Sensori TPMS installati</div>
+    <div><span>✓</span>Un solo ordine, una sola spedizione</div>
+  </div>
+  <div class="claim">Risparmi tempo · Risparmi denaro</div>
+</section>
+
+<section id="secRichiesta">
+  <h2>Richiedi il <em>tuo kit</em></h2>
+  <p class="sub">Compila quello che sai: ti preparo io la proposta e te la mando su WhatsApp.</p>
+  <div class="card" id="richiesta">
+    <label class="f">Libretto di circolazione</label>
+    <label class="libretto" id="librettoBox" for="libretto">
+      <input type="file" id="libretto" accept="image/*">
+      <span class="ico" id="librettoIco">📷</span>
+      <span><b id="librettoTit">Carica il libretto</b><small id="librettoSub">Una foto basta: ricavo io misure e omologazione.</small></span>
+      <button type="button" class="togli" id="togli" hidden>Togli</button>
+    </label>
+    <p class="oppure">oppure scegli la vettura</p>
+
+    <label class="f" for="marca">Marca</label>
+    <select id="marca"><option value="">Scegli la marca…</option></select>
+    <label class="f" for="modello">Modello e anno</label>
+    <div class="due">
+      <select id="modello" disabled><option value="">Prima la marca</option></select>
+      <select id="anno" aria-label="Anno"><option value="">Anno</option></select>
+    </div>
+    <input type="text" id="altroModello" placeholder="Scrivi il modello" autocomplete="off" hidden>
+
+    <label class="f">Misura pneumatico</label>
+    <div class="misura">
+      <select id="larg" aria-label="Larghezza"></select><i>/</i>
+      <select id="serie" aria-label="Serie"></select><i>R</i>
+      <select id="diam" aria-label="Diametro"></select>
+    </div>
+
+    <label class="f" for="pneu1">Marca pneumatico: 2 alternative</label>
+    <div class="marche">
+      <select id="pneu1" aria-label="Prima scelta"><option value="">1ª scelta…</option></select>
+      <select id="pneu2" aria-label="Seconda scelta"><option value="">2ª scelta…</option></select>
+    </div>
+
+    <label class="f">Ruota: preferenze</label>
+    <div class="scelte griglia">
+      <input type="checkbox" name="ruota" id="r1" value="silver"><label for="r1"><span class="pallino" style="background:linear-gradient(135deg,#f4f5f7,#a9adb5)"></span>Silver</label>
+      <input type="checkbox" name="ruota" id="r2" value="nero"><label for="r2"><span class="pallino" style="background:#14161a"></span>Nero</label>
+      <input type="checkbox" name="ruota" id="r3" value="diamantato"><label for="r3"><span class="pallino" style="background:linear-gradient(90deg,#14161a 50%,#d9dce0 50%)"></span>Diamantato</label>
+      <input type="checkbox" name="ruota" id="r4" value="prezzo promo"><label for="r4"><span class="pallino" style="background:var(--red);border-color:var(--red)"></span>Prezzo promo</label>
+    </div>
+
+    <label class="f">Pneumatico</label>
+    <div class="scelte">
+      <input type="radio" name="stag" id="s1" value="invernale" checked><label for="s1">Invernale</label>
+      <input type="radio" name="stag" id="s2" value="4 stagioni"><label for="s2">4 stagioni</label>
+    </div>
+
+    <label class="f">Sensori TPMS</label>
+    <div class="scelte">
+      <input type="radio" name="tpms" id="t1" value="sì"><label for="t1">Sì</label>
+      <input type="radio" name="tpms" id="t2" value="no"><label for="t2">No</label>
+      <input type="radio" name="tpms" id="t3" value="non so" checked><label for="t3">Non so</label>
+    </div>
+
+    <label class="f">Quanti kit</label>
+    <div class="qta">
+      <button type="button" id="meno" aria-label="Meno">−</button><b id="nKit">4</b><button type="button" id="piu" aria-label="Più">+</button>
+      <small>ruote complete</small>
+    </div>
+
+    <div class="riep" id="riep"></div>
+  </div>
+  <p class="nota">Se preferisci, puoi configurarlo da solo sul portale B2B.</p>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393458503816">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<section>
+<div class="timer" id="timer">
+  <small id="timerTesto">Montaggio gratuito ancora per</small>
+  <div class="cifre" id="cifre">
+    <span><b id="gg">–</b><i>g</i></span><span><b id="hh">–</b><i>h</i></span><span><b id="mm">–</b><i>m</i></span><span><b id="ss">–</b><i>s</i></span>
+  </div>
+</div>
+</section>
+
+<footer><img src="logo-mak.svg" alt="MAK"><b>Francesco Di Cesare</b> · Agente MAK · 345 850 3816<br>Nella foto: kit invernale con cerchio MAK Davinci.<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script>
+const VEICOLI = {"ABARTH":["124 SPIDER (NF)","500 ABARTH (312)","500E ABARTH (FA1)","595 ABARTH (312)","600e (FH1)","695 BIPOSTO (312)","GRANDE PUNTO (199)"],"AIWAYS":["U5"],"ALFA ROMEO":["145 (930)","146 (930)","147 (937)","147 GTA (937)","155 (167)","156 (932)","156 GTA (932)","159 (939)","164 TURBO (164)","164 TWIN SPARK (164)","164 V6 (164)","166 (I SERIE) (936)","166 (II SERIE) (936)","BRERA (939)","CROSSWAGON Q4 (932)","GIULIA (952)","GIULIA QUADRIFOGLIO V6","GIULIETTA BREMBO BRAKES (940)","GIULIETTA NOT BREMBO BRAKES (940)","GT (937)","GTV COUPE (916)","GTV SPYDER (916)","JUNIOR (FH1)","MITO (955)","SPYDER (939)","STELVIO (949)","STELVIO V6 QUADRIFOGLIO (949)","TONALE (AV1)"],"ALPINE":["A110 (AEF)","A290 (P01)"],"AUDI":["100","80","90","A1","A1 ALLSTREET","A1 CITYCARVER","A1 SPORTBACK","A2","A3","A3 ALLSTREET","A3 CABRIOLET","A3 SPORTBACK","A4","A4 ALLROAD","A4 AVANT","A4 CABRIOLET","A5","A5 (F2) - A5 AVANT (F2)","A5 CABRIOLET","A5 COUPE - A5 SPORTBACK","A6","A6 ALLROAD","A6 AVANT","A6 LIMOUSINE HYBRID","A6 SPORTBACK E-TRON (GH) - A6 AVANT E-TRON (GH)","A6 STAGGERED/DIFFERENZIATO","A7 SPORTBACK","A8","E-TRON","E-TRON GT - RS E-TRON GT QUATTRO STAGGERED/DIFFERENZIATO","E-TRON S","E-TRON S SPORTBACK","E-TRON SPORTBACK","Q2","Q3","Q3 SPORTBACK","Q4 E-TRON","Q5","Q5 Hybrid","Q5 SPORTBACK","Q6 (GF) - SQ6 (GF)","Q7","Q7 E-TRON","Q8","Q8 E-TRON","Q8 E-TRON SPORTBACK","R8 STAGGERED/DIFFERENZIATO","RS3","RS4","RS5","RS6 (I SERIE)","RS6 (II SERIE)","RS6 (III SERIE)","RS6 (IV SERIE)","RS7 Sportback","RSQ3","S1","S1 SPORTBACK","S3","S4","S5","S5 (F2) - S5 AVANT (F2)","S5 COUPE - SPORTBACK - CABRIO","S6","S6 SPORTBACK E-TRON (GH) - S6 AVANT E-TRON (GH)","S7 SPORTBACK","S8","SQ2","SQ5","SQ7","SQ8","SQ8 E-TRON","SQ8 E-TRON SPORTBACK","TT","TT COUPE","TT ROADSTER","TT RS COUPE","TT RS ROADSTER","TTS COUPE","TTS ROADSTER"],"BAIC SENOVA":["X35"],"BENTLEY":["CONTINENTAL FLYING SPUR","CONTINENTAL GT","MTM COUPE"],"BMW":["BMW I3","BMW I3S","BMW i8","I4","I5","IX1","IX1 M-SPORT/M-PERFORMANCE","IX2","IX2 M-SPORT/M-PERFORMANCE","IX3","IX40 - IX50 - IX M60","M Coupe","M Roadster","M2","M3","M4","M5","M5 (412Kw)","M5 (441-460KW)","M5 (G9M)","M6","M6 (412Kw)","M8 - M8 COMPETITION","SERIE 1","SERIE 1 (3 PORTE)","SERIE 1 CABRIO","SERIE 1 CABRIO - COUPE","SERIE 1 COUPE","SERIE 1 M 135I","SERIE 1 M 140I","SERIE 1 M-PERFORMANCE","SERIE 1 M-PERFORMANCE (3 PORTE)","SERIE 1 M-PERFORMANCE CABRIO - COUPE","SERIE 1 M-SPORT/M-PERFORMANCE","SERIE 2","SERIE 2 ACTIVE TOURER","SERIE 2 COUPE (G2C G42)","SERIE 2 COUPE M240I (G2C G42)","SERIE 2 GRAN COUPE (F2GC F44)","SERIE 2 GRAN COUPE (F7 F74)","SERIE 2 GRAN COUPE M-PERFORMANCE (F2GC F44)","SERIE 2 GRAN COUPE M-PERFORMANCE (F7 F74)","SERIE 2 GRAN COUPE M235 XDRIVE (F7 F74)","SERIE 2 GRAN COUPE M235I (F2GC F44)","SERIE 2 GRAN TOURER","SERIE 2 M 235I (1C F22-F23)","SERIE 2 M 240I (1C F22-F23)","SERIE 2 M-PERFORMANCE (1C F22-F23)","SERIE 3","SERIE 3 CABRIO","SERIE 3 COUPE - CABRIO","SERIE 3 COUPE STAGGERED/DIFFERENZIATO","SERIE 3 GRAN TURISMO (GT)","SERIE 3 TOURING","SERIE 3 X-DRIVE","SERIE 3 X-DRIVE TOURING","SERIE 4 CABRIO","SERIE 4 CABRIO M-PERFORMANCE","SERIE 4 COUPE","SERIE 4 COUPE M-PERFORMANCE","SERIE 4 GRAN COUPE","SERIE 4 GRAN COUPE M-PERFORMANCE","SERIE 5","SERIE 5 GRAN TURISMO (GT)","SERIE 5 M-PERFORMANCE","SERIE 5 M-PERFORMANCE TOURING","SERIE 5 TOURING","SERIE 5 X-DRIVE","SERIE 5 X-DRIVE M-PERFORMANCE","SERIE 5 X-DRIVE TOURING","SERIE 5 X-DRIVE TOURING M-PERFORMANCE","SERIE 5X (4X4)","SERIE 6","SERIE 6 CABRIO","SERIE 6 COUPE","SERIE 6 GRAN TURISMO (G6GT)","SERIE 6 GRAND COUPE","SERIE 7","SERIE 7 (730 - 740)","SERIE 7 (730 - 740) M-PERFORMANCE","SERIE 7 (750)","SERIE 7 (750) M-PERFORMANCE","SERIE 8","Serie 3 Active Hybrid","Serie 3 M-Performance","Serie 3 M-Performance Coupe - Cabrio","Serie 3 M-Performance Touring","Serie 3 M-Performance X-Drive","Serie 3 M-Performance X-Drive Touring","Serie 5 Active Hybrid","Serie 7 (M760)","Serie 7 Active Hybrid","X1","X1 M-SPORT/M-PERFORMANCE","X1 M35I","X2","X2 M-SPORT/M-PERFORMANCE","X2 M35I","X3","X3 M - X3 M COMPETITION","X4","X4 M - X4 M COMPETITION","X5","X5 M (M7X E70)","X5 M (M7X F85)","X5 M - X5 M COMPETITION (F56XM)","X5 M PERFORMANCE (X5)","X6","X6 HYBRID (HY - X-HY)","X6 M (M7X E71)","X6 M (M7X F86)","X6 M - X6 M COMPETITION (F56XM)","X6 M PERFORMANCE (X6)","X7","XM","Z3","Z4","Z4 M-PERFORMANCE","Z4-M Coupe","Z4-M Roadster","Z8","i7"],"BYD":["ATTO 2 (SC3E)","ATTO 2 ELECTRIC VEHICLE (SC3E)","ATTO 2 HYBRID (SC3E)","ATTO 3 / YUAN PLUS (SC2E)","ATTO 3 EVO (SC2E)","DOLPHIN (5 HOLES)(EM2E-1)","DOLPHIN SURF (EQE)","ETP3","HAN/HALO 8 (HC)","SEAL (EK)","SEAL 6 (HK)","SEAL U (SA3)","SEALION 7 (UK)","T3","TANG - TANG EV (STE - STE2)","YUAN PLUS / ATTO 3 (SC2E)"],"CADILLAC":["BLS","SRX","XT4"],"CHANGAN":["DEEPAL S05 (C857)","DEEPAL S07 (C673)"],"CHERY":["TIGGO 4 (T3X1)","TIGGO 7 (T32-T322-T321)","TIGGO 8 (T31-T311)","TIGGO 9 (T431)"],"CHEVROLET (FORMER DAEWOO)":["AVEO 4H","AVEO 5H","CAPTIVA","CIELO","CRUZE (VERSIONE BENZINA)","CRUZE (VERSIONE DIESEL)","EPICA","ESPERO","EVANDA","KALOS","LACETTI","LANOS","LEGANZA","MATIZ","NEXIA","NUBIRA","ORLANDO","SPARK","TACUMA","TRAX","VOLT"],"CHRYSLER":["300C 2wd","300C 4wd","300C SRT8","300M","AVENGER","CROSSFIRE","GRAND VOYAGER","NEON","PT CRUISER","SEBRING","STRATUS CABRIO","TOWN&COUNTRY","VOYAGER"],"CIRELLI":["#1","2 (FENGON 500)","3","4 (C4P)","5 (SX5GCG)"],"CITROEN - DS":["AX Gti","BERLINGO (M1)","BERLINGO (N1)","BX","C-CROSSER","C-ELYSEE","C-ZERO STAGGERED/DIFFERENZIATO","C1","C2","C3","C3 AIRCROSS","C3 PICASSO","C3 PLURIEL","C3 X-TR","C4","C4 AIRCROSS","C4 CACTUS","C4 PICASSO / C4 SPACETOURER","C4 X","C5","C5 AIRCROSS","C5 AIRCROSS ELECTRIC VEHICLE (K) - C5 AIRCROSS PHEV (K)","C5 TOURER","C5 X","C6","C8","DISPATCH (M1)","DISPATCH (N1)","DS3","DS3 CABRIO","DS3 CROSSBACK","DS4","DS5","DS7 CROSSBACK","DS9","E-JUMPER (M1) PCD 130","E-JUMPER (N1) PCD 130","E-MEHARI","GRAND C4 PICASSO / GRAND C4 SPACETOURER","JUMPER (M1)","JUMPER (N1)","JUMPER CAMPER PCD 118","JUMPER CAMPER PCD 130","JUMPER HEAVY PCD 130(M1)","JUMPER HEAVY PCD 130(N1)","JUMPER LIGHT PCD 118(M1)","JUMPER LIGHT PCD 118(N1)","JUMPY (M1)","JUMPY (N1)","NEMO","N°4 (F)","N°8 (K)","N°9 (K)","SAXO","SPACETOURER - JUMPY (M1)","SPACETOURER - JUMPY (N1)","XANTIA","XSARA","ZX"],"CUPRA":["ATECA (221KW)","ATECA (NO 221KW)","BORN","FORMENTOR (AKEBONO BRAKES)","FORMENTOR (NOT AKEBONO BRAKES)","FORMENTOR VZ5 (287KW BREMBO/AKEBONO BRAKES)","LEON (AKEBONO BRAKES)","LEON (NOT AKEBONO BRAKES)","RAVAL ELECTRIC VEHICLE (KS)","TAVASCAN (KR)","TERRAMAR (KP) (AKEBONO BRAKES)","TERRAMAR (KP) (NOT AKEBONO BRAKES)"],"DACIA":["BIGSTER (DJF)","DOKKER - DOKKER STEPWAY","DUSTER","JOGGER","LODGY - LODGY STEPWAY","LOGAN","LOGAN MCV - LOGAN MCV STEPWAY","SANDERO - SANDERO STREETWAY","SANDERO STEPWAY","SPRING"],"DAIHATSU":["APPLAUSE","CHARADE","COPEN","CUORE","GRAND MOVE","MATERIA","SIRION","TERIOS (I Serie)","TERIOS (II Serie)","TREVIS","YRV"],"DFSK":["FENGON 500","FENGON 600","FENGON E5","FENGON F5","GLORY 500 - 580","IX5","SERES 3"],"DODGE":["CALIBER","CHALLENGER","CHARGER","GRAND CARAVAN","JOURNEY"],"DR - EVO":["DR - DR 5 SPECIAL","DR 3","DR 3.0 (R3)","DR 4 (D3)","DR 4.0 (T3X-T39)","DR 5 STILNOVO (H35)","DR 5.0 (T39-T3Y)","DR 6 (D3)","DR 6 STILNOVO (H55)","DR 6.0 (T35)","DR1 Wagon","EVO 3 (S2)","EVO 3 ELECTRIC","EVO 4 (D3-D4)","EVO 5","EVO 6 (D5)","EVO 7 (S43)","F35 (T3X)"],"EURASIA MOTOR COMPANY":["EMC 6 (CS1/G)","WAVE 3 - COWIN SHOWJET PRO (CS1/G)"],"FERRARI":["360 MODENA STAGGERED/DIFFERENZIATO","430 STAGGERED/DIFFERENZIATO","430 STAGGERED/DIFFERENZIATO (NO CARBON-BRAKES)","458 STAGGERED/DIFFERENZIATO","612 SCAGLIETTI STAGGERED/DIFFERENZIATO","CALIFORNIA STAGGERED/DIFFERENZIATO"],"FIAT":["124 SPIDER","500 (312)","500 HYBRID (FA1)","500C (312)","500E (FA1)","500L (199)","500X (334)","600","BARCHETTA","BRAVA","BRAVO","COUPE","CROMA","DOBLO (M1)","DOBLO (N1)","DUCATO (M1)","DUCATO (N1)","DUCATO CAMPER PCD 118","DUCATO CAMPER PCD 130","DUCATO HEAVY PCD 130(M1)","DUCATO HEAVY PCD 130(N1)","DUCATO LIGHT PCD 118(M1)","DUCATO LIGHT PCD 118(N1)","E-DUCATO PCD 130 (M1)","E-DUCATO PCD 130 (N1)","FIORINO (M1) - QUBO (M1)","FIORINO (N1)","FREEMONT","FULLBACK (L200)","GRANDE PANDA (C)","GRANDE PUNTO","IDEA","LINEA","MAREA","MULTIPLA","PALIO","PANDA","PANDA CROSS","PUNTO","PUNTO EVO","SCUDO (M1)","SCUDO (N1)","SEDICI","STILO","STRADA (N1)","TALENTO (M1)","TALENTO (N1)","TIPO","ULYSSE (179)","ULYSSE (V) E-ULYSSE (V)"],"FISKER":["OCEAN"],"FORD":["B-MAX","BRONCO SPORT","C-MAX","CAMPER TRANSIT - CAMPER TOURNEO (M1)","CAPRI (DRP)","COUGAR","ECOSPORT","EDGE (O.E. ALLOY WHEELS)","EDGE (O.E. STEEL WHEELS)","ESCAPE","ESCORT","EXPLORER","FIESTA","FIESTA ST","FOCUS","FOCUS ACTIVE","FOCUS RS","FOCUS ST","FUSION","GALAXY","GALAXY II SERIE","GALAXY III SERIE (O.E. ALLOY WHEELS)","GALAXY III SERIE (O.E. STEEL WHEELS)","GRAND C-MAX","KA (II SERIE)","KA+","KUGA","KUGA II","KUGA III","MAVERICK","MONDEO","MUSTANG 2.3 (EUROPE) O.E. ALLOY WHEELS","MUSTANG 2.3 (EUROPE) O.E. STEEL WHEELS","MUSTANG 5.0 V8 GT (EUROPE) O.E. ALLOY WHEELS","MUSTANG 5.0 V8 GT (EUROPE) O.E. STEEL WHEELS","MUSTANG GT (USA)","MUSTANG GT STAGGERED/DIFFERENZIATO (USA)","MUSTANG MACH 1","MUSTANG MACH-E","MUSTANG MACH-E GT","MUSTANG SHELBY GT 500 (USA)","MUSTANG SHELBY GT 500 STAGGERED/DIFFERENZIATO (USA)","PROBE","PUMA","PUMA GEN-E (J2K)","RANGER (M1)","RANGER (N1)","RANGER RAPTOR (N1)","S-MAX I SERIE","S-MAX II SERIE (O.E. ALLOY WHEELS)","S-MAX II SERIE (O.E. STEEL WHEELS)","STREETKA","TOURNEO COURIER (M1)","TRANSIT (N1)","TRANSIT - TOURNEO (M1)","TRANSIT - TOURNEO (N1)","TRANSIT COURIER (M1)","TRANSIT COURIER (N1)","TRANSIT CUSTOM - TOURNEO CUSTOM (M1)","TRANSIT CUSTOM - TOURNEO CUSTOM (N1)","TRANSIT TOURNEO CONNECT (M1)","TRANSIT TOURNEO CONNECT (N1)"],"FORTHING":["3 (T5)","9 HEV (M6 HEV)","FRIDAY HEV","U-TOUR (M4)"],"GEELY":["STARRAY EM-I (P145)"],"GENESIS":["GV60 ELECTRIC VEHICLE (JW)","GV70 (JK1)","GV70 ELECTRIC VEHICLE (JK1)"],"GREAT WALL MOTOR":["HAVAL H2","ORA 07 (EC24)","ORA FUNKY CAT","WEY03 COFFEE 02","WEY05 COFFEE 01"],"HONDA":["ACCORD","ACCORD COUPE","CIVIC","CIVIC 4DR HYBRID","CIVIC 4H","CIVIC 5H","CIVIC TYPE-R","CR-V - CR-V HYBRID","CR-Z","CROSSTOUR","E","E:NY1","ELEMENT","FR-V","HR-V","INSIGHT","INTEGRA TYPE-R","JAZZ","JAZZ CROSSTAR","JAZZ HYBRID (OLD)","LOGO","NSX STAGGERED/DIFFERENZIATO","ODYSSEY","PILOT","PRELUDE","PRELUDE (BF)","RIDGELINE","S2000 STAGGERED/DIFFERENZIATO","SHUTTLE","STREAM","ZR-V"],"HYUNDAI":["ACCENT","ARNEJS","ATOS","ATOS PRIME","BAYON","COUPE","ELANTRA","GENESIS COUPE","GETZ","GRAND SANTA FE","GRANDEUR","H350 (M1)","H350 (N1)","I10","I20","I20 ACTIVE","I20 N","I30","I30 N","I30 WAGON","I40","INSTER ELECTRIC VEHICLE (AX1)","IONIQ (AE)","IONIQ 5 (NE)","IONIQ 5 N (NE)","IONIQ 6 (CE)","IONIQ 6 N (CE)","IONIQ 9 (ME1)","IX20 (JC)","IX35","IX55","KONA","KONA ELECTRIC VEHICLE","KONA N","MATRIX","NEXO","SANTA FE","SONATA","STARIA - STARIA BUS","TRAJET","TUCSON","VELOSTER","VERACRUZ","XG","i30CW"],"INFINITI":["EX35","FX 30D","FX 37","FX 50","FX35","FX45","M","Q30","Q50 - Q60","QX30","QX56","QX70"],"ITALA":["35 (H35)","56 (H55)","61 (H61)"],"JAC":["E30X","T9 (M1)","e-JS4"],"JAECOO - CHERY":["5 (T36)","7 (T35-T351)","8 (T421)"],"JAGUAR":["E-PACE","F-PACE","F-TYPE STAGGERED/DIFFERENZIATO","I-PACE","S-TYPE","X-TYPE","XE","XF","XF SPORTBRAKE","XJ","XK CABRIOLET","XK COUPE"],"JEEP":["AVENGER","CHEROKEE","COMPASS","COMPASS - COMPASS PHEV 4XE","COMPASS ELECTRIC VEHICLE (K) - COMPASS PHEV (K)","COMPASS HYBRYD (K)","PATRIOT","RENEGADE","RENEGADE PHEV 4XE"],"KGM - SSANGYONG":["ACTYON","ACTYON SPORTS","KORANDO","KYRON","MUSSO (N1)","REXTON II","REXTON III - REXTON III SPORTS XL","RODIUS","STAVIC (AJ)","TIVOLI (XK)","TORRES (CW)","TORRES EVX (UK)","XLV - TIVOLI GRAND (XK)"],"KIA":["CARENS","CARNIVAL","CEED - CEED SPORTWAGON","CERATO","CLARUS","CREDOS","EV2 ELECTRIC VEHICLE (QV1)","EV3 ELECTRIC (SV1)","EV4 ELECTRIC (CT1 - SZ1E)","EV5 ELECTRIC (OV1)","EV6 ELECTRIC (CV)","EV9 ELECTRIC (MV1)","FORTE","K4 - K4 SPORTSWAGON (CL4M)","MAGENTIS","NIRO","NIRO ELECTRIC VEHICLE","OPIRUS","OPTIMA","PICANTO","PRIDE","PRO CEED","PV5 (SW1)","RIO","SEPHIA","SHUMA","SORENTO","SOUL","SPORTAGE","SPORTAGE III FL","STINGER","STONIC","VENGA","XCEED"],"LANCIA":["DEDRA","DELTA","FLAVIA","GRAND VOYAGER","KAPPA","LYBRA","MUSA","PHEDRA","THEMA","THESIS","Y","YPSILON","Z"],"LAND ROVER":["DEFENDER","DISCOVERY IV","DISCOVERY SPORT","DISCOVERY V","FREELANDER","FREELANDER II"],"LEAPMOTOR":["B05 (A03)","B10 (A12)","C10 (B11)","T03 (T03D)"],"LEXUS":["CT-200H","ES300H","GS 300","GS 430","GS 450H","GS 450H LUXURY","GS 450h F SPORT","GS 460","GS F","GX 460","IS200","IS220","IS250","IS300","IS300H","LBX (AYH1)","LS430","LS460","NX","RC 300H - RC200T","RC F","RX300","RX350","RX350H","RX400H","RX450H","RZ (EBM1(M))","SC430","UX (ZA1 - EZA1)"],"LYNK & CO":["01 (GX6 - CX11)","02 (E335)","08 (DX11)"],"MAHINDRA":["KUV100"],"MASERATI":["GHIBLI","GHIBLI S Q4","GRANTURISMO","GRECALE GT - GRECALE MODENA","GT COUPE","LEVANTE","LEVANTE DIESEL","LEVANTE S","QUATTROPORTE","QUATTROPORTE GTS","SPYDER"],"MAXUS":["EUNIQ 5","EUNIQ 6","EV30 Short Version - EV30 Long Version"],"MAZDA":["121","2","3","323","5","6","626","6E ELECTRIC VEHICLE (GN)","B2500","BT-50","CX-3","CX-30","CX-5","CX-60","CX-7","CX-80","CX-9","DEMIO","MPV","MX-3","MX-30","MX-5","MX-6","PREMACY","RX8","TRIBUTE","XEDOS 6","XEDOS 9"],"MERCEDES":["A-KLASSE","A-KLASSE AMG","A35 AMG","A45 AMG - A45 S AMG","AMG GT - AMG GTS","AMG GT43 COUPE-AMG GT53 COUPE-AMG GT63 COUPE STAGGERED/DIFFERENZIATO","B-KLASSE","B-KLASSE ELEKTRIC DRIVE","C-KLASSE","C-KLASSE 300E HYBRID","C-KLASSE 300E HYBRID S.W.","C-KLASSE 43 AMG COUPE-CABRIO","C-KLASSE 450 AMG","C-KLASSE ALL TERRAIN","C-KLASSE AMG","C-KLASSE S.W.","C43 AMG - C43 AMG S.W.","CITAN (M1) 4 FORI","CITAN (M1) 5 FORI","CITAN (N1) 4 FORI","CITAN (N1) 5 FORI","CL-KLASSE","CL-KLASSE AMG","CLA","CLA AMG","CLA ELECTRIC VEHICLE (MMCLAE)","CLA SHOOTING BRAKE","CLA35 AMG","CLA45 AMG - CLA45 S AMG","CLC-KLASSE","CLE-KLASSE","CLK-KLASSE","CLS","CLS 53 AMG","CLS AMG","CLS SHOOTING BRAKE","E-KLASSE","E-KLASSE 43 AMG - 53 AMG","E-KLASSE 43 S.W. AMG - 53 S.W. AMG","E-KLASSE 53 AMG (R2EW)","E-KLASSE 53 AMG COUPE - CABRIO","E-KLASSE 53 AMG S.W. (R2ES)","E-KLASSE 63 AMG - 63S AMG","E-KLASSE 63 S.W. AMG - 63S S.W. AMG","E-KLASSE ALL TERRAIN","E-KLASSE ALL TERRAIN HYBRID","E-KLASSE AMG","E-KLASSE CABRIO","E-KLASSE COUPE","E-KLASSE HYBRID","E-KLASSE S.W.","E-KLASSE S.W. HYBRID","EQA","EQB","EQC","EQE","EQE SUV","EQS","EQS 53 AMG","EQS SUV","EQV 447 (M1)","EQV 447 (N1)","G-KLASSE","GL-KLASSE","GL-KLASSE AMG","GLA","GLA AMG","GLA35 AMG (F2B AMG 247)","GLA45 AMG - GLA45 S AMG (F2B AMG 247)","GLB (F2B 247)","GLB ELECTRIC VEHICLE (MMGLBE)","GLB MILD-HYBRID (MMGLBH)","GLB35 AMG (F2B AMG 247)","GLC","GLC 63 AMG - 63S AMG","GLC AMG 43 - GLC COUPE AMG 43","GLC COUPE","GLC ELECTRIC VEHICLE (MBEAMGLC)","GLE 53 AMG - 63 AMG - 63S AMG","GLE COUPE","GLE COUPE 53 AMG - 63 AMG - 63S AMG","GLE COUPE AMG","GLE SUV","GLE SUV AMG","GLK","GLS","GLS 63 AMG","GLS AMG","GLS AMG LINE","M-KLASSE","M-KLASSE AMG","R-KLASSE","R-KLASSE AMG","S-KLASSE","S-KLASSE AMG","SL-KLASSE","SL-KLASSE AMG","SL43 AMG - SL55 AMG - SL63 AMG","SLC-KLASSE","SLK-KLASSE","SPRINTER (M1)","SPRINTER (N1)","SPRINTER II (M1)","SPRINTER II (N1)","SPRINTER III (M1)","SPRINTER III (N1)","SPRINTER III CAMPER","SPRINTER NCV3 TWIN","T-KLASSE - EQT","V-KLASSE 447 (VIANO 447)","VANEO","VIANO","VITO","VITO (M1)","VITO 447 (N1)","VITO TOURER 447 (M1)","X-KLASSE (M1)","X-KLASSE (N1)"],"MG":["CYBERSTER (EC3A)","HS (AS3A)","HS - RX6 - EHS","MARVEL R (EP21)","MG S5 ELECTRIC VEHICLE (ZS3E)","MG S6 ELECTRIC VEHICLE (IS3E)","MG3 HYBRID+ (ZP22 - ZP2A)","MG4 ELECTRIC VEHICLE (SEH3)","MG4 XPOWER ELECTRIC VEHICLE (SEH3)- MG4 TROPHY EXTENDED RANGE (SEH3)","MG5 ELECTRIC VEHICLE (EP22-L)","ZR (RT)","ZS (PETROL ENGINE) (SZS1)","ZS (RF)","ZS EV ELECTRIC VEHICLE (ZS1 - SZS1 - MZS1)","ZS PETROL - PETROL HYBRID (ZS3A)","ZT - Z TT (J - RJ)"],"MINI":["ACEMAN E (J05) - ACEMAN SE (J05)","CABRIO","CLUBMAN","CLUBMAN COOPER","CLUBMAN COOPER D","CLUBMAN COOPER S","CLUBMAN COOPER SD","CLUBMAN ONE - CLUBMAN ONE D","COOPER","COOPER 5 DOOR","COOPER CONVERTIBLE","COOPER D","COOPER D 5 DOOR","COOPER D CONVERTIBLE","COOPER E (J01) - COOPER SE (J01)","COOPER S","COOPER S (F66) - COOPER C (F66)","COOPER S 5 DOOR","COOPER S CONVERTIBLE","COOPER SD","COOPER SD 5 DOOR","COOPER SD CONVERTIBLE","COOPER SE","COUNTRYMAN","COUNTRYMAN SE HYBRID","COUPE","GP JOHN COOPER WORKS","JOHN COOPER WORKS - JOHN COOPER WORKS CABRIO","JOHN COOPER WORKS CLUBMAN","JOHN COOPER WORKS COUNTRYMAN","MINI","ONE","ONE - ONE D","ONE - ONE D 5 DOOR","PACEMAN","ROADSTER"],"MITSUBISHI":["ASX","ATTRAGE","CARISMA","COLT","COLT CABRIO","ECLIPSE","ECLIPSE CROSS","EVO 10","EVO 5","EVO 6","EVO 7","EVO 8","EVO 9","GRANDIS","IMIEV STAGGERED/DIFFERENZIATO","LANCER","MIRAGE","OUTLANDER (CU0W)","OUTLANDER II (CW0-CWB)","OUTLANDER III (CW0-GF0)","OUTLANDER IV (GN0W)","SPACE STAR"],"NISSAN":["100 NX","200SX - SILVIA","350 Z","370 Z STAGGERED/DIFFERENZIATO","ALMERA","ALMERA TINO","ALTIMA","ARIYA","CUBE","E-MICRA (K15)","E-NV200 (M1)","E-NV200 (N1)","EVALIA","GT-R STAGGERED/DIFFERENZIATO","INTERSTAR (N1)","JUKE","JUKE NISMO RS","LEAF ELECTRIC VEHICLE","MAXIMA QX","MICRA","MURANO","NAVARA (M1)","NOTE","NV200 (M1)","NV200 (N1)","NV250 (M1)","NV250 (N1)","NV300 - PRIMASTAR (N1)","NV300 - PRIMASTAR(M1)","NV400 (M1)","NV400 (N1)","PATHFINDER","PIXO","PRIMASTAR (M1)","PRIMASTAR (N1)","PRIMERA","PULSAR","QASHQAI","ROUGE","SENTRA","SENTRA SE-R","SERENA","TIIDA (VERSA)","TOWNSTAR TRANSPORTER (N1)","TOWNSTAR VAN (M1)","X-TRAIL"],"OMODA - CHERY":["OMODA 5 (T34)","OMODA 5 290T","OMODA 5 ELECTRIC VEHICLE (T34EV)","OMODA 7 (T391)","OMODA 9 (T41)"],"OPEL":["6 TURBO OPC","ADAM","ADAM S","AGILA","AMPERA","ANTARA","ASTRA","ASTRA 1.3 DIESEL","ASTRA 1.4 BENZINA","ASTRA 1.4 DIESEL","ASTRA 1.6 - 1.7 DIESEL","ASTRA 1.6 BENZINA","ASTRA 1.6 Turbo Benzina","ASTRA 2.0 DIESEL","ASTRA GTC","ASTRA GTC OPC","ASTRA K","ASTRA K SPORTS TOURER","ASTRA OPC","ASTRA SPORTS TOURER 1.3 DIESEL","ASTRA SPORTS TOURER 1.4 BENZINA","ASTRA SPORTS TOURER 1.4 DIESEL","ASTRA SPORTS TOURER 1.6 - 1.7 DIESEL","ASTRA SPORTS TOURER 1.6 BENZINA","ASTRA SPORTS TOURER 1.6 Turbo Benzina","ASTRA SPORTS TOURER 2.0 DIESEL","ASTRA TWIN TOP","CALIBRA","CASCADA","COMBO (M1)","COMBO (N1)","COMBO-C (M1)","COMBO-C (N1)","CORSA","CORSA 1.7cc","CORSA OPC","CORSA-C VAN","CORSA-E 1","CORSA-E 1,6 TURBO OPC","CORSA-E 4H","CORSA-E 5H","CORSA-F","CROSSLAND X","FRONTERA (C)","GRANDLAND - GRANDLAND X","GRANDLAND ELECTRIC VEHICLE (K) - GRANDLAND PHEV (K)","GRANDLAND HYBRID - GRANDLAND X HYBRID","GT","INSIGNIA","INSIGNIA GRAND SPORT","INSIGNIA SPORTS TOURER","KARL","MERIVA","MERIVA FACELIFT","MERIVA OPC","MOKKA","MOKKA ELECTRIC VEHICLE (U) - MOKKA (U)","MOKKA GSE ELECTRIC VEHICLE (U)","MOKKA X","MOVANO-A (M1)","MOVANO-A (N1)","MOVANO-B (M1)","MOVANO-B (N1)","MOVANO-C PCD 118 (M1)","MOVANO-C PCD 118 (N1)","MOVANO-C PCD 130 (M1)","MOVANO-C PCD 130 (N1)","OMEGA","SIGNUM","SPEEDSTER STAGGERED/DIFFERENZIATO","TIGRA","VECTRA","VECTRA OPC","VECTRA-C","VIVARO (M1)","VIVARO (N1)","VIVARO-B (M1)","VIVARO-B (N1)","VIVARO-C (M1)","VIVARO-C (N1)","ZAFIRA","ZAFIRA LIFE","ZAFIRA OPC","ZAFIRA TOURER"],"PEUGEOT":["1007","106","107","108","2008","2008 GT-LINE","206","206 PLUS","207","208","208 Gti","3008","3008 ELECTRIC VEHICLE (K) - 3008 PHEV (K)","301","306","307","308","308 CC","308 GT","308 Gti","4007","4008","406","407","408","5008","5008 ELECTRIC VEHICLE (K) - 5008 PHEV (K)","508","508 RXH","607","807","BIPPER (M1)","BIPPER (N1)","BOXER (M1)","BOXER (N1)","BOXER CAMPER PCD 118","BOXER CAMPER PCD 130","BOXER HEAVY PCD 130 (M1)","BOXER HEAVY PCD 130 (N1)","BOXER LIGHT PCD 118 (M1)","BOXER LIGHT PCD 118 (N1)","EXPERT (M1)","EXPERT (N1)","ION STAGGERED/DIFFERENZIATO","PARTNER (M1)","PARTNER (N1)","PARTNER TEPEE","RANCH (M1)","RANCH (N1)","RCZ","RCZ-R","RIFTER (M1)","RIFTER - PARTNER (N1)","TRAVELLER (M1)","TRAVELLER (N1)"],"POLESTAR":["POLESTAR 2 (V) BREMBO BRAKES","POLESTAR 2 (V) NOT BREMBO BRAKES","POLESTAR 3 (Y)","POLESTAR 4 BREMBO BRAKES (4)","POLESTAR 4 NOT BREMBO BRAKES (4)"],"PORSCHE":["718 (982) BOXSTER - INCL. S - T - GTS STAGGERED/DIFFERENZIATO","718 (982) CAYMAN - INCL. S - T - GTS STAGGERED/DIFFERENZIATO","718 (982) CAYMAN GT4 - BOXSTER SPYDER STAGGERED/DIFFERENZIATO","911 CARRERA (992) S - 4S STAGGERED/DIFFERENZIATO","911 CARRERA (992) S CABRIO - 4S CABRIO STAGGERED/DIFFERENZIATO","CAYENNE (92A-92AN) DIESEL","CAYENNE (92A-92AN) S","CAYENNE (92A-92AN) TURBO - CAYENNE GTS","CAYENNE (92A-92AN) V6","CAYENNE (92AH-92AHN) S HYBRID","CAYENNE (9PA) V6","CAYENNE (9PA) V8","CAYENNE (9PA) V8 TURBO","CAYENNE (9YA) - CAYENNE E HYBRID (9YA) STAGGERED/DIFFERENZIATO","CAYENNE (9YA) COUPE E HYBRID STAGGERED/DIFFERENZIATO","CAYENNE (9YA) COUPE S STAGGERED/DIFFERENZIATO","CAYENNE (9YA) COUPE STAGGERED/DIFFERENZIATO","CAYENNE (9YA) COUPE TURBO STAGGERED/DIFFERENZIATO","CAYENNE (9YA) S STAGGERED/DIFFERENZIATO","CAYENNE (9YA) TURBO - TURBO S E HYBRID STAGGERED/DIFFERENZIATO","CAYENNE (X1) ELECTRIC VEHICLE - CAYENNE S ELECTRIC VEHICLE","MACAN (95B) NEW STAGGERED/DIFFERENZIATO","MACAN (95B) S NEW STAGGERED/DIFFERENZIATO","MACAN (95B) TURBO NEW STAGGERED/DIFFERENZIATO","MACAN (95B-95BN) S DIESEL STAGGERED/DIFFERENZIATO","MACAN (95B-95BN) S STAGGERED/DIFFERENZIATO","MACAN (95B-95BN) TURBO STAGGERED/DIFFERENZIATO","MACAN (XA) ELECTRIC - MACAN 4 (XA) ELECTRIC","PANAMERA (970-970N)","PANAMERA (970H-970HN) HYBRID","PANAMERA (971) 4-4S-4E HYBRID-GTS","PANAMERA (971) TURBO-TURBO S E HYBRID","PANAMERA (YA) 4-4S-4E HYBRID-GTS","PANAMERA (YA) TURBO-TURBO S E HYBRID"],"RANGE ROVER":["EVOQUE","EVOQUE CONVERTIBLE","RANGE ROVER SPORT I SERIE","RANGE ROVER SPORT II SERIE","RANGE ROVER SPORT III SERIE","RANGE ROVER V SERIE","VELAR"],"RENAULT":["4 (P01 - RHE)","5 (P01 - RBE)","ALASKAN (M1)","ALASKAN (N1)","ARKANA","AUSTRAL","AUSTRAL 4 CONTROL","AVANTIME","CAPTUR","CLIO","CLIO (III SERIE)","CLIO (IV SERIE)","CLIO (V SERIE)(RJA)","CLIO (VI SERIE) (R03)","CLIO RS","CLIO SPORT RS","ESPACE","ESPACE 4 CONTROL","FLUENCE","GRAND MODUS","GRAND SCENIC IV","KADJAR","KANGOO (M1)","KANGOO (N1)","KANGOO EXPRESS (M1)","KANGOO EXPRESS (N1)","KANGOO II (M1)","KANGOO II (N1)","KANGOO III (M1)","KOLEOS","LAGUNA","LAGUNA II","LAGUNA III","LAGUNA III SPORTOUR","LATITUDE","MASTER II (M1)","MASTER II (N1)","MASTER III (M1)","MASTER III (N1)","MASTER IV (N1) (RDA-RDB-RDC-RDD)","MEGANE E-TECH","MEGANE I","MEGANE II","MEGANE III","MEGANE III RS","MEGANE IV","MEGANE IV GT","MEGANE IV RS","MEGANE RS","MODUS","RAFALE (RHN)","SCENIC E-TECH","SCENIC II","SCENIC III","SCENIC IV","SYMBIOZ (RJB)","TALISMAN","TRAFIC I - TRAFIC II (M1)","TRAFIC I - TRAFIC II (N1)","TRAFIC III (M1)","TRAFIC III (N1)","TRAFIC IV (T82) (M1)","TRAFIC IV (T82) (N1)","TWINGO II","TWINGO II RS","TWINGO III - TWINGO III GT","TWINGO III STAGGERED - TWINGO III GT STAGGERED/DIFFERENZIATO","TWINGO IV ELECTRIC VEHICLE (P04)","VELSATIS","WIND COUPE","ZOE"],"ROLLS ROYCE":["SPECTRE (RR25)"],"ROVER":["200 - 25","400 - 45","600","75","800"],"SAAB":["9 3","9 5","9-3 CABRIO","9-7X"],"SEAT":["ALHAMBRA","ALTEA - ALTEA XL","ALTEA FREETRACK","ARONA","AROSA","ATECA","CORDOBA","EXEO - EXEO ST","IBIZA","LEON","LEON CUPRA (221Kw)","LEON X-PERIENCE","MII","TARRACO","TOLEDO"],"SKODA":["CITIGO","ELROQ (NY)","ENYAQ","FABIA","FELICIA","KAMIQ","KAROQ","KODIAQ","OCTAVIA","OCTAVIA RS","OCTAVIA SCOUT","OCTAVIA WAGON","PRAKTIK","RAPID","ROOMSTER","ROOMSTER SCOUT","SCALA","SUPERB","YETI"],"SMART":["#1 (HX11)","#3 (HC11)","#5 (HY11)","FORFOUR","FORFOUR II - FORFOUR II BRABUS","FORTWO ELECTRIC DRIVE STAGGERED/DIFFERENZIATO","FORTWO I SERIE STAGGERED/DIFFERENZIATO","FORTWO II SERIE STAGGERED/DIFFERENZIATO","FORTWO III - FORTWO III BRABUS STAGGERED/DIFFERENZIATO","FORTWO III CABRIO - FORTWO III CABRIO BRABUS STAGGERED/DIFFERENZIATO"],"SPORTEQUIPE":["S5 (T39-T3Y)","S6 (T35-F3)","S7 (J7-T7)"],"SUBARU":["B9 TRIBECA","BRZ","CROSSTREK","E-OUTBACK (EAM1XS(M)","FORESTER","IMPREZA","IMPREZA STI","IMPREZA STI WRX","JUSTY","LEGACY","LEVORG","OUTBACK - LEGACY","SOLTERRA (EAM1S(M)","TREZIA","UNCHARTED (EKM1S(M)","XV","XV E-BOXER"],"SUZUKI":["ACROSS","ALTO","BALENO","CELERIO","GRAN VITARA","IGNIS","KIZASHI","S-CROSS (SX4)","SPLASH","SWACE","SWIFT 4H","SWIFT 4WD 4X4 4H","SWIFT 4X4 4H","SWIFT SPORT 2WD 5H","SWIFT SPORT 5H","SX4","VITARA","WAGON-R","e-VITARA (AP)"],"TESLA":["MODEL 3 - MODEL 3 PERFORMANCE (003)","MODEL 3 PERFORMANCE-HIGHLAND (003)","MODEL S","MODEL X (002-004)","MODEL Y - MODEL Y PERFORMANCE (003-005)"],"TOYOTA":["AURIS","AURIS HYBRID I","AURIS HYBRID II","AURIS TOURING SPORTS","AVENSIS","AVENSIS VERSO","AYGO","AYGO X (AB7) 4H","AYGO X (AB7) 5H","BZ4X (EAM1(M) - BZ4X TOURING (EAM1X(M)","C-HR","C-HR+ ELECTRIC VEHICLE (EKM1(M)","CAMRY","CARINA E","CARINA II","CELICA","COROLLA","COROLLA CROSS","COROLLA VERSO","GR86","GT86","HIGHLANDER","IQ","MIRAI","MR2","PICNIC","PREVIA","PRIUS +","PRIUS II","PRIUS III","PRIUS IV","PRIUS IV PLUGIN HYBRID","PRIUS PHEV","PRO-ACE 2WD (M1)","PRO-ACE 2WD (N1)","PROACE (M1)","PROACE (N1)","PROACE CITY (N1)","PROACE CITY VERSO (M1)","PROACE MAX (T) PCD 118 (N1)","PROACE MAX (T) PCD 130 (N1)","RAV 4","SUPRA","URBAN CRUISER (XP11)","URBAN CRUISER ELECTRIC VEHICLE (BP)","VENZA","VERSO","VERSO S","YARIS","YARIS CROSS HYBRID","YARIS GR","YARIS GR SPORT","YARIS GRMN","YARIS HYBRID","YARIS VERSO"],"VOLKSWAGEN":["AMAROK (N1)","ARTEON","BEETLE - MAGGIOLINO","BORA","CADDY (M1)","CADDY (N1)","CADDY LIFE (M1)","CORRADO","CRAFTER (M1)","CRAFTER (N1)","CROSS TOURAN","E-UP","EOS","FOX","GOLF I","GOLF II","GOLF III","GOLF III GTI","GOLF III VR6","GOLF IV","GOLF IV R32","GOLF V","GOLF V CROSS","GOLF V PLUS","GOLF V PLUS STAGGERED/DIFFERENZIATO","GOLF V R32","GOLF V STAGGERED/DIFFERENZIATO","GOLF V VARIANT","GOLF VI","GOLF VI CROSS","GOLF VI PLUS","GOLF VII","GOLF VII ALLTRACK","GOLF VII SPORTSVAN","GOLF VII VARIANT","GOLF VIII","GOLF VIII ALLTRACK","GOLF VIII GTI","GOLF VIII GTI CLUBSPORT","GOLF VIII R","GOLF VIII VARIANT","ID.BUZZ (M1)","ID.BUZZ CARGO (N1)","ID3","ID4 - ID4 GTX","ID4 STAGGERED - ID4 GTX STAGGERED","ID5 - ID5 GTX","ID7","JETTA","LUPO","NEW BEETLE","NEW BEETLE CABRIO","PASSAT","PASSAT ALLTRACK","PASSAT CC","PASSAT VARIANT","PHAETON","POLO","POLO (V SERIE)","POLO (VI SERIE)","POLO CROSS (IV SERIE)","POLO CROSS(V SERIE)","POLO FUN (IV SERIE)","POLO GTI (VI SERIE)","POLO R WRC","SCIROCCO","SHARAN","T-CROSS","T-ROC","T5 MULTIVAN - CARAVELLE - TRANSPORTER","T5 TRANSPORTER","T6 CALIFORNIA","T6 KOMBI","T6 MULTIVAN","T6 TRANSPORTER (M1)","T6 TRANSPORTER (N1)","T7 CALIFORNIA (ST)","T7 CARAVELLE (NVN) (M1)","T7 MULTIVAN (ST)","T7 TRANSPORTER (NSN) (N1)","TAIGO","TAYRON (R4)","TIGUAN","TIGUAN ALLSPACE","TIGUAN R-LINE","TOUAREG","TOUAREG HYBRID","TOURAN","UP","UP CROSS","UP GTI","VENTO"],"VOLVO":["C30","C40 RECHARGE","C70","C70 CABRIO","EC40 (X)","ES90 (1)","EX30 (2)","EX30 CROSS COUNTRY (2)","EX40 (X)","EX90 (T)","S40","S60","S60 CROSS COUNTRY","S60 POLESTAR","S80","S90","V40","V40 CROSS COUNTRY","V50","V60","V60 CROSS COUNTRY","V60 HYBRID","V60 POLESTAR","V70","V90","V90 CROSS COUNTRY","XC40","XC40 RECHARGE P8","XC60","XC60 POLESTAR","XC70","XC90","XC90 T8 HYBRID"],"XPENG":["G6 (F30)","G9 (G9A - G9B)","P7 (P7B)","P7+ (F57)"],"ZEEKR":["7X (G00)"]};
+const PROMO = {
+  fine: new Date("2026-12-31T23:59:59+01:00"),
+  telefono: "393458503816"
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+
+  /* conto alla rovescia */
+  let finita = false;
+  function tick() {
+    const ms = PROMO.fine - new Date();
+    if (ms <= 0) {
+      finita = true;
+      $("timer").classList.add("finita");
+      $("timerTesto").textContent = "Montaggio gratuito terminato";
+      $("cifre").textContent = "Chiedimi le offerte attive";
+      $("cifre").style.fontSize = "22px";
+      aggiornaWa();
+      return;
+    }
+    const s = Math.floor(ms / 1000);
+    $("gg").textContent = Math.floor(s / 86400);
+    $("hh").textContent = String(Math.floor(s % 86400 / 3600)).padStart(2, "0");
+    $("mm").textContent = String(Math.floor(s % 3600 / 60)).padStart(2, "0");
+    $("ss").textContent = String(s % 60).padStart(2, "0");
+    setTimeout(tick, 1000);
+  }
+
+  /* ruota che gira scorrendo la pagina */
+  const ruota = $("ruota");
+  let pronto = true;
+  window.addEventListener("scroll", () => {
+    if (!pronto) return;
+    pronto = false;
+    requestAnimationFrame(() => {
+      ruota.style.transform = "rotate(" + (window.scrollY * 0.35) + "deg)";
+      pronto = true;
+    });
+  }, {passive: true});
+
+  /* comparsa animata di passaggi e risparmi */
+  function comparsa(contenitore, sel, passo) {
+    const voci = contenitore.querySelectorAll(sel);
+    if (!("IntersectionObserver" in window)) { voci.forEach(v => v.classList.add("vis")); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) {
+        voci.forEach((v, i) => setTimeout(() => v.classList.add("vis"), i * passo));
+        io.disconnect();
+      }
+    }), {threshold: .2});
+    io.observe(contenitore);
+  }
+  comparsa($("passi"), ".passo", 180);
+  comparsa($("risp"), "div", 110);
+
+  /* richiesta kit */
+  const riempi = (sel, da, a, passo, vuoto) => {
+    sel.add(new Option(vuoto, ""));
+    for (let v = da; v <= a; v += passo) sel.add(new Option(v, v));
+  };
+  riempi($("larg"), 155, 315, 10, "Largh.");
+  riempi($("serie"), 25, 75, 5, "Serie");
+  riempi($("diam"), 14, 22, 1, "Ø");
+
+  /* marca → modello → anno */
+  const titolo = s => s.toLowerCase().replace(/(^|[\s\-(&])([a-zà-ù])/g, (m, a, b) => a + b.toUpperCase());
+  const ALTRO = "__altro__";
+  const selMarca = $("marca"), selModello = $("modello");
+  Object.keys(VEICOLI).sort().forEach(m => selMarca.add(new Option(titolo(m), m)));
+  selMarca.add(new Option("Altra marca…", ALTRO));
+  for (let a = new Date().getFullYear(); a >= 1995; a--) $("anno").add(new Option(a, a));
+
+  selMarca.addEventListener("change", () => {
+    selModello.innerHTML = "";
+    $("altroModello").hidden = true;
+    if (!selMarca.value) {
+      selModello.add(new Option("Prima la marca", ""));
+      selModello.disabled = true;
+    } else if (selMarca.value === ALTRO) {
+      selModello.add(new Option("Scrivilo sotto", ALTRO));
+      selModello.disabled = true;
+      $("altroModello").placeholder = "Scrivi marca e modello";
+      $("altroModello").hidden = false;
+    } else {
+      selModello.add(new Option("Modello…", ""));
+      VEICOLI[selMarca.value].forEach(m => selModello.add(new Option(m, m)));
+      selModello.add(new Option("Altro modello…", ALTRO));
+      selModello.disabled = false;
+    }
+    aggiorna();
+  });
+  selModello.addEventListener("change", () => {
+    $("altroModello").placeholder = "Scrivi il modello";
+    $("altroModello").hidden = selModello.value !== ALTRO;
+    aggiorna();
+  });
+
+  /* libretto: la foto resta sul telefono e parte solo verso WhatsApp */
+  let libretto = null, urlLibretto = null;
+  $("libretto").addEventListener("change", e => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    libretto = f;
+    if (urlLibretto) URL.revokeObjectURL(urlLibretto);
+    urlLibretto = URL.createObjectURL(f);
+    $("librettoIco").innerHTML = '<img alt="">';
+    $("librettoIco").firstChild.src = urlLibretto;
+    $("librettoTit").textContent = "Libretto caricato";
+    $("librettoSub").textContent = condivisioneFile()
+      ? "Parte insieme alla richiesta con il bottone verde."
+      : "Ricordati di allegarlo nella chat WhatsApp.";
+    $("librettoBox").classList.add("ok");
+    $("togli").hidden = false;
+    aggiorna();
+  });
+  $("togli").addEventListener("click", e => {
+    e.preventDefault();
+    libretto = null;
+    $("libretto").value = "";
+    $("librettoIco").textContent = "📷";
+    $("librettoTit").textContent = "Carica il libretto";
+    $("librettoSub").textContent = "Una foto basta: ricavo io misure e omologazione.";
+    $("librettoBox").classList.remove("ok");
+    $("togli").hidden = true;
+    aggiorna();
+  });
+  function condivisioneFile() {
+    try { return !!(libretto && navigator.canShare && navigator.canShare({files: [libretto]})); }
+    catch (e) { return false; }
+  }
+
+  let nKit = 4;
+  $("meno").addEventListener("click", () => { if (nKit > 1) { nKit--; aggiorna(); } });
+  $("piu").addEventListener("click", () => { if (nKit < 20) { nKit++; aggiorna(); } });
+  /* marche pneumatico: elenco del B2B, sezione Kit completi (27/10/2026) */
+  const MARCHE_PNEU = ["ACCELERA", "ACHILLES", "ALLIANCE", "ALTENZO", "AMTEL", "APOLLO", "APTANY", "ATLAS", "AUTOGREE", "BARUM", "BF GOODRICH", "BRIDGESTONE", "CHENG SHEEN", "CLEBER", "CONTINENTAL", "COOPER", "CRATOS", "CST", "DEBICA", "DOUBLESTAR", "DUNLOP", "DURATURN", "EFFIPLUS", "EP-TYRES", "EVREGREEN", "FALKEN", "FEDERAL", "FIRENZA", "FIRESTONE", "FORMULA", "FORTUNA", "FULDA", "GENERAL", "GI-TI", "GISLAVED", "GOFORM", "GOODRIDE", "GOODYEAR", "GRE", "GRIPMAX", "GT RADIAL", "HANKOOK", "HEADWAY", "HIFLY", "HILO", "HWA FONG", "IMPERIAL", "INFINITY", "INTERSTATE", "JINYU", "KING STAR", "KLEBER", "KUMHO", "LANVIGATOR", "LAUFEN", "LEAOTIRE", "MARSHALL", "MATADOR", "MAXXIS", "MEMBAT", "MICHELIN", "MOMO", "NANKANG", "NEXEN", "NOKIAN", "NOVEX", "OVATION", "PETLAS", "PIRELLI", "PRIMEWELL", "RADAR", "RIKEN", "ROADSTONE", "ROTALLA", "ROVELLO", "RUNWAY", "SAILUN", "SAVA", "SEMPERIT", "SONAR", "STARMAXX", "STK", "SUMITOMO", "SUNFALL", "SUNWIDE", "SUPERIA", "SYR", "TAURUS", "THREE A", "TIGAR", "TOYO", "TRACMAX", "TRIANGLE", "TRISTAR", "TYFOON", "UNIROYAL", "VAR", "VEE RUBBER", "VIKING", "VREDESTEIN", "WESTLAKE", "WHANLY", "WINDFORCE", "WINDRUN", "YOKOHAMA", "ZEETEX"];
+  function riempiMarche() {
+    ["pneu1", "pneu2"].forEach((id, i) => {
+      const sel = $(id), altra = $(i ? "pneu1" : "pneu2").value, tieni = sel.value;
+      sel.length = 1;
+      MARCHE_PNEU.forEach(m => { if (m !== altra) sel.add(new Option(m, m)); });
+      sel.value = tieni !== altra ? tieni : "";
+    });
+  }
+  riempiMarche();
+  ["pneu1", "pneu2"].forEach(id => $(id).addEventListener("change", () => { riempiMarche(); aggiorna(); }));
+  ["anno", "larg", "serie", "diam"].forEach(id => $(id).addEventListener("change", aggiorna));
+  $("altroModello").addEventListener("input", aggiorna);
+  document.querySelectorAll("input[type=radio],input[type=checkbox]").forEach(r => r.addEventListener("change", aggiorna));
+
+  function vettura() {
+    const marca = selMarca.value, mod = selModello.value, altro = $("altroModello").value.trim();
+    const parti = [];
+    if (marca && marca !== ALTRO) parti.push(titolo(marca));
+    if (mod && mod !== ALTRO) parti.push(mod);
+    else if (altro) parti.push(altro);
+    if ($("anno").value) parti.push("(" + $("anno").value + ")");
+    return parti.join(" ");
+  }
+
+  const scelto = nome => document.querySelector("input[name=" + nome + "]:checked").value;
+  function dati() {
+    const l = $("larg").value, s = $("serie").value, d = $("diam").value;
+    return {
+      vettura: vettura(),
+      libretto: !!libretto,
+      misura: l && s && d ? l + "/" + s + " R" + d : (l || s || d ? [l || "?", "/", s || "?", " R", d || "?"].join("") : ""),
+      stagione: scelto("stag"),
+      marche: [$("pneu1").value, $("pneu2").value].filter(Boolean).join(" oppure "),
+      ruota: [...document.querySelectorAll("input[name=ruota]:checked")].map(c => c.value).join(", "),
+      tpms: scelto("tpms"),
+      n: nKit
+    };
+  }
+  const compilato = k => k.vettura || k.misura || k.libretto || k.marche;
+
+  function aggiorna() {
+    const k = dati();
+    $("nKit").textContent = k.n;
+    $("riep").innerHTML = "";
+    if (compilato(k)) {
+      const t = document.createElement("div");
+      t.innerHTML = "<b>La tua richiesta</b>\n";
+      t.appendChild(document.createTextNode(
+        k.n + " kit Gomma&Ruota · pneumatico " + k.stagione +
+        (k.libretto ? "\nLibretto: foto caricata" : "") +
+        (k.vettura ? "\nVettura: " + k.vettura : "") +
+        (k.misura ? "\nMisura: " + k.misura : "") +
+        (k.marche ? "\nPneumatico: " + k.marche : "") +
+        (k.ruota ? "\nRuota: " + k.ruota : "") +
+        "\nTPMS: " + k.tpms));
+      $("riep").appendChild(t);
+      $("richiesta").classList.remove("salta");
+      void $("richiesta").offsetWidth;
+      $("richiesta").classList.add("salta");
+    }
+    aggiornaWa();
+  }
+
+  function aggiornaWa() {
+    const k = dati();
+    let testo, etichetta;
+    if (compilato(k)) {
+      testo = "Ciao Francesco, vorrei una proposta per i *kit Gomma&Ruota*:\n" +
+        "• Quantità: " + k.n + " ruote complete\n" +
+        (k.libretto ? "• Libretto: in allegato\n" : "") +
+        (k.vettura ? "• Vettura: " + k.vettura + "\n" : "") +
+        (k.misura ? "• Misura: " + k.misura + "\n" : "") +
+        (k.ruota ? "• Ruota: " + k.ruota + "\n" : "") +
+        "• Pneumatico: " + k.stagione + (k.marche ? ", " + k.marche : "") + "\n" +
+        "• TPMS: " + k.tpms + "\n" +
+        (finita ? "" : "(Montaggio gratuito fino al 31/12)\n") +
+        "\nOfficina: ";
+      etichetta = k.libretto && condivisioneFile() ? "Invia libretto e richiesta" : "Invia la richiesta su WhatsApp";
+    } else if (finita) {
+      testo = "Ciao Francesco, ho visto i kit Gomma&Ruota MAK. Ci sono offerte attive adesso?";
+      etichetta = "Chiedimi le offerte attive";
+    } else {
+      testo = "Ciao Francesco, mi interessano i kit Gomma&Ruota con montaggio gratuito fino al 31/12. Mi richiami?";
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    testoWa = testo;
+    $("wa").href = "https://wa.me/" + PROMO.telefono + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = etichetta;
+  }
+
+  /* con il libretto: menu Condividi di iPhone (foto + testo), poi WhatsApp e l'agente */
+  let testoWa = "";
+  $("wa").addEventListener("click", e => {
+    if (!condivisioneFile()) return;
+    e.preventDefault();
+    navigator.share({files: [libretto], text: testoWa}).catch(err => {
+      if (err && err.name !== "AbortError") window.open($("wa").href, "_blank");
+    });
+  });
+
+  /* promemoria in alto: porta al form e sparisce quando il form è sullo schermo */
+  $("avviso").addEventListener("click", e => {
+    e.preventDefault();
+    $("secRichiesta").scrollIntoView({behavior: "smooth", block: "start"});
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .15]})
+      .observe($("secRichiesta"));
+  }
+
+  tick();
+  aggiornaWa();
+});
+</script>
+<script>/* ricerche per il contatore anonimo (conta.js) */
+document.addEventListener("DOMContentLoaded", () => {
+  const el = id => document.getElementById(id);
+  const testo = id => { const e = el(id); return e && e.value ? (e.tagName === "SELECT" ? e.options[e.selectedIndex].text : e.value).trim() : ""; };
+  const quando = (ids, f) => ids.forEach(id => el(id) && el(id).addEventListener("change", () => { const t = f(); if (t && window.conta) window.conta("ricerca", t); }));
+  const misura = (l, s, d) => quando([l, s, d], () => el(l).value && el(s).value && el(d).value ? el(l).value + "/" + el(s).value + " R" + el(d).value : "");
+  const vettura = (m, mo) => quando([mo], () => testo(m) && testo(mo) ? testo(m) + " " + testo(mo) : "");
+  vettura("marca","modello");
+  misura("larg","serie","diam");
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>

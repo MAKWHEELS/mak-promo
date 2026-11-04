@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anelli di centraggio MAK</title>
+<meta name="description" content="Anelli di centraggio aftermarket in plastica: 48 misure con diametro esterno da 60,1 a 74,1, novità 70,1. Trova il codice dal foro del cerchio e dal mozzo della vettura e ordina su WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anelli di centraggio · 48 misure, novità Ø 70,1">
+<meta property="og:description" content="Foro del cerchio + mozzo della vettura = il codice giusto. Scegli la vettura o la misura e ordina su WhatsApp.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/davide/anelli-centraggio/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/davide/anelli-centraggio/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366; --ok:#14833b; --giallo:#e8b923; --gchiaro:#fbf3d9;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+.hero .gira{position:absolute;width:15%;aspect-ratio:1;border-radius:50%;border:10px solid var(--giallo);right:-4%;bottom:31%;opacity:.0;animation:rotola 6s ease-in-out infinite}
+@keyframes rotola{0%{transform:translateX(120%) rotate(0);opacity:0}25%{opacity:.9}55%{transform:translateX(-40vw) rotate(-540deg);opacity:.9}70%,100%{transform:translateX(-120vw) rotate(-900deg);opacity:0}}
+
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secTrova{scroll-margin-top:10px}
+
+.card{background:var(--card);border-radius:16px;padding:14px}
+label.f{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute);margin:16px 0 8px;text-transform:uppercase;letter-spacing:1px}
+label.f:first-child{margin-top:0}
+label.f .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;letter-spacing:0}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{text-align:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 2px 7px;font-family:var(--titolo);font-size:24px;line-height:1;cursor:pointer;position:relative}
+.chips label small{display:block;font-family:var(--testo);font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.3px}
+.chips input:checked+label{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chips input:checked+label small{color:#c8ccd2}
+.chips label.nuovo::after{content:"NUOVO";position:absolute;top:-7px;right:-3px;background:var(--red);color:#fff;font-family:var(--testo);font-size:9px;font-weight:700;padding:2px 5px;border-radius:6px;letter-spacing:.5px}
+.chips.int label{font-size:22px;padding:11px 2px 8px}
+.chips.int input:checked+label{background:var(--red);border-color:var(--red)}
+.chips.int label.auto{border:2px solid var(--red)}
+select{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 34px 13px 14px;
+  -webkit-appearance:none;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:disabled{opacity:.45}
+.vett{display:grid;gap:8px}
+.mozzoAuto{font-size:14px;margin:8px 0 0;padding:10px 12px;border-radius:12px;background:#fff;display:none}
+.mozzoAuto.on{display:block}
+.mozzoAuto b{color:var(--red)}
+.oppure{text-align:center;color:var(--mute);font-size:12px;margin:12px 0 8px;text-transform:uppercase;letter-spacing:1px}
+.vuoto{font-size:14px;color:var(--mute);background:#fff;border-radius:12px;padding:12px}
+
+/* risultato */
+.ris{margin-top:16px;border-radius:16px;background:#fff;border:2px solid var(--line);padding:14px;display:grid;grid-template-columns:86px 1fr;gap:14px;align-items:center}
+.ris.ok{border-color:var(--ok)}
+.ris.no{grid-template-columns:1fr}
+.ris svg{width:86px;height:86px;display:block}
+.ris .cod{font-family:var(--titolo);font-size:30px;line-height:1;padding-top:3px}
+.ris .mis{font-size:14px;color:var(--mute)}
+.ris .mis b{color:var(--ink)}
+.ris .az{display:flex;gap:8px;align-items:center;margin-top:10px}
+.ris p{margin:0;font-size:14px;color:var(--mute)}
+.ris p b{color:var(--ink)}
+.agg{flex:1;font:inherit;font-weight:700;font-size:15px;border:0;border-radius:12px;background:var(--red);color:#fff;padding:12px 8px}
+.agg.fatto{background:var(--ok)}
+.qta{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;flex:none}
+.qta button{width:34px;height:42px;border:0;background:none;color:var(--ink);font-size:21px}
+.qta input{width:38px;height:42px;border:0;background:none;color:var(--ink);text-align:center;font-family:var(--titolo);font-size:24px;padding:5px 0 0;-moz-appearance:textfield}
+.qta input::-webkit-outer-spin-button,.qta input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+/* gamma */
+details{background:var(--card);border-radius:14px;margin-bottom:8px;overflow:hidden}
+summary{list-style:none;display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary b{font-family:var(--titolo);font-size:28px;line-height:1;padding-top:3px}
+summary span{font-size:13px;color:var(--mute);flex:1}
+summary i{font-style:normal;font-size:12px;font-weight:700;color:#fff;background:var(--red);border-radius:10px;padding:3px 8px;display:none}
+summary i.on{display:inline-block}
+summary::after{content:"";width:9px;height:9px;border-right:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(45deg);margin:-4px 4px 0 0;transition:transform .2s}
+details[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+summary .tag{font-style:normal;font-size:10px;font-weight:700;background:var(--red);color:#fff;padding:2px 6px;border-radius:6px;flex:none}
+.riga{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:8px 14px;border-top:1px solid var(--line)}
+.riga .x b{font-family:var(--titolo);font-size:22px;padding-top:3px;display:inline-block}
+.riga .x small{display:block;font-size:12px;color:var(--mute)}
+.riga.on{background:#fff}
+.riga.on .qta{border-color:var(--red)}
+.riga.lampo{animation:lampo 1.2s}
+@keyframes lampo{0%,40%{background:var(--gchiaro)}}
+
+/* ordine */
+.ord .vuoto{background:#fff}
+.ord ul{list-style:none;margin:0;padding:0}
+.ord li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.ord li:first-child{border-top:0}
+.ord li b{font-family:var(--titolo);font-size:20px;padding-top:2px}
+.ord li span{color:var(--mute);font-size:13px}
+.ord li em{font-style:normal;font-family:var(--titolo);font-size:22px;white-space:nowrap}
+.tot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:8px;padding-top:10px;border-top:1px dashed #b9bdc4}
+.tot span{font-size:13px;color:var(--mute)}
+.tot b{font-family:var(--titolo);font-size:34px;line-height:1}
+input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+label.f2{display:block;font-size:13px;color:var(--mute);margin:14px 0 6px;text-transform:uppercase;letter-spacing:1px}
+.azzera{font:inherit;font-size:14px;border:0;background:none;color:var(--mute);text-decoration:underline;padding:8px 0 0}
+.nota{font-size:13px;color:var(--mute);margin-top:8px}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.02)}60%{transform:scale(.995)}}
+
+/* video e foto */
+.video{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;text-decoration:none;color:var(--ink);background:var(--card);border-radius:16px;padding:12px}
+.video img{width:120px;height:auto;border-radius:10px;display:block}
+.video b{display:block;font-family:var(--titolo);font-size:24px;text-transform:uppercase;line-height:1;padding-top:3px;margin-bottom:4px}
+.video span{font-size:14px;color:var(--mute)}
+.video em{display:inline-block;margin-top:8px;font-style:normal;font-weight:700;font-size:14px;color:#fff;background:var(--red);border-radius:10px;padding:7px 12px}
+.foto{border-radius:16px;overflow:hidden;line-height:0;margin-top:10px}
+.foto img{width:100%;height:auto;display:block}
+.punti{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.punti div{background:var(--card);border-radius:12px;padding:12px;font-size:14px}
+.punti b{display:block;font-family:var(--titolo);font-size:21px;line-height:1;text-transform:uppercase;padding-top:2px;margin-bottom:3px}
+
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:130px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor;flex:none}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero .gira{display:none}}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secTrova">
+  <span><b>Trova l'anello giusto:</b> foro del cerchio + mozzo della vettura</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Anelli di centraggio aftermarket in plastica: 48 misure, diametri esterni 60,1, 65,1, 67,1, 70,1, 72,6, 73,1 e 74,1, novità 70,1" width="1620" height="2025">
+  <div class="gira"></div>
+</div>
+
+<section id="secTrova">
+  <h2>Trova il tuo <em>anello</em></h2>
+  <p class="sub">L'esterno va nel foro del cerchio, l'interno sul mozzo della vettura. Scegli le due misure: ti do il codice.</p>
+  <div class="card" id="trova">
+    <label class="f"><span class="n">1</span>Foro del cerchio (esterno)</label>
+    <div class="chips" id="esterni"></div>
+
+    <label class="f"><span class="n">2</span>Mozzo della vettura (interno)</label>
+    <div class="vett">
+      <select id="marca" aria-label="Marca"><option value="">Non sai il mozzo? Scegli la marca…</option></select>
+      <select id="modello" aria-label="Modello" disabled><option value="">Prima la marca</option></select>
+    </div>
+    <p class="mozzoAuto" id="mozzoAuto"></p>
+    <p class="oppure">oppure tocca la misura del mozzo</p>
+    <div class="chips int" id="interni"><div class="vuoto" style="grid-column:1/-1">Prima scegli il foro del cerchio.</div></div>
+
+    <div class="ris no" id="ris"><p>Scegli il <b>foro del cerchio</b> e il <b>mozzo</b>: qui compare il codice dell'anello.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Tutta la <em>gamma</em></h2>
+  <p class="sub">48 misure divise per diametro esterno. Metti le quantità direttamente qui.</p>
+  <div id="gamma"></div>
+</section>
+
+<section>
+  <h2>Il tuo <em>ordine</em></h2>
+  <div class="card ord" id="ordine">
+    <div id="lista"></div>
+    <label class="f2" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+    <button type="button" class="azzera" id="azzera" hidden>Svuota l'ordine</button>
+  </div>
+  <p class="nota">Gli anelli li trovi anche sul portale B2B. Disponibilità e prezzi te li confermo io.</p>
+</section>
+
+<section>
+  <h2>Guarda il <em>video</em></h2>
+  <a class="video" href="https://youtube.com/shorts/1F4fZmop28o" target="_blank" rel="noopener">
+    <img src="foto/video.jpg" alt="Anelli di centraggio sul tavolo" width="900" height="1600">
+    <span><b>Anelli di centraggio</b>Video breve sugli anelli di centraggio MAK.<br><em>▶ Apri su YouTube</em></span>
+  </a>
+  <div class="foto"><img src="foto/foto-gialli.jpg" alt="Anello di centraggio giallo 70,1 x 60,1 con la quota del diametro" width="1200" height="400"></div>
+</section>
+
+<section>
+  <h2>Perché <em>servono</em></h2>
+  <div class="punti">
+    <div><b>Ruota centrata</b>Il peso va sul mozzo, non sui bulloni: niente vibrazioni.</div>
+    <div><b>Cerchi aftermarket</b>Il foro è più grande del mozzo: l'anello riempie lo spazio.</div>
+    <div><b>Novità 70,1</b>Misura molto richiesta e difficile da trovare: 11 interni.</div>
+    <div><b>Gamma completa</b>Da 60,1 a 74,1 di esterno, interni da 54,1 a 72,6.</div>
+  </div>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393490512550">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><img src="logo-mak-nero.svg" alt="MAK"><b>Davide Mattaliano</b> · Agente MAK · 349 051 2550<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script src="dati.js"></script>
+<script>
+const TELEFONO = "393490512550";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = id => document.getElementById(id);
+  const v = n => String(n).replace(".", ",");
+  const ESTERNI = [...new Set(ANELLI.map(a => a[1]))].sort((a, b) => a - b);
+  const PER = {};
+  ANELLI.forEach(a => (PER[a[1]] = PER[a[1]] || []).push(a));
+  const q = {};
+  ANELLI.forEach(a => q[a[0]] = 0);
+  let est = null, intr = null, mozziVett = [];
+
+  /* 1. foro del cerchio */
+  ESTERNI.forEach((e, i) => {
+    $("esterni").insertAdjacentHTML("beforeend",
+      '<input type="radio" name="est" id="e' + i + '" value="' + e + '"><label for="e' + i + '"' + (e === 70.1 ? ' class="nuovo"' : '') + '>' + v(e) +
+      '<small>' + PER[e].length + ' interni</small></label>');
+  });
+  document.querySelectorAll("input[name=est]").forEach(r => r.addEventListener("change", () => {
+    est = +r.value;
+    if (intr !== null && !PER[est].some(a => a[2] === intr) && !mozziVett.length) intr = null;
+    if (mozziVett.length) intr = scegliDaVettura();
+    disegnaInterni(); risultato();
+  }));
+
+  /* 2a. vettura -> mozzo (dal Fitment MAK) */
+  Object.keys(VETTURE).forEach(m => $("marca").add(new Option(m, m)));
+  $("marca").addEventListener("change", () => {
+    const sel = $("modello"); sel.length = 0;
+    const lista = VETTURE[$("marca").value];
+    if (!lista) { sel.add(new Option("Prima la marca", "")); sel.disabled = true; mozziVett = []; mostraMozzo(); disegnaInterni(); risultato(); return; }
+    sel.add(new Option("Scegli il modello…", ""));
+    lista.forEach((r, i) => sel.add(new Option(r[0] + (r[1] ? " · " + r[1] : ""), i)));
+    sel.disabled = false; mozziVett = []; mostraMozzo(); disegnaInterni(); risultato();
+  });
+  $("modello").addEventListener("change", () => {
+    const r = VETTURE[$("marca").value][$("modello").value];
+    mozziVett = r ? r[2] : [];
+    if (mozziVett.length) intr = scegliDaVettura();
+    mostraMozzo(); disegnaInterni(); risultato();
+  });
+  function scegliDaVettura() {
+    if (!est) return mozziVett[0];
+    const ok = mozziVett.find(z => PER[est].some(a => a[2] === z));
+    return ok !== undefined ? ok : mozziVett[0];
+  }
+  function mostraMozzo() {
+    const p = $("mozzoAuto");
+    p.classList.toggle("on", mozziVett.length > 0);
+    p.innerHTML = mozziVett.length ? "Mozzo di questa vettura: <b>Ø " + mozziVett.map(v).join(" oppure Ø ") + "</b>" : "";
+  }
+
+  /* 2b. interni disponibili per l'esterno scelto */
+  function disegnaInterni() {
+    const box = $("interni");
+    if (!est) { box.innerHTML = '<div class="vuoto" style="grid-column:1/-1">Prima scegli il foro del cerchio.</div>'; return; }
+    box.innerHTML = "";
+    PER[est].forEach((a, i) => {
+      box.insertAdjacentHTML("beforeend",
+        '<input type="radio" name="int" id="i' + i + '" value="' + a[2] + '"' + (a[2] === intr ? " checked" : "") + '><label for="i' + i + '"' +
+        (mozziVett.includes(a[2]) ? ' class="auto"' : '') + '>' + v(a[2]) + '</label>');
+    });
+    box.querySelectorAll("input").forEach(r => r.addEventListener("change", () => { intr = +r.value; risultato(); }));
+  }
+
+  /* risultato */
+  const disegnoAnello = (e, i) => {
+    const R = 40, r = Math.max(14, R * i / e);
+    return '<svg viewBox="0 0 86 86" aria-hidden="true"><circle cx="43" cy="43" r="' + ((R + r) / 2) + '" fill="none" stroke="#e8b923" stroke-width="' + (R - r) + '"/>' +
+      '<circle cx="43" cy="43" r="' + R + '" fill="none" stroke="#c99a12" stroke-width="1.5"/><circle cx="43" cy="43" r="' + r + '" fill="none" stroke="#c99a12" stroke-width="1.5"/></svg>';
+  };
+  let qRis = 4;
+  function risultato() {
+    const box = $("ris");
+    box.className = "ris no";
+    if (!est || intr === null) {
+      box.innerHTML = "<p>Scegli il <b>foro del cerchio</b> e il <b>mozzo</b>: qui compare il codice dell'anello.</p>"; return;
+    }
+    if (intr >= est) {
+      box.innerHTML = "<p>Mozzo Ø " + v(intr) + " e foro Ø " + v(est) + ": " + (intr === est ? "<b>l'anello non serve</b>, il cerchio è già centrato sul mozzo." : "<b>il foro del cerchio è più piccolo del mozzo</b>: questo cerchio non va su questa vettura.") + "</p>"; return;
+    }
+    const a = PER[est].find(x => x[2] === intr);
+    if (!a) {
+      box.innerHTML = "<p>Per foro <b>Ø " + v(est) + "</b> e mozzo <b>Ø " + v(intr) + "</b> non ho un anello a catalogo. Scrivimi su WhatsApp: cerco io la soluzione.</p>"; return;
+    }
+    box.className = "ris ok";
+    box.innerHTML = disegnoAnello(est, intr) +
+      '<div><div class="cod">' + a[0] + '</div><div class="mis">Anello <b>' + v(est) + ' × ' + v(intr) + '</b> · plastica</div>' +
+      '<div class="az"><div class="qta"><button type="button" aria-label="Meno">−</button><input type="number" inputmode="numeric" min="1" max="999" value="' + qRis + '" aria-label="Pezzi"><button type="button" aria-label="Più">+</button></div>' +
+      '<button type="button" class="agg">Aggiungi</button></div></div>';
+    const [meno, campo, piu] = box.querySelector(".qta").children, agg = box.querySelector(".agg");
+    meno.addEventListener("click", () => { if (qRis > 1) campo.value = --qRis; });
+    piu.addEventListener("click", () => { if (qRis < 999) campo.value = ++qRis; });
+    campo.addEventListener("focus", () => campo.select());
+    campo.addEventListener("input", () => { qRis = Math.min(999, Math.max(1, parseInt(campo.value, 10) || 1)); });
+    agg.addEventListener("click", () => {
+      q[a[0]] += qRis; disegna(); agg.textContent = "✓ Aggiunto"; agg.classList.add("fatto");
+      const riga = righe[a[0]]; riga.d.classList.remove("lampo"); void riga.d.offsetWidth; riga.d.classList.add("lampo");
+      setTimeout(() => { agg.textContent = "Aggiungi"; agg.classList.remove("fatto"); }, 1600);
+    });
+  }
+
+  /* gamma completa */
+  const righe = {}, badge = {};
+  ESTERNI.forEach(e => {
+    const d = document.createElement("details");
+    d.innerHTML = '<summary><b>Ø ' + v(e) + '</b>' + (e === 70.1 ? '<em class="tag">NUOVO</em>' : '') + '<span>' + PER[e].length + ' misure · interni ' + v(PER[e][0][2]) + '–' + v(PER[e][PER[e].length - 1][2]) + '</span><i></i></summary>';
+    badge[e] = d.querySelector("summary i");
+    PER[e].forEach(a => {
+      const r = document.createElement("div");
+      r.className = "riga";
+      r.innerHTML = '<div class="x"><b>' + v(a[1]) + ' × ' + v(a[2]) + '</b><small>' + a[0] + '</small></div>' +
+        '<div class="qta"><button type="button" aria-label="Meno">−</button><input type="number" inputmode="numeric" min="0" max="999" aria-label="Pezzi ' + a[0] + '"><button type="button" aria-label="Più">+</button></div>';
+      const [meno, campo, piu] = r.querySelector(".qta").children;
+      meno.addEventListener("click", () => { if (q[a[0]] > 0) { q[a[0]]--; disegna(); } });
+      piu.addEventListener("click", () => { if (q[a[0]] < 999) { q[a[0]]++; disegna(); } });
+      campo.addEventListener("focus", () => campo.select());
+      campo.addEventListener("input", () => { q[a[0]] = Math.min(999, Math.max(0, parseInt(campo.value, 10) || 0)); disegna(true); });
+      righe[a[0]] = {d: r, campo};
+      d.appendChild(r);
+    });
+    $("gamma").appendChild(d);
+  });
+
+  $("azzera").addEventListener("click", () => { ANELLI.forEach(a => q[a[0]] = 0); disegna(); });
+  $("officina").addEventListener("input", aggiornaWa);
+
+  const scelti = () => ANELLI.filter(a => q[a[0]] > 0);
+  let primo = true;
+  function disegna(daTastiera) {
+    ANELLI.forEach(a => {
+      const r = righe[a[0]];
+      if (!daTastiera || document.activeElement !== r.campo) r.campo.value = q[a[0]];
+      r.d.classList.toggle("on", q[a[0]] > 0);
+    });
+    ESTERNI.forEach(e => {
+      const n = PER[e].reduce((s, a) => s + q[a[0]], 0);
+      badge[e].textContent = n + " pz"; badge[e].classList.toggle("on", n > 0);
+    });
+    const s = scelti(), n = s.reduce((t, a) => t + q[a[0]], 0);
+    $("lista").innerHTML = s.length
+      ? "<ul>" + s.map(a => "<li><span><b>" + v(a[1]) + " × " + v(a[2]) + "</b><br><span>" + a[0] + "</span></span><em>" + q[a[0]] + " pz</em></li>").join("") + "</ul>" +
+        '<div class="tot"><span>' + s.length + (s.length === 1 ? " misura" : " misure") + '</span><b>' + n + ' pz</b></div>'
+      : '<div class="vuoto">Ancora niente: trova l\'anello qui sopra e tocca «Aggiungi», oppure metti le quantità nella gamma.</div>';
+    $("azzera").hidden = !s.length;
+    if (!primo) { $("ordine").classList.remove("salta"); void $("ordine").offsetWidth; $("ordine").classList.add("salta"); }
+    primo = false;
+    aggiornaWa();
+  }
+
+  function aggiornaWa() {
+    const s = scelti();
+    let testo, etichetta;
+    if (s.length) {
+      testo = "Ciao Davide, vorrei questi *anelli di centraggio*:\n" +
+        s.map(a => "• " + a[0] + " (" + v(a[1]) + "x" + v(a[2]) + "): " + q[a[0]] + " pz").join("\n") +
+        "\n\nOfficina: " + $("officina").value.trim();
+      etichetta = "Ordina su WhatsApp";
+    } else if (est && intr !== null) {
+      const vet = $("modello").value !== "" && $("modello").selectedIndex > 0 ? $("marca").value + " " + $("modello").selectedOptions[0].text : "";
+      testo = "Ciao Davide, mi serve un anello di centraggio: foro cerchio Ø " + v(est) + ", mozzo Ø " + v(intr) + (vet ? " (" + vet + ")" : "") + ". Me lo trovi?";
+      etichetta = "Chiedimi questo anello";
+    } else {
+      testo = "Ciao Davide, mi servono degli anelli di centraggio. Mi aiuti a trovare la misura?";
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(testo);
+    $("waTesto").textContent = etichetta;
+  }
+  ["esterni", "interni"].forEach(id => $(id).addEventListener("change", aggiornaWa));
+  $("modello").addEventListener("change", aggiornaWa);
+
+  $("avviso").addEventListener("click", e => { e.preventDefault(); $("secTrova").scrollIntoView({behavior: "smooth", block: "start"}); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .1]})
+      .observe($("secTrova"));
+  }
+  disegna();
+});
+</script>
+<script>/* ricerche per il contatore anonimo (conta.js) */
+document.addEventListener("DOMContentLoaded", () => {
+  const el = id => document.getElementById(id);
+  const testo = id => { const e = el(id); return e && e.value ? (e.tagName === "SELECT" ? e.options[e.selectedIndex].text : e.value).trim() : ""; };
+  const quando = (ids, f) => ids.forEach(id => el(id) && el(id).addEventListener("change", () => { const t = f(); if (t && window.conta) window.conta("ricerca", t); }));
+  const misura = (l, s, d) => quando([l, s, d], () => el(l).value && el(s).value && el(d).value ? el(l).value + "/" + el(s).value + " R" + el(d).value : "");
+  const vettura = (m, mo) => quando([mo], () => testo(m) && testo(mo) ? testo(m) + " " + testo(mo) : "");
+  vettura("marca","modello");
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>
