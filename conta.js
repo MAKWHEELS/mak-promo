@@ -1,5 +1,5 @@
 /* conta.js — contatore anonimo delle locandine (makwheels.github.io/mak-promo).
- * Conta solo l'apertura della pagina e i tocchi sui link WhatsApp. Niente cookie, niente testo dei messaggi.
+ * Conta solo l'apertura della pagina e i tocchi su WhatsApp, Chiama e Portale B2B. Niente cookie, niente testo dei messaggi.
  * /mak-promo/<agente>/ (data-elenco) · /mak-promo/<agente>/<campagna>/ · /mak-promo/<campagna>/ (agente «base»)
  * Se qualcosa va storto non succede niente: la pagina funziona lo stesso.
  */
@@ -33,6 +33,8 @@
       if (!a) return;
       var h = a.href || "";
       if (h.indexOf("wa.me/") >= 0 || h.indexOf("api.whatsapp.com") >= 0 || h.indexOf("whatsapp://") === 0) invia("whatsapp");
+      else if (h.indexOf("tel:") === 0) invia("chiama");
+      else if (h.indexOf("b2bshop.makwheels.it") >= 0) invia("b2b");
     } catch (err) {}
   }, true);
 })();
