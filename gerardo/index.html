@@ -32,17 +32,20 @@ p.sub{color:var(--mute);font-size:15px;margin:6px 0 20px}
 .sez h2{font-family:"DIN Condensed","Arial Narrow",sans-serif;font-size:30px;line-height:1;text-transform:uppercase;margin:0 0 12px}
 .vuota{background:var(--card);border-radius:14px;padding:16px;color:var(--mute);font-size:15px;margin:0 0 14px}
 .su{display:block;text-align:center;font-size:15px;font-weight:700;color:var(--ink);padding:12px}
+.tasto{position:relative}
+.nuovo{position:absolute;top:-7px;right:-3px;background:var(--red);color:#fff;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.5px;line-height:1;border-radius:999px;padding:5px 9px;box-shadow:0 2px 6px rgba(20,22,26,.3)}
+.tasto[aria-current=true] .nuovo{display:none}
 </style></head><body><div class="wrap" id="inizio">
 <div class="k">Locandine interattive MAK</div>
 <h1>Gerardo <span>Giacco</span></h1>
 <p class="sub">20 locandine con il tuo numero (320 223 2932): «Chiamami» e WhatsApp arrivano a te. Copia il link e mandalo ai clienti: in chat compare l'anteprima. Scegli una sezione.</p>
 <nav class="tasti" aria-label="Sezioni">
-<a class="tasto" href="#mak"><img src="../loghi/logo-mak.svg" alt=""><b>MAK DIGITAL</b><small>4 locandine</small></a>
-<a class="tasto" href="#npk"><img src="../loghi/logo-npk.svg" alt=""><b>NPK DIGITAL</b><small>4 locandine</small></a>
-<a class="tasto" href="#mate"><img src="../loghi/logo-mate.svg" alt=""><b>MATE DIGITAL</b><small>5 locandine</small></a>
-<a class="tasto" href="#trk"><img src="../loghi/logo-trk.png" alt=""><b>TRK DIGITAL</b><small>In arrivo</small></a>
-<a class="tasto solo" href="#altro"><b>ALTRO DIGITAL</b><small>4 locandine</small></a>
-<a class="tasto solo" href="#tutor"><b>TUTOR AGENTE</b><small>3 locandine</small></a>
+<a class="tasto" href="#mak" data-v="2026-11-06b"><i class="nuovo" hidden>NUOVO</i><img src="../loghi/logo-mak.svg" alt=""><b>MAK DIGITAL</b><small>4 locandine</small></a>
+<a class="tasto" href="#npk" data-v="2026-11-06"><i class="nuovo" hidden>NUOVO</i><img src="../loghi/logo-npk.svg" alt=""><b>NPK DIGITAL</b><small>4 locandine</small></a>
+<a class="tasto" href="#mate" data-v="2026-11-06"><i class="nuovo" hidden>NUOVO</i><img src="../loghi/logo-mate.svg" alt=""><b>MATE DIGITAL</b><small>5 locandine</small></a>
+<a class="tasto" href="#trk" data-v="2026-11-06"><i class="nuovo" hidden>NUOVO</i><img src="../loghi/logo-trk.png" alt=""><b>TRK DIGITAL</b><small>In arrivo</small></a>
+<a class="tasto solo" href="#altro" data-v="2026-11-06"><i class="nuovo" hidden>NUOVO</i><b>ALTRO DIGITAL</b><small>4 locandine</small></a>
+<a class="tasto solo" href="#tutor" data-v="2026-11-06"><i class="nuovo" hidden>NUOVO</i><b>TUTOR AGENTE</b><small>3 locandine</small></a>
 </nav>
 <section class="sez" data-s="mak" hidden><h2>MAK DIGITAL</h2>
 <div class="v"><a href="anelli-centraggio/" class="img"><img src="anelli-centraggio/anteprima.jpg" alt="" loading="lazy" width="1200" height="630"></a><div class="t"><b>Anelli di centraggio · 48 misure, novità Ø 70,1</b><small>Foro del cerchio + mozzo della vettura = il codice giusto. Scegli la vettura o la misura e ordina su WhatsApp.</small><code>https://makwheels.github.io/mak-promo/gerardo/anelli-centraggio/</code><div class="bt"><button type="button" data-url="https://makwheels.github.io/mak-promo/gerardo/anelli-centraggio/">Copia link</button><a class="wa" href="https://wa.me/?text=https%3A//makwheels.github.io/mak-promo/gerardo/anelli-centraggio/" target="_blank" rel="noopener">Manda su WhatsApp</a></div></div></div>
@@ -90,10 +93,20 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 (() => {
   const tasti = [...document.querySelectorAll(".tasto")], sez = [...document.querySelectorAll(".sez")];
+  const INIZIO = "2026-11-06", CHIAVE = "mak-sezioni-viste:" + location.pathname;
+  let viste = {};
+  try { viste = JSON.parse(localStorage.getItem(CHIAVE)) || {}; } catch (e) {}
   function mostra() {
     const s = location.hash.slice(1);
     sez.forEach(x => { x.hidden = x.dataset.s !== s; });
-    tasti.forEach(t => { if (t.getAttribute("href") === "#" + s) t.setAttribute("aria-current", "true"); else t.removeAttribute("aria-current"); });
+    tasti.forEach(t => {
+      const id = t.getAttribute("href").slice(1), v = t.dataset.v;
+      if (id === s) {
+        t.setAttribute("aria-current", "true");
+        if (viste[id] !== v) { viste[id] = v; try { localStorage.setItem(CHIAVE, JSON.stringify(viste)); } catch (e) {} }
+      } else t.removeAttribute("aria-current");
+      t.querySelector(".nuovo").hidden = v <= (viste[id] || INIZIO);
+    });
   }
   addEventListener("hashchange", mostra);
   mostra();
