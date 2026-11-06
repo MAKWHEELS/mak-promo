@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cap originali sulle ruote MAK</title>
+<meta name="description" content="Il cap originale della tua auto entra nella ruota MAK? Cerca per modello di ruota, codice articolo o vettura: vedi subito quale cap entra, con la foto. Se l'originale non c'è, il cap neutro da 60 mm.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Il cap originale sulla tua ruota MAK">
+<meta property="og:description" content="Cerca la ruota, il codice o l'auto: ti dico quale cap entra, con la foto.">
+<meta property="og:image" content="https://makwheels.github.io/mak-promo/matteo/cap-originali/anteprima.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://makwheels.github.io/mak-promo/matteo/cap-originali/">
+<meta name="theme-color" content="#da2128">
+<link rel="apple-touch-icon" href="icona.png">
+<style>
+:root{
+  --red:#da2128; --ink:#14161a; --mute:#5d626b; --card:#f3f4f6; --line:#e2e4e8; --bg:#fff; --verde:#25d366; --ok:#14833b; --rosa:#fdecec;
+  --titolo:"DIN Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --testo:"Avenir Next",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--testo);font-size:16px;line-height:1.4}
+body{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:540px;margin:0 auto;overflow:hidden}
+h2{font-family:var(--titolo);font-weight:700;font-size:32px;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase;line-height:1}
+h2 em{font-style:normal;color:var(--red)}
+.sub{color:var(--mute);margin:0 0 16px;font-size:15px}
+section{padding:28px 16px 6px}
+
+.hero{position:relative;overflow:hidden;line-height:0}
+.hero img{width:100%;height:auto;display:block}
+
+.avviso{position:fixed;top:0;left:0;right:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:var(--ink);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .35s}
+.avviso span{max-width:470px}
+.avviso i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;animation:giu 1.6s infinite}
+@keyframes giu{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.avviso.via{transform:translateY(-110%)}
+#secTrova{scroll-margin-top:10px}
+
+/* schede di ricerca */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}
+.tabs input{position:absolute;opacity:0;pointer-events:none}
+.tabs label{text-align:center;background:var(--card);border-radius:12px;padding:11px 4px 9px;font-family:var(--titolo);font-size:19px;line-height:1.05;text-transform:uppercase;cursor:pointer;border:2px solid transparent}
+.tabs label small{display:block;font-family:var(--testo);font-size:11px;text-transform:none;color:var(--mute);margin-top:3px}
+.tabs input:checked+label{background:var(--ink);color:#fff}
+.tabs input:checked+label small{color:#c8ccd2}
+.pan{display:none}
+.pan.on{display:block}
+.card{background:var(--card);border-radius:16px;padding:14px}
+label.f{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute);margin:14px 0 8px;text-transform:uppercase;letter-spacing:1px}
+label.f:first-child{margin-top:0}
+label.f .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;letter-spacing:0}
+select{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 34px 13px 14px;
+  -webkit-appearance:none;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:disabled{opacity:.45}
+input[type=text]{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+#codice{font-family:var(--titolo);font-size:24px;letter-spacing:1px;padding:12px 14px 9px;text-transform:uppercase}
+.trovati{margin-top:8px;display:grid;gap:6px}
+.trovati button{display:flex;justify-content:space-between;gap:8px;text-align:left;font:inherit;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--ink)}
+.trovati button b{font-family:var(--titolo);font-size:20px;font-weight:700;padding-top:2px}
+.trovati button span{color:var(--mute);font-size:13px;text-align:right}
+
+/* risultato */
+.ris{margin-top:16px}
+.vuoto{font-size:14px;color:var(--mute);background:#fff;border-radius:12px;padding:12px}
+.vuoto b{color:var(--ink)}
+.ruota{background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:10px;font-size:14px;color:var(--mute)}
+.ruota b{display:block;font-family:var(--titolo);font-size:26px;color:var(--ink);line-height:1;padding-top:3px}
+.gruppo{margin-top:12px}
+.gruppo h3{font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:600}
+.gruppo h3 b{color:var(--ink)}
+.capc{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:center;background:#fff;border:2px solid var(--line);border-radius:16px;padding:10px;margin-bottom:8px}
+.capc.oe{border-color:var(--ok)}
+.capc.neu{border-color:var(--red);background:var(--rosa)}
+.capc img{width:92px;height:92px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 4px 10px rgba(20,22,26,.15)}
+.capc .m{font-family:var(--titolo);font-size:24px;line-height:1;padding-top:3px;text-transform:uppercase}
+.capc .m i{font-style:normal;font-family:var(--testo);font-size:10px;font-weight:700;color:#fff;background:var(--ok);border-radius:6px;padding:2px 6px;vertical-align:4px;margin-left:4px;letter-spacing:.5px}
+.capc.neu .m i{background:var(--red)}
+.capc .d{font-size:12px;color:var(--mute);margin-top:2px}
+.capc .d b{color:var(--ink)}
+.capc .az{display:flex;gap:8px;align-items:center;margin-top:8px}
+.agg{flex:1;font:inherit;font-weight:700;font-size:15px;border:0;border-radius:12px;background:var(--red);color:#fff;padding:11px 8px}
+.agg.fatto{background:var(--ok)}
+.qta{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;flex:none}
+.qta button{width:32px;height:40px;border:0;background:none;color:var(--ink);font-size:21px}
+.qta input{width:34px;height:40px;border:0;background:none;color:var(--ink);text-align:center;font-family:var(--titolo);font-size:22px;padding:5px 0 0;-moz-appearance:textfield}
+.qta input::-webkit-outer-spin-button,.qta input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.nota{font-size:13px;color:var(--mute);margin:6px 0 0}
+.modelli{background:#fff;border-radius:14px;padding:4px 12px;margin-bottom:8px}
+.modelli div{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.modelli div:first-child{border-top:0}
+.modelli b{font-family:var(--titolo);font-size:20px;padding-top:2px}
+.modelli span{color:var(--mute);font-size:13px;text-align:right}
+
+/* richiesta */
+.ord ul{list-style:none;margin:0;padding:0}
+.ord li{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.ord li:first-child{border-top:0}
+.ord li img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.ord li b{display:block;font-family:var(--titolo);font-size:19px;padding-top:2px;line-height:1.05}
+.ord li span{color:var(--mute);font-size:12px}
+.tot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:8px;padding-top:10px;border-top:1px dashed #b9bdc4}
+.tot span{font-size:13px;color:var(--mute)}
+.tot b{font-family:var(--titolo);font-size:34px;line-height:1}
+label.f2{display:block;font-size:13px;color:var(--mute);margin:14px 0 6px;text-transform:uppercase;letter-spacing:1px}
+.azzera{font:inherit;font-size:14px;border:0;background:none;color:var(--mute);text-decoration:underline;padding:8px 0 0}
+.salta{animation:salta .45s}
+@keyframes salta{30%{transform:scale(1.02)}60%{transform:scale(.995)}}
+
+.punti{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.punti div{background:var(--card);border-radius:12px;padding:12px;font-size:14px}
+.punti b{display:block;font-family:var(--titolo);font-size:21px;line-height:1;text-transform:uppercase;padding-top:2px;margin-bottom:3px}
+
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:14px;padding:15px 10px;font-weight:600}
+.btn.b2b{background:var(--ink);color:#fff}
+footer{padding:26px 16px 10px;text-align:center;color:var(--mute);font-size:13px}
+footer img{width:130px;display:block;margin:0 auto 10px}
+footer b{color:var(--ink)}
+
+.cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.96) 30%)}
+.cta a{display:flex;align-items:center;justify-content:center;gap:10px;max-width:508px;margin:0 auto;
+  background:var(--verde);color:#062e16;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px;
+  animation:pulsa 2.4s infinite}
+.cta a svg{width:24px;height:24px;fill:currentColor;flex:none}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="avviso" id="avviso" href="#secTrova">
+  <span><b>Il cap originale entra?</b> Cerca la tua ruota, il codice o l'auto</span><i>↓</i>
+</a>
+<div class="wrap">
+
+<div class="hero">
+  <img src="locandina.jpg" alt="Il cap originale sulla tua ruota MAK: cap originali BMW, Mercedes, Audi, Volkswagen, Jeep, Volvo, Land Rover e Alfa Romeo; se l'originale non c'è, il cap neutro da 60 mm codice 8010002525" width="1620" height="2025">
+</div>
+
+<section id="secTrova">
+  <h2>Quale cap <em>entra?</em></h2>
+  <p class="sub">Parti da quello che hai: la ruota MAK, il codice articolo scritto sulla fattura o sulla scatola, oppure la tua auto.</p>
+  <div class="tabs" role="tablist">
+    <input type="radio" name="tab" id="tRuota" value="ruota" checked><label for="tRuota">Ruota MAK<small>modello e misura</small></label>
+    <input type="radio" name="tab" id="tCodice" value="codice"><label for="tCodice">Codice<small>articolo ruota</small></label>
+    <input type="radio" name="tab" id="tAuto" value="auto"><label for="tAuto">La mia auto<small>marca e modello</small></label>
+  </div>
+
+  <div class="card pan on" id="pRuota">
+    <label class="f" for="modello"><span class="n">1</span>Modello della ruota</label>
+    <select id="modello"><option value="">Scegli il modello…</option></select>
+    <label class="f" for="versione"><span class="n">2</span>Misura · PCD · foro</label>
+    <select id="versione" disabled><option value="">Prima il modello</option></select>
+  </div>
+
+  <div class="card pan" id="pCodice">
+    <label class="f" for="codice"><span class="n">1</span>Codice articolo della ruota</label>
+    <input type="text" id="codice" placeholder="es. F7070KABM38PE2X" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" inputmode="text">
+    <div class="trovati" id="trovati"></div>
+  </div>
+
+  <div class="card pan" id="pAuto">
+    <label class="f" for="marca"><span class="n">1</span>Marca</label>
+    <select id="marca"><option value="">Scegli la marca…</option></select>
+    <label class="f" for="auto"><span class="n">2</span>Modello</label>
+    <select id="auto" disabled><option value="">Prima la marca</option></select>
+  </div>
+
+  <div class="ris" id="ris"><div class="vuoto">Scegli la ruota, scrivi il codice o scegli l'auto: qui compaiono i cap che entrano, con la foto.</div></div>
+</section>
+
+<section>
+  <h2>La tua <em>richiesta</em></h2>
+  <div class="card ord" id="ordine">
+    <div id="lista"></div>
+    <label class="f2" for="officina">Officina (facoltativo)</label>
+    <input type="text" id="officina" placeholder="Nome dell'officina" autocomplete="organization">
+    <button type="button" class="azzera" id="azzera" hidden>Svuota la richiesta</button>
+  </div>
+  <p class="nota">Prezzo e disponibilità te li confermo io su WhatsApp.</p>
+</section>
+
+<section>
+  <h2>Come <em>funziona</em></h2>
+  <div class="punti">
+    <div><b>La sede</b>Ogni ruota MAK ha la sua sede per il cap: lì entrano i cap originali compatibili.</div>
+    <div><b>Foto vere</b>Ogni cap ha la sua foto, così il cliente vede cosa monta.</div>
+    <div><b>Cap neutro</b>Niente originale? Sulle ruote con cap da 60 mm va il cap grigio senza logo 8010002525.</div>
+    <div><b>Codice esatto</b>Lo stesso modello cambia cap con la finitura: col codice articolo la risposta è precisa.</div>
+  </div>
+</section>
+
+<section>
+  <div class="btns">
+    <a class="btn" href="tel:+393932505569">📞 Chiamami</a>
+    <a class="btn b2b" href="https://b2bshop.makwheels.it/" target="_blank" rel="noopener">🛒 Portale B2B</a>
+  </div>
+</section>
+
+<footer><img src="logo-mak-nero.svg" alt="MAK"><b>Matteo Colzani</b> · Agente MAK · 393 250 5569<br><small>Conteggio anonimo delle visite, senza cookie.</small></footer>
+</div>
+
+<div class="cta"><a id="wa" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span id="waTesto">Scrivimi su WhatsApp</span></a></div>
+
+<script src="dati.js"></script>
+<script>
+const TELEFONO = "393932505569";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const D = window.DATI, $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"})[c]);
+  const NEUTRO = D.NEUTRO;
+  const SEDE_CAP = {};
+  Object.entries(D.CAP).forEach(([c, v]) => v.s.forEach(s => (SEDE_CAP[s] = SEDE_CAP[s] || []).push(c)));
+  const q = {};             // codice cap -> pezzi richiesti
+  let contesto = "";        // ultima ricerca, per il messaggio
+  let nonTrovato = "";      // codice ruota non trovato
+
+  const misura = v => v[0] === null ? "tutte le misure (dal sito)" : v[0] + "″ · " + v[1] + " · foro " + v[2];
+  const conta = t => { if (t && window.conta) window.conta("ricerca", t); };
+
+  /* scheda di un cap */
+  function schedaCap(cod, neutro) {
+    const c = neutro ? null : D.CAP[cod];
+    let titolo, dett;
+    if (neutro) {
+      titolo = 'Cap neutro<i>60 MM</i>';
+      dett = 'Grigio, senza logo · <b>' + NEUTRO + '</b><br>CAP C001 MM60 CONVEX';
+    } else {
+      const tipo = c.em ? "Emblema adesivo" : c.st ? "Stile originale" : "Ricambio originale " + esc(c.oe);
+      titolo = esc(c.m || "Cap") + (c.st || c.em ? "" : '<i>O.E.</i>');
+      dett = tipo + ' · <b>' + cod + '</b><br>' + esc(c.d) + (c.s.length ? "" : '<br><b>Sede da confermare:</b> chiedimi su quale ruota entra');
+    }
+    const d = document.createElement("div");
+    d.className = "capc " + (neutro ? "neu" : "oe");
+    let pz = c && c.em ? 1 : 4;
+    d.innerHTML = '<img src="foto/' + cod + '.jpg" alt="" loading="lazy" width="92" height="92"><div><div class="m">' + titolo + '</div><div class="d">' + dett + '</div>' +
+      '<div class="az"><div class="qta"><button type="button" aria-label="Meno">−</button><input type="number" inputmode="numeric" min="1" max="99" value="' + pz + '" aria-label="Pezzi"><button type="button" aria-label="Più">+</button></div>' +
+      '<button type="button" class="agg">Aggiungi</button></div></div>';
+    const [meno, campo, piu] = d.querySelector(".qta").children, agg = d.querySelector(".agg");
+    meno.addEventListener("click", () => { if (pz > 1) campo.value = --pz; });
+    piu.addEventListener("click", () => { if (pz < 99) campo.value = ++pz; });
+    campo.addEventListener("focus", () => campo.select());
+    campo.addEventListener("input", () => { pz = Math.min(99, Math.max(1, parseInt(campo.value, 10) || 1)); });
+    agg.addEventListener("click", () => {
+      q[cod] = (q[cod] || 0) + pz; disegna();
+      agg.textContent = "✓ Aggiunto"; agg.classList.add("fatto");
+      setTimeout(() => { agg.textContent = "Aggiungi"; agg.classList.remove("fatto"); }, 1600);
+    });
+    return d;
+  }
+  const blocco = (titolo) => { const g = document.createElement("div"); g.className = "gruppo"; g.innerHTML = "<h3>" + titolo + "</h3>"; return g; };
+  const testo = html => { const p = document.createElement("div"); p.className = "vuoto"; p.innerHTML = html; return p; };
+
+  /* risposta per una versione di ruota (vi) di un modello (mi); ei = cap di serie esatto se noto dal codice */
+  function rispostaRuota(mi, vi, ei, fin, codice) {
+    const m = D.MODELLI[mi], v = m[1][vi], box = $("ris");
+    box.innerHTML = "";
+    const testa = document.createElement("div");
+    testa.className = "ruota";
+    testa.innerHTML = "<b>" + esc(m[0]) + "</b>" + misura(v) + (fin ? " · " + esc(fin) : "") + (codice ? "<br>Codice " + esc(codice) : "");
+    box.appendChild(testa);
+    let voci = ei === undefined ? v[3] : [v[3][ei]];
+    const sedi = [];  // una voce per sede
+    voci.forEach(x => { if (!sedi.some(y => y[0] === x[0] && (x[0] || y[1] === x[1]))) sedi.push(x); });
+    const conSede = sedi.filter(x => x[0] || x[2]);
+    const elenco = conSede.length ? conSede : sedi;
+    // Le sedi con cap originali hanno un blocco ciascuna; quelle da 60 mm senza originale vanno in un blocco solo
+    // con il cap neutro; le altre in un blocco «chiedimi».
+    const conOe = elenco.filter(x => x[0] && (SEDE_CAP[x[0]] || []).length);
+    const neutro = elenco.filter(x => !conOe.includes(x) && x[2]);
+    const chiedi = elenco.filter(x => !conOe.includes(x) && !x[2]);
+    const etichetta = l => l.map(([s, ci]) => "<b>" + esc(s || "—") + "</b> · " + esc(D.CAPSERIE[ci] || "non indicato")).join("<br>");
+    if (conOe.length + (neutro.length ? 1 : 0) + (chiedi.length ? 1 : 0) > 1)
+      box.appendChild(testo("Questa misura esce con <b>cap di serie diversi</b> a seconda della finitura. Per la risposta esatta usa il <b>codice articolo</b>."));
+    conOe.forEach(x => {
+      const g = blocco("Cap di serie: " + etichetta([x]));
+      SEDE_CAP[x[0]].forEach(c => g.appendChild(schedaCap(c)));
+      box.appendChild(g);
+    });
+    if (neutro.length) {
+      const g = blocco("Cap di serie" + (neutro.length > 1 ? " (tutti da 60 mm)" : "") + ": " + etichetta(neutro));
+      g.appendChild(testo("Il cap originale per questa sede non c'è, <b>ma il cap neutro sì</b>: entra nella sede da 60 mm della tua ruota."));
+      g.appendChild(schedaCap(NEUTRO, true));
+      box.appendChild(g);
+    }
+    if (chiedi.length) {
+      const g = blocco("Cap di serie: " + etichetta(chiedi));
+      g.appendChild(testo("Per questo cap <b>chiedimi</b>: ti dico io quale cap originale entra."));
+      box.appendChild(g);
+    }
+    if (v[4]) box.appendChild(testo("Dato preso dal sito, senza le misure: <b>verifica la versione con me</b>."));
+    contesto = "Ruota: " + m[0] + " " + (v[0] === null ? "" : misura(v)) + (codice ? " (codice " + codice + ")" : "");
+    nonTrovato = "";
+    aggiornaWa();
+  }
+
+  /* percorso 1: modello -> versione */
+  D.MODELLI.forEach((m, i) => $("modello").add(new Option(m[0], i)));
+  $("modello").addEventListener("change", () => {
+    const sel = $("versione"); sel.length = 0;
+    const m = D.MODELLI[$("modello").value];
+    if (!m) { sel.add(new Option("Prima il modello", "")); sel.disabled = true; return; }
+    if (m[1].length === 1) { sel.add(new Option(misura(m[1][0]), 0)); sel.disabled = false; rispostaRuota(+$("modello").value, 0); conta("ruota " + m[0]); return; }
+    sel.add(new Option("Scegli la misura…", ""));
+    m[1].forEach((v, i) => sel.add(new Option(misura(v), i)));
+    sel.disabled = false;
+  });
+  $("versione").addEventListener("change", () => {
+    if ($("versione").value === "") return;
+    const mi = +$("modello").value, vi = +$("versione").value;
+    rispostaRuota(mi, vi);
+    conta("ruota " + D.MODELLI[mi][0] + " " + misura(D.MODELLI[mi][1][vi]));
+  });
+
+  /* percorso 2: codice articolo */
+  const pulisci = s => s.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  const CODICI = Object.keys(D.CODICI);
+  function apriCodice(cod) {
+    const [mi, vi, ei, fi] = D.CODICI[cod];
+    $("trovati").innerHTML = "";
+    rispostaRuota(mi, vi, ei, D.FINITURE[fi], cod);
+    conta("codice " + cod);
+  }
+  let attesa;
+  $("codice").addEventListener("input", () => {
+    clearTimeout(attesa);
+    attesa = setTimeout(() => {
+      const t = pulisci($("codice").value), box = $("trovati");
+      box.innerHTML = "";
+      if (t.length < 4) return;
+      const esatto = D.CODICI[t] ? t : D.CODICI["F" + t] ? "F" + t : null;
+      if (esatto) { apriCodice(esatto); return; }
+      const simili = CODICI.filter(c => c.includes(t)).slice(0, 10);
+      if (!simili.length) {
+        $("ris").innerHTML = "";
+        $("ris").appendChild(testo("Codice <b>" + esc(t) + "</b> non trovato: <b>scrivimi il codice</b> e ti rispondo io."));
+        nonTrovato = t; contesto = ""; aggiornaWa();
+        return;
+      }
+      $("ris").innerHTML = "";
+      $("ris").appendChild(testo("Tocca il <b>codice giusto</b> qui sopra" + (simili.length === 10 ? ", oppure scrivine qualche carattere in più" : "") + "."));
+      simili.forEach(c => {
+        const [mi, vi, , fi] = D.CODICI[c], m = D.MODELLI[mi];
+        const b = document.createElement("button");
+        b.type = "button";
+        b.innerHTML = "<b>" + c + "</b><span>" + esc(m[0]) + " · " + (m[1][vi][0] || "") + "″<br>" + esc(D.FINITURE[fi]) + "</span>";
+        b.addEventListener("click", () => { $("codice").value = c; apriCodice(c); });
+        box.appendChild(b);
+      });
+    }, 250);
+  });
+
+  /* percorso 3: vettura */
+  const marcheCap = Object.keys(D.MARCHE_CAP).filter(m => D.VETTURE[m]).sort();
+  const altre = Object.keys(D.VETTURE).filter(m => !D.MARCHE_CAP[m]).sort();
+  const og1 = document.createElement("optgroup"); og1.label = "Con cap originali";
+  marcheCap.forEach(m => og1.appendChild(new Option(m, m)));
+  const og2 = document.createElement("optgroup"); og2.label = "Altre marche";
+  altre.forEach(m => og2.appendChild(new Option(m, m)));
+  $("marca").append(og1, og2);
+  $("marca").addEventListener("change", () => {
+    const sel = $("auto"); sel.length = 0;
+    const v = D.VETTURE[$("marca").value];
+    if (!v) { sel.add(new Option("Prima la marca", "")); sel.disabled = true; return; }
+    const nomi = Object.keys(v);
+    if (!nomi.length) { sel.add(new Option("Nessun modello in elenco", "")); sel.disabled = true; rispostaAuto($("marca").value, null); return; }
+    sel.add(new Option("Scegli il modello…", ""));
+    nomi.forEach(n => sel.add(new Option(n, n)));
+    sel.disabled = false;
+  });
+  $("auto").addEventListener("change", () => {
+    if (!$("auto").value) return;
+    rispostaAuto($("marca").value, $("auto").value);
+    conta("vettura " + $("marca").value + " " + $("auto").value);
+  });
+
+  function rispostaAuto(marca, den) {
+    const box = $("ris"); box.innerHTML = "";
+    const [nModelli, ids] = den ? D.VETTURE[marca][den] : [0, []];
+    const caps = D.MARCHE_CAP[marca] || [];
+    const sediMarca = new Set(caps.flatMap(c => D.CAP[c].s));
+    const nomeMarca = caps.length ? D.CAP[caps[0]].m : marca;
+    // 1. cap originali della marca
+    const g1 = blocco("Cap originali <b>" + esc(nomeMarca) + "</b> che abbiamo");
+    if (caps.length) caps.forEach(c => g1.appendChild(schedaCap(c)));
+    else g1.appendChild(testo("Per " + esc(marca) + " non ho cap originali a catalogo."));
+    box.appendChild(g1);
+    // 2. ruote omologate che li montano
+    const conOe = {}, conNeutro = new Set();
+    ids.forEach(i => {
+      const [mi, s, mm60] = D.COPPIE[i];
+      if (s && sediMarca.has(s)) (conOe[mi] = conOe[mi] || new Set()).add(s);
+      else if (mm60) conNeutro.add(mi);
+    });
+    if (den) {
+      const g2 = blocco("Ruote MAK per la tua <b>" + esc(den) + "</b> che montano il cap originale");
+      const righe = Object.keys(conOe);
+      if (righe.length) {
+        const l = document.createElement("div"); l.className = "modelli";
+        righe.sort((a, b) => D.MODELLI[a][0].localeCompare(D.MODELLI[b][0])).forEach(mi => {
+          const cod = [...conOe[mi]].flatMap(s => SEDE_CAP[s].filter(c => caps.includes(c)));
+          l.insertAdjacentHTML("beforeend", "<div><b>" + esc(D.MODELLI[mi][0]) + "</b><span>" + [...new Set(cod)].map(c => D.CAP[c].oe || c).join(", ") + "</span></div>");
+        });
+        g2.appendChild(l);
+        g2.appendChild(testo("Il cap giusto dipende dalla misura: cerca la ruota per modello o per codice per la risposta esatta."));
+      } else g2.appendChild(testo(nModelli ? "Nessuna delle ruote MAK omologate per quest'auto ha la sede per il cap originale " + esc(nomeMarca) + "." : "Per quest'auto non trovo ruote MAK omologate: <b>chiedimi</b>."));
+      box.appendChild(g2);
+      // 3. cap neutro
+      if (conNeutro.size) {
+        const g3 = blocco("Non c'è l'originale? <b>Il cap neutro da 60 mm</b>");
+        g3.appendChild(schedaCap(NEUTRO, true));
+        const l = document.createElement("div"); l.className = "modelli";
+        l.insertAdjacentHTML("beforeend", "<div><span style='text-align:left'>Va sulle versioni con cap da 60 mm di: <b style='font-family:var(--testo);font-size:13px'>" +
+          [...conNeutro].map(mi => esc(D.MODELLI[mi][0])).sort().join(", ") + "</b></span></div>");
+        g3.appendChild(l);
+        box.appendChild(g3);
+      }
+    }
+    contesto = "Vettura: " + marca + (den ? " " + den : "");
+    nonTrovato = "";
+    aggiornaWa();
+  }
+
+  /* schede */
+  document.querySelectorAll("input[name=tab]").forEach(r => r.addEventListener("change", () => {
+    ["pRuota", "pCodice", "pAuto"].forEach(id => $(id).classList.remove("on"));
+    $({ruota: "pRuota", codice: "pCodice", auto: "pAuto"}[r.value]).classList.add("on");
+    if (r.value === "codice") setTimeout(() => $("codice").focus(), 50);
+  }));
+
+  /* richiesta */
+  $("azzera").addEventListener("click", () => { Object.keys(q).forEach(k => delete q[k]); disegna(); });
+  $("officina").addEventListener("input", aggiornaWa);
+  const nome = c => c === NEUTRO ? "CAP C001 MM60 CONVEX (neutro)" : D.CAP[c].d;
+  let primo = true;
+  function disegna() {
+    const s = Object.keys(q).filter(c => q[c] > 0), n = s.reduce((t, c) => t + q[c], 0);
+    $("lista").innerHTML = s.length
+      ? "<ul>" + s.map(c => '<li><img src="foto/' + c + '.jpg" alt=""><span><b>' + esc(c === NEUTRO ? "Cap neutro 60 mm" : (D.CAP[c].m || "") + " " + (D.CAP[c].oe || "")) + "</b><span>" + c + " · " + esc(nome(c)) + "</span></span>" +
+          '<div class="qta"><button type="button" data-c="' + c + '" data-d="-1" aria-label="Meno">−</button><input type="number" value="' + q[c] + '" readonly aria-label="Pezzi"><button type="button" data-c="' + c + '" data-d="1" aria-label="Più">+</button></div></li>').join("") + "</ul>" +
+        '<div class="tot"><span>' + s.length + (s.length === 1 ? " cap" : " cap diversi") + '</span><b>' + n + ' pz</b></div>'
+      : '<div class="vuoto">Ancora niente: cerca qui sopra e tocca «Aggiungi» sul cap che ti serve.</div>';
+    $("lista").querySelectorAll("button[data-c]").forEach(b => b.addEventListener("click", () => {
+      const c = b.dataset.c; q[c] = Math.max(0, Math.min(99, q[c] + +b.dataset.d)); if (!q[c]) delete q[c]; disegna();
+    }));
+    $("azzera").hidden = !s.length;
+    if (!primo) { $("ordine").classList.remove("salta"); void $("ordine").offsetWidth; $("ordine").classList.add("salta"); }
+    primo = false;
+    aggiornaWa();
+  }
+
+  function aggiornaWa() {
+    const s = Object.keys(q).filter(c => q[c] > 0), off = $("officina").value.trim();
+    let t, etichetta;
+    if (s.length) {
+      t = "Ciao Matteo, mi servono questi *cap*:\n" + s.map(c => "• " + q[c] + " × " + c + " " + nome(c)).join("\n") +
+        (contesto ? "\n\n" + contesto : "") + (off ? "\nOfficina: " + off : "") + "\n\nMi dici prezzo e disponibilità?";
+      etichetta = "Chiedi su WhatsApp";
+    } else if (nonTrovato) {
+      t = "Ciao Matteo, ho la ruota con codice " + nonTrovato + ": quale cap originale ci entra?" + (off ? "\nOfficina: " + off : "");
+      etichetta = "Chiedimi di questo codice";
+    } else if (contesto) {
+      t = "Ciao Matteo, mi aiuti con il cap? " + contesto + (off ? "\nOfficina: " + off : "");
+      etichetta = "Chiedimi di questo cap";
+    } else {
+      t = "Ciao Matteo, mi serve un cap per una ruota MAK. Mi aiuti?";
+      etichetta = "Scrivimi su WhatsApp";
+    }
+    $("wa").href = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(t);
+    $("waTesto").textContent = etichetta;
+  }
+
+  $("avviso").addEventListener("click", e => { e.preventDefault(); $("secTrova").scrollIntoView({behavior: "smooth", block: "start"}); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => $("avviso").classList.toggle("via", e.isIntersecting || e.boundingClientRect.top < 0)), {threshold: [0, .1]})
+      .observe($("secTrova"));
+  }
+  disegna();
+});
+</script>
+<script src="/mak-promo/conta.js" defer></script>
+</body>
+</html>
