@@ -1,4 +1,5 @@
 # mak-promo — locandine interattive
+> Qui sono pubblicate solo le copie per gli agenti (`<agente>/<campagna>/`): le pagine base `<campagna>/` non si tengono più in questo repo.
 
 Versione web delle locandine promo: una cartella per campagna, pubblicata su GitHub Pages
 (`makwheels.github.io/mak-promo/<campagna>/`). Il link si manda su WhatsApp al posto
