@@ -170,3 +170,10 @@ Rigenera: `python3 _build/build.py`
 - Ordine a passi di 10 per versione, barra verso i 40, mix rapidi; messaggio WhatsApp con le versioni (i codici articolo non sono ancora stati comunicati).
 - Dal 2026-11-04 (richiesta di makwheels) la pagina mostra il **volantino ufficiale MAK/MATE** (`../Locandine/multisens-plus/volantino-mate-multisens-plus.png` → `locandina.jpg`, copiato com'è anche nelle copie dei colleghi: `SORGENTE_LOCANDINA` = None). Le foto di Rubber, Metal Silver e Metal Black (`ms-*.png`) sono ritagliate dal volantino. MA41 e VT57 dalla presentazione. Sezione «Prima aggiorna l'ATEQ» e link all'assistenza MATE.
 - Anteprima: `_build/anteprima-multisens-plus.html`; icona: `_build/icona-multisens-plus.html`.
+
+## copriruota-farad (Copriruota Farad, kit di 4 da 22,00 € + IVA, senza scadenza)
+
+- `locandina.jpg`: rifatta nello stile delle altre partendo da una foto piccola della locandina ricevuta (537×673): le ruote sono ritagliate da lì, non c'è un originale ad alta qualità.
+- `index.html` senza dati incorporati: i 6 codici Silver e M.Black sono in `COLORI` dentro la pagina.
+- Per ogni colore e misura si sceglie il numero di kit, con nome officina facoltativo → riepilogo, totale + IVA e messaggio WhatsApp con codici e quantità.
+- Niente conto alla rovescia (la locandina non ha scadenza). Sezione MAK DIGITAL.
